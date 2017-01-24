@@ -10,10 +10,5 @@ public class VirtualDisk {
     public VirtualDisk(){
     }
 
-    /**
-     * Default main class
-     */
-    public static void main(String[] args){
-        System.out.println("I love Coding");
-    }
+
 }
