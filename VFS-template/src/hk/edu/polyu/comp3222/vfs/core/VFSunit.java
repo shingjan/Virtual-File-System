@@ -6,15 +6,15 @@ import java.text.SimpleDateFormat;
  */
 public class VFSunit {
 
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("MM.dd.yyyy HH:mm");
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm");
 
 
     private String path;
     private String name;
     private Date dateCreated;
 
-    /*
-
+    /**
+     * This is something
      */
     protected VFSunit(String path, String name, Date dateCreated) {
         this.path = path;
@@ -28,6 +28,9 @@ public class VFSunit {
     }
 
     public String getName(){
+        if(name == null){
+            return ".NIL";
+        }
         return name;
     }
 
@@ -36,7 +39,16 @@ public class VFSunit {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof VFSunit)) return false;
+
+        VFSunit that = (VFSunit) o;
+
+        return dateCreated.equals(that.dateCreated) && name.equals(that.name) && path.equals(that.path);
+    }
+    @Override
     public String toString(){
-        return name + "[" + path + "]" + getDateCreated();
+        return name + " - " + path + " - " + getDateCreated();
     }
 }
