@@ -11,9 +11,10 @@ public class Main {
     /**
      * Default main class
      */
+    /*
     public static void main(String[] args){
         UserIO.printInstructions();
 
 
-    }
+    }*/
 }
