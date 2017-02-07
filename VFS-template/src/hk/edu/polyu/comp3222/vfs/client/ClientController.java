@@ -9,7 +9,7 @@ public class ClientController {
 
     public static void main(String[] args)
     {
-        new ClientController();
+
     }
 
     public ClientController(){
