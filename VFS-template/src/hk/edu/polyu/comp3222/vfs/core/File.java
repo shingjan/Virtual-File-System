@@ -11,9 +11,11 @@ public class File extends VFSunit{
         this.content = content;
     }
 
-    public String getContent(){
+    public String getContent() {
         return content.toString();
     }
+
+
 
     
 }
