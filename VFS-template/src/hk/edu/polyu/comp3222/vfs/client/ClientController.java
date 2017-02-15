@@ -7,10 +7,6 @@ import java.net.*;
  */
 public class ClientController {
 
-    public static void main(String[] args)
-    {
-
-    }
 
     public ClientController(){
         Scanner scanner = new Scanner(System.in);
