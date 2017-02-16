@@ -28,34 +28,7 @@ public class VirtualDisk extends VFSunit{
 
     @Override
     public void list(boolean detailed, boolean noTree, IOService ioservice) {
-        final StringBuilder sb = new StringBuilder();
-
-        if (!noTree) {
-            if (detailed) {
-                sb.append(toString());
-            } else {
-                sb.append(getName());
-            }
-            ioservice.printLine(sb.toString());
-        }
-
-        dirsCount++;
-
-        final Iterator<Map.Entry<String, VFSunit>> iterator = diskContent.entrySet().iterator();
-        VFSunit fileSystemUnit;
-
-        while (iterator.hasNext()) {
-            fileSystemUnit = iterator.next().getValue();
-            if (noTree) {
-                ioservice.printLine(fileSystemUnit.toString());
-            } else {
-                if ("./".equals(getPath())) {
-                    rootHasNext = iterator.hasNext();
-                }
-                //ioservice.printLine(iterator.hasNext()), true);
-                fileSystemUnit.list(detailed, false, ioservice);
-            }
-        }
+               
     }
 
     @Override
