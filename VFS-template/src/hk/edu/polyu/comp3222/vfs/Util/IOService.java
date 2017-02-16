@@ -8,7 +8,7 @@ public interface IOService {
      *
      * @return This is a description;
      */
-    abstract String readLine();
+    abstract String readLine(String str);
 
     /**
      *
@@ -22,4 +22,6 @@ public interface IOService {
      * @param msg The state of the game to be displayed
      */
     abstract void printConsole(String str, Boolean inline);
+
+    abstract void printInstructions();
 }
