@@ -31,11 +31,20 @@ public class fileSystem {
     }
 
     public void boot(){
+        //String command;
+        String[] cmd_segments;
         ioService = new ConsoleIO();
+        ioService.printInstructions();
         while (true){
-            ioService.printInstructions();
             ioService.printLine(currentDisk.getPath());
-            ioService.readLine("-->");
+            cmd_segments = ioService.readLine("-->").split(" ");
+            ResponseHandler cmd = themap.get(cmd_segments[0]);
+            if(cmd != null){
+                cmd.handlerResponse(cmd_segments, ioService);
+            }else{
+                ioService.printLine("wrong command, input again");
+            }
+
         }
     }
 
@@ -49,7 +58,7 @@ public class fileSystem {
             return fileSystem;
         } else {
             fileSystem = new fileSystem();
-            fileSystem.initializeFileSystem();
+            //fileSystem.initializeFileSystem();
         }
         return fileSystem;
     }

@@ -7,7 +7,7 @@ import hk.edu.polyu.comp3222.vfs.Util.IOService;
  *
  */
 public abstract class ResponseHandler {
-    abstract void handlerResponse(String xxp, IOService ioService);
+    public abstract void handlerResponse(String[] xxp, IOService ioService);
 }
 
 

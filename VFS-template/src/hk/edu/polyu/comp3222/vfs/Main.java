@@ -19,8 +19,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        final fileSystem fileSystem = fileSystem.loadFS();
-        fileSystem.boot();
+        fileSystem testSystem = fileSystem.loadFS();
+        testSystem.boot();
 
         //new ClientController();
         //new ServerController();
