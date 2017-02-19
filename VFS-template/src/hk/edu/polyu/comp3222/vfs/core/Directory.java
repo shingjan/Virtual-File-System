@@ -22,7 +22,7 @@ public class Directory extends VFSunit{
         super(sourcePath + name + "/", name, dateCreated);
     }
 
-    public Map<String, VFSunit> getDiskContent() {
+    public Map<String, VFSunit> getDirContent() {
         return dirContent;
     }
 

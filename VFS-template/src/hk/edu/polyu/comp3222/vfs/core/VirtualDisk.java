@@ -15,10 +15,12 @@ public class VirtualDisk extends VFSunit{
     private final Map<String, VFSunit> diskContent = new LinkedHashMap<>();
     private int dirsCount;
     public static boolean rootHasNext;
+    public String username;
+    public String password;
     /**
      * Default constructor.
      */
-    public VirtualDisk(String sourcePath, String name, Date dateCreated){
+    public VirtualDisk(String sourcePath, String name, Date dateCreated, String username, String password){
         super(sourcePath + name + "/", name, dateCreated);
     }
 
@@ -28,7 +30,7 @@ public class VirtualDisk extends VFSunit{
 
     @Override
     public void list(boolean detailed, boolean noTree, IOService ioservice) {
-               
+
     }
 
     @Override

@@ -28,4 +28,8 @@ public class ConsoleIO implements IOService{
         }
     }
 
+    public void printHelp(){
+        System.out.println("This is the help");
+    }
+
 }

@@ -28,4 +28,8 @@ public class StubIO implements IOService{
             System.out.printf("%s", str);
         }
     }
+
+    public void printHelp(){
+        System.out.println("This is the help");
+    }
 }

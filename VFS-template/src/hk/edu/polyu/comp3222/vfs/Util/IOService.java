@@ -24,4 +24,6 @@ public interface IOService {
     abstract void printConsole(String str, Boolean inline);
 
     abstract void printInstructions();
+
+    abstract void printHelp();
 }

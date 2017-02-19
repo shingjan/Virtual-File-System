@@ -3,10 +3,10 @@ package hk.edu.polyu.comp3222.vfs.handler;
 import hk.edu.polyu.comp3222.vfs.Util.IOService;
 
 /**
- * Created by Isaac on 1/27/17.
+ * Created by Isaac on 2/20/17.
  */
-public class RenameResponseHandler extends ResponseHandler{
+public class QuitResponseHandler extends ResponseHandler{
     public void handlerResponse(String[] cmd, IOService ioService){
-        ioService.printLine("This is the rename command");
+        System.exit(0);
     }
 }
