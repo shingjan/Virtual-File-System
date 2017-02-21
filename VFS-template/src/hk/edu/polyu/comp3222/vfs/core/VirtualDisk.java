@@ -10,7 +10,7 @@ import java.util.Iterator;
 /**
  * A virtual disk.
  */
-public class VirtualDisk extends VFSunit{
+public class VirtualDisk{
     private String diskName;
     private final Map<String, VFSunit> diskContent = new LinkedHashMap<>();
     private int dirsCount;
