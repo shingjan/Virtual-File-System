@@ -44,7 +44,7 @@ public class VisualDisk {
             cmd_segments = ioService.readLine("-->").split(" ");
             ResponseHandler cmd = themap.get(cmd_segments[0]);
             if(cmd != null){
-                cmd.handlerResponse(cmd_segments, ioService);
+                cmd.handlerResponse(cmd_segments, currentDir, ioService);
             }else{
                 ioService.printLine("wrong command, input again");
             }
