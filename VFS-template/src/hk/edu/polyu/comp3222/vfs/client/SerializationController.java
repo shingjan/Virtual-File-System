@@ -1,4 +1,7 @@
 package hk.edu.polyu.comp3222.vfs.client;
+import hk.edu.polyu.comp3222.vfs.core.VisualDisk;
+//import hk.edu.polyu.comp3222.vfs.core.fileSystem;
+
 import java.io.*;
 
 /**
@@ -15,7 +18,7 @@ public class SerializationController {
         return instance;
     }
 
-    public void serialize(fileSystem fileSystem) {
+    public void serialize(VisualDisk fileSystem) {
         try {
             FileOutputStream fos;
             ObjectOutputStream oos = null;
@@ -32,7 +35,7 @@ public class SerializationController {
         }
     }
 
-    public fileSystem deserialize() {
+    public VisualDisk deserialize() {
         try {
             FileInputStream fis;
             ObjectInputStream ois = null;
@@ -44,7 +47,7 @@ public class SerializationController {
             try {
                 fis = new FileInputStream(fsSerializedName);
                 ois = new ObjectInputStream(fis);
-                return (fileSystem) ois.readObject();
+                return (VisualDisk) ois.readObject();
             } finally {
                 if (ois != null)
                     ois.close();
