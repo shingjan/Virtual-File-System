@@ -2,10 +2,7 @@ package hk.edu.polyu.comp3222.vfs.core;
 
 import hk.edu.polyu.comp3222.vfs.Util.IOService;
 
-import java.util.Date;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Isaac on 1/23/17.
@@ -70,5 +67,28 @@ public class Directory extends VFSunit{
         Directory that = (Directory) o;
         return dirContent.equals(that.dirContent);
 
+    }
+
+    @Override
+    public VFSunit getItem(String[] itemname, IOService ioservice){
+        //final Iterator<Map.Entry<String, VFSunit>> iterator = dirContent.entrySet().iterator();
+        VFSunit fileSystemUnit;
+        int level = 0;
+        for (String key:dirContent.keySet()) {
+
+            fileSystemUnit = dirContent.get(key);
+            //ioservice.printLine(fileSystemUnit.getName());
+            if (fileSystemUnit.getName().equals(itemname[level])) {
+                //ioservice.printLine(String.valueOf(itemname.length));
+                if(itemname.length == level + 1){
+                    return fileSystemUnit;
+                }else{
+                    String[] newItemName = Arrays.copyOfRange(itemname, level, itemname.length);
+                    return fileSystemUnit.getItem(newItemName, ioservice);
+                }
+            }
+            //break;
+        }
+        return null;
     }
 }

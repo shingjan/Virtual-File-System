@@ -13,11 +13,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //VisualDisk testSystem = VisualDisk.loadFS("test","test",13356);
-        //testSystem.boot();
+        VisualDisk testSystem = VisualDisk.loadFS("test","test",13356);
+        testSystem.boot();
 
-        new ClientController();
-        //new ServerController();
+        //new ClientController();
+
 
     }
 }

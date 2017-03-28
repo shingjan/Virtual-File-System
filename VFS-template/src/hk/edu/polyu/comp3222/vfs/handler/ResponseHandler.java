@@ -8,7 +8,7 @@ import hk.edu.polyu.comp3222.vfs.core.Directory;
  *
  */
 public abstract class ResponseHandler {
-    public abstract void handlerResponse(String[] cmd, Directory CurrentDir, IOService ioService);
+    public abstract void handlerResponse(String[] cmd, Directory root, Directory CurrentDir, IOService ioService);
 }
 
 

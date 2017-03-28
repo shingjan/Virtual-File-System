@@ -17,8 +17,12 @@ public class File extends VFSunit{
         return content.toString();
     }
 
-    public void list(boolean detailed, boolean noTree, IOService ioservice){
+    public void list(boolean detailed, boolean noTree, IOService ioservice) {
 
+    }
+
+    public VFSunit getItem(String[] cmd, IOService ioService){
+        return this;
     }
 
     

@@ -40,11 +40,11 @@ public class VisualDisk {
         ioService = new ConsoleIO();
         ioService.printInstructions();
         while (true){
-            ioService.printLine(currentDir.getPath());
+            //ioService.printLine(currentDir.getPath());
             cmd_segments = ioService.readLine("-->").split(" ");
             ResponseHandler cmd = themap.get(cmd_segments[0]);
             if(cmd != null){
-                cmd.handlerResponse(cmd_segments, currentDir, ioService);
+                cmd.handlerResponse(cmd_segments, ROOT_FS, currentDir, ioService);
             }else{
                 ioService.printLine("wrong command, input again");
             }
@@ -53,10 +53,10 @@ public class VisualDisk {
     }
 
     public void initializeFileSystem(){
-        Directory firstFolder = new Directory(ROOT_PATH, "1stfolder", new Date());
-        File file1 = new File(firstFolder.getPath(), "foo.txt", new Date(), "This is the content of foo".getBytes());
-        Directory secondFolder = new Directory(ROOT_PATH, "2ndfolder", new Date());
-        File file2 = new File(secondFolder.getPath(), "bar.txt", new Date(), "This is the content of bar".getBytes());
+        Directory firstFolder = new Directory(ROOT_PATH, "1st", new Date());
+        File file1 = new File(firstFolder.getPath(), "foo", new Date(), "This is the content of foo".getBytes());
+        Directory secondFolder = new Directory(ROOT_PATH, "2nd", new Date());
+        File file2 = new File(secondFolder.getPath(), "bar", new Date(), "This is the content of bar".getBytes());
         currentDir.getDirContent().put(firstFolder.getPath(), firstFolder);
         currentDir.getDirContent().put(secondFolder.getPath(), secondFolder);
         firstFolder.getDirContent().put(file1.getPath(),file1);
@@ -64,13 +64,13 @@ public class VisualDisk {
     }
 
     public static VisualDisk loadFS(String username, String password, int diskSize) {
-        VisualDisk fileSystem = SerializationController.getInstance().deserialize();
+        /*VisualDisk fileSystem = SerializationController.getInstance().deserialize();
         if (fileSystem != null) {
             return fileSystem;
-        } else {
-            fileSystem = new VisualDisk(username,password,diskSize);
-            //fileSystem.initializeFileSystem();
-        }
+        } else {*/
+            VisualDisk fileSystem = new VisualDisk(username,password,diskSize);
+            fileSystem.initializeFileSystem();
+
         return fileSystem;
     }
 }

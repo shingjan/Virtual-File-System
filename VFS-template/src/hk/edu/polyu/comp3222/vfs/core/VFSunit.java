@@ -36,9 +36,11 @@ public abstract class VFSunit {
         return name;
     }
 
-    public String getDateCreated(){
+    public String getDateCreated() {
         return dateFormat.format(dateCreated);
     }
+
+    public abstract VFSunit getItem(String[] itemName, IOService ioservice);
 
     @Override
     public boolean equals(Object o) {

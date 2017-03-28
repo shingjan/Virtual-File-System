@@ -7,5 +7,12 @@ import hk.edu.polyu.comp3222.vfs.core.Directory;
  * Created by Isaac on 1/27/17.
  */
 public class DirectResponseHandler extends ResponseHandler{
-    public void handlerResponse(String[] xxp, Directory CurrentDir, IOService ioService){}
+    public void handlerResponse(String[] cmd, Directory root, Directory CurrentDir, IOService ioService){
+        if(cmd.length == 1){
+            CurrentDir = root;
+        }else{
+            root.getDirContent();
+        }
+
+    }
 }
