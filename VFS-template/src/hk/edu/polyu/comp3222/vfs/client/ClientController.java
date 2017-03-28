@@ -11,7 +11,7 @@ public class ClientController {
     public ClientController(){
         Scanner scanner = new Scanner(System.in);
         try {
-            Socket socket = new Socket("localhost",5000);
+            Socket socket = new Socket("52.14.166.120",5000);
             PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 

@@ -63,7 +63,7 @@ public class Directory extends VFSunit{
         if (o == null) return false;
         if (this == o) return true;
 
-        if (!(o instanceof VirtualDisk)) return false;
+        if (!(o instanceof Directory)) return false;
 
         if (!super.equals(o)) return false;
 
