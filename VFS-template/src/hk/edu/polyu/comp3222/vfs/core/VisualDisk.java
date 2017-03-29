@@ -5,6 +5,7 @@ import hk.edu.polyu.comp3222.vfs.Util.IOService;
 import hk.edu.polyu.comp3222.vfs.client.SerializationController;
 import hk.edu.polyu.comp3222.vfs.handler.*;
 
+import java.util.Currency;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,13 +39,14 @@ public class VisualDisk {
         //String command;
         String[] cmd_segments;
         ioService = new ConsoleIO();
-        ioService.printInstructions();
+        //ioService.printInstructions();
         while (true){
-            //ioService.printLine(currentDir.getPath());
+            ioService.printLine("Current Working Directory is:");
+            ioService.printLine(currentDir.getPath());
             cmd_segments = ioService.readLine("-->").split(" ");
             ResponseHandler cmd = themap.get(cmd_segments[0]);
             if(cmd != null){
-                cmd.handlerResponse(cmd_segments, ROOT_FS, currentDir, ioService);
+                currentDir = (Directory) cmd.handlerResponse(cmd_segments, ROOT_FS, currentDir, ioService);
             }else{
                 ioService.printLine("wrong command, input again");
             }

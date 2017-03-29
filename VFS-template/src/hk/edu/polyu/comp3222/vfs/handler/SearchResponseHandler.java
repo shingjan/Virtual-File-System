@@ -8,7 +8,7 @@ import hk.edu.polyu.comp3222.vfs.core.VFSunit;
  * Created by Isaac on 1/27/17.
  */
 public class SearchResponseHandler extends ResponseHandler{
-    public void handlerResponse(String[] cmd, Directory Root, Directory CurrentDir, IOService ioService){
+    public VFSunit handlerResponse(String[] cmd, Directory Root, Directory CurrentDir, IOService ioService){
         if(cmd.length == 1){
             ioService.printLine("search command needs at least one argument");
         }else{
@@ -17,10 +17,12 @@ public class SearchResponseHandler extends ResponseHandler{
             //ioService.printLine(seachPath[1]);
             VFSunit fileSystemUnit = Root.getItem(seachPath, ioService);
             if(fileSystemUnit != null){
-                fileSystemUnit.getPath();
+                ioService.printLine(fileSystemUnit.getPath());
             }else{
                 ioService.printLine("no such file found in this VFS");
             }
+
         }
+        return CurrentDir;
     }
 }
