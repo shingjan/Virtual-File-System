@@ -9,7 +9,7 @@ import hk.edu.polyu.comp3222.vfs.core.VFSunit;
  */
 public class DirectResponseHandler extends ResponseHandler{
     public VFSunit handlerResponse(String[] cmd, Directory Root, Directory CurrentDir, IOService ioService){
-        ioService.printLine(String.valueOf(cmd.length));
+        //ioService.printLine(String.valueOf(cmd.length));
         if(cmd.length == 1){
             CurrentDir = Root;
         }else{

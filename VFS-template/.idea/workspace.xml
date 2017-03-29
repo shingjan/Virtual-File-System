@@ -40,9 +40,21 @@
       <file leaf-file-name="VisualDisk.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/VisualDisk.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="48" column="41" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
+            <state relative-caret-position="358">
+              <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="28" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QuitResponseHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/QuitResponseHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -50,8 +62,8 @@
       <file leaf-file-name="DirectResponseHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/DirectResponseHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+            <state relative-caret-position="165">
+              <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -127,7 +139,6 @@
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/File.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/Directory.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/ResponseHandler.java" />
-        <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/DirectResponseHandler.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/SearchResponseHandler.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/CopyResponseHandler.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/CreateHandler.java" />
@@ -136,6 +147,7 @@
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/MoveResponseHandler.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/QuitResponseHandler.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/RenameResponseHandler.java" />
+        <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/DirectResponseHandler.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/VisualDisk.java" />
       </list>
     </option>
@@ -1002,7 +1014,7 @@
       <workItem from="1487208763431" duration="1587000" />
       <workItem from="1487245147903" duration="6350000" />
       <workItem from="1487589266203" duration="1099000" />
-      <workItem from="1490665110510" duration="6238000" />
+      <workItem from="1490665110510" duration="6590000" />
     </task>
     <servers />
   </component>
@@ -1039,7 +1051,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29834000" />
+    <option name="totallyTimeSpent" value="30186000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1052,7 +1064,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29614875" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29614875" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1392,16 +1404,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/DirectResponseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/ListResponseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1413,16 +1415,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/MoveResponseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/QuitResponseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
@@ -1462,10 +1454,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/DirectResponseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/QuitResponseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/VisualDisk.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="48" column="41" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
+        <state relative-caret-position="358">
+          <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="28" />
           <folding />
         </state>
       </provider>

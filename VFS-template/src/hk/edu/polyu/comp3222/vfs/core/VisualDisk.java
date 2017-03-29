@@ -47,6 +47,9 @@ public class VisualDisk {
             ResponseHandler cmd = themap.get(cmd_segments[0]);
             if(cmd != null){
                 currentDir = (Directory) cmd.handlerResponse(cmd_segments, ROOT_FS, currentDir, ioService);
+                if(currentDir == null){
+                    System.exit(0);
+                }
             }else{
                 ioService.printLine("wrong command, input again");
             }
