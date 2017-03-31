@@ -69,13 +69,17 @@ public class VisualDisk {
     }
 
     public static VisualDisk loadFS(String username, String password, int diskSize) {
-        /*VisualDisk fileSystem = SerializationController.getInstance().deserialize();
+        VisualDisk fileSystem = SerializationController.getInstance().deserialize(username);
         if (fileSystem != null) {
             return fileSystem;
-        } else {*/
-            VisualDisk fileSystem = new VisualDisk(username,password,diskSize);
+        } else {
+            fileSystem = new VisualDisk(username, password, diskSize);
             fileSystem.initializeFileSystem();
-
+        }
         return fileSystem;
+    }
+
+    public String getName(){
+        return username;
     }
 }

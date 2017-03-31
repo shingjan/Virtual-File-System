@@ -1,6 +1,5 @@
 package hk.edu.polyu.comp3222.vfs.client;
 import hk.edu.polyu.comp3222.vfs.core.VisualDisk;
-//import hk.edu.polyu.comp3222.vfs.core.fileSystem;
 
 import java.io.*;
 
@@ -10,7 +9,7 @@ import java.io.*;
 public class SerializationController {
     private static SerializationController instance;
 
-    private static final String fsSerializedName = "JFileSystem.vfs";
+    private static final String fsSerializedNamePrefix = "db/";
 
     public static SerializationController getInstance() {
         if (instance == null)
@@ -23,7 +22,7 @@ public class SerializationController {
             FileOutputStream fos;
             ObjectOutputStream oos = null;
             try {
-                fos = new FileOutputStream(fsSerializedName);
+                fos = new FileOutputStream(fsSerializedNamePrefix + fileSystem.getName() + ".vfs");
                 oos = new ObjectOutputStream(fos);
                 oos.writeObject(fileSystem);
             } finally {
@@ -35,17 +34,17 @@ public class SerializationController {
         }
     }
 
-    public VisualDisk deserialize() {
+    public VisualDisk deserialize(String name) {
         try {
             FileInputStream fis;
             ObjectInputStream ois = null;
 
-            File file = new File(fsSerializedName);
+            File file = new File(fsSerializedNamePrefix + name + ".vfs");
             if (!file.exists() || !file.isFile())
                 return null;
 
             try {
-                fis = new FileInputStream(fsSerializedName);
+                fis = new FileInputStream(fsSerializedNamePrefix + name + ".vfs");
                 ois = new ObjectInputStream(fis);
                 return (VisualDisk) ois.readObject();
             } finally {
