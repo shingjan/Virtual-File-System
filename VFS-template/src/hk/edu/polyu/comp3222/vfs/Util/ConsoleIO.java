@@ -17,6 +17,7 @@ public class ConsoleIO implements IOService{
     }
     @Override
     public String readLine(String str){
+        System.out.print(str);
         Scanner input = new Scanner(System.in);
         String nextLine = input.nextLine();
         return nextLine;

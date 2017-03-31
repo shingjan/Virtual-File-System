@@ -2,10 +2,9 @@ package hk.edu.polyu.comp3222.vfs.core;
 
 import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
 import hk.edu.polyu.comp3222.vfs.Util.IOService;
-import hk.edu.polyu.comp3222.vfs.client.SerializationController;
+import hk.edu.polyu.comp3222.vfs.server.SerializationController;
 import hk.edu.polyu.comp3222.vfs.handler.*;
 
-import java.util.Currency;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +28,10 @@ public class VisualDisk {
         themap.put("cd", new DirectResponseHandler());
         themap.put("ls", new ListResponseHandler());
         themap.put("mv", new MoveResponseHandler());
+        themap.put("cp", new CopyResponseHandler());
+        themap.put("mkdir", new MkdirHandler());
+        themap.put("touch", new CreateHandler());
+        themap.put("cat", new CatHandler());
         themap.put("rename", new RenameResponseHandler());
         themap.put("search", new SearchResponseHandler());
         themap.put("help", new HelpHandler());
