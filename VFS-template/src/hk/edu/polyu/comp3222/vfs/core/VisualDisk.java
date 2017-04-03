@@ -22,7 +22,7 @@ public class VisualDisk {
     public final Map<String, ResponseHandler> themap = new HashMap<>();
 
     public VisualDisk(String username, String password, int diskSize) {
-        ROOT_FS = new Directory("", "root.", new Date());
+        ROOT_FS = new Directory("", "root", new Date());
         ROOT_PATH = ROOT_FS.getPath();
         currentDir = ROOT_FS;
         themap.put("cd", new DirectResponseHandler());
@@ -32,8 +32,9 @@ public class VisualDisk {
         themap.put("mkdir", new MkdirHandler());
         themap.put("touch", new CreateHandler());
         themap.put("cat", new CatHandler());
-        themap.put("rename", new RenameResponseHandler());
+        //themap.put("rename", new RenameResponseHandler());
         themap.put("search", new SearchResponseHandler());
+
         themap.put("help", new HelpHandler());
         themap.put("quit", new QuitResponseHandler());
     }

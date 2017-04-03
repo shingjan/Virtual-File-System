@@ -16,13 +16,17 @@ public class CatHandler extends ResponseHandler{
         File tempFile;
         if(cmd.length < 1){
             ioService.printLine("cat command requires at least one argument");
-        }else if(CurrentDir.getDirContent().get(cmd[1]) == null){
-            ioService.printLine("No such file exists in current working directory");
-        }else if(CurrentDir.getDirContent().get(cmd[1]).getClass() == Directory.class){
-            ioService.printLine("Target file is a directory. cat command not applicable");
-        }else{
-            tempFile = (File) CurrentDir.getDirContent().get(cmd[1]);
-            ioService.printLine(tempFile.getContent()) ;
+        }else {
+            String[] searchPath = cmd[1].split("/");
+            //tempFile = CurrentDir.getItem(searchPath, ioService);
+            if (CurrentDir.getItem(searchPath, ioService).getClass() == File.class) {
+                tempFile = (File) CurrentDir.getItem(searchPath, ioService);
+                ioService.printLine(tempFile.getContent());
+            } else if (CurrentDir.getItem(searchPath, ioService).getClass() == Directory.class) {
+                ioService.printLine("Target file is a directory. cat command not applicable");
+            } else {
+                ioService.printLine("No such file exists in current working directory");
+            }
         }
         return CurrentDir;
     }

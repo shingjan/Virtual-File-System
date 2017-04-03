@@ -2,6 +2,7 @@ package hk.edu.polyu.comp3222.vfs.handler;
 
 import hk.edu.polyu.comp3222.vfs.Util.IOService;
 import hk.edu.polyu.comp3222.vfs.core.Directory;
+import hk.edu.polyu.comp3222.vfs.core.File;
 import hk.edu.polyu.comp3222.vfs.core.VFSunit;
 
 /**
@@ -20,7 +21,7 @@ public class DirectResponseHandler extends ResponseHandler{
                 ioService.printLine(seachPath[0]);
                 CurrentDir = (Directory) fileSystemUnit;
                 //return CurrentDir;
-            }else if(fileSystemUnit.getClass() != Directory.class){
+            }else if(fileSystemUnit.getClass() == File.class){
                 ioService.printLine("The target path is not a directory");
             }else{
                 ioService.printLine("This directory is not found on this VFS");

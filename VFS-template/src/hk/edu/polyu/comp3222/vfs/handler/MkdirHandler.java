@@ -5,6 +5,7 @@ import hk.edu.polyu.comp3222.vfs.core.Directory;
 import hk.edu.polyu.comp3222.vfs.core.VFSunit;
 
 import javax.xml.transform.dom.DOMResult;
+import java.util.Date;
 
 /**
  * Created by Isaac on 1/27/17.
@@ -12,6 +13,12 @@ import javax.xml.transform.dom.DOMResult;
 public class MkdirHandler extends ResponseHandler{
     public VFSunit handlerResponse(String[] cmd, Directory root, Directory CurrentDir, IOService ioService){
         ioService.printLine("This is the mkdir handler.");
+        if(cmd.length != 2){
+            ioService.printLine("mkdir command requires at least/most one argument");
+        }
+
+        Directory newDir = new Directory(CurrentDir.getPath(), cmd[1], new Date());
+        CurrentDir.getDirContent().put(newDir.getPath(), newDir);
         return CurrentDir;
     }
 }

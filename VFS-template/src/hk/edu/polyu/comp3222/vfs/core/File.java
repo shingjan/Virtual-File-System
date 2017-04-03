@@ -14,7 +14,8 @@ public class File extends VFSunit{
     }
 
     public String getContent() {
-        return content.toString();
+        String s = new String(content);
+        return s;
     }
 
     public void list(boolean detailed, boolean noTree, IOService ioservice) {
