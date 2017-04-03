@@ -12,11 +12,11 @@ import javax.xml.transform.dom.DOMResult;
  */
 public class CatHandler extends ResponseHandler{
     public VFSunit handlerResponse(String[] cmd, Directory root, Directory CurrentDir, IOService ioService){
-        ioService.printLine("This is the cat handler.");
+        //ioService.printLine(cmd[1]);
         File tempFile;
         if(cmd.length < 1){
             ioService.printLine("cat command requires at least one argument");
-        }else if(CurrentDir.getDirContent().get(cmd[1]).equals(null)){
+        }else if(CurrentDir.getDirContent().get(cmd[1]) == null){
             ioService.printLine("No such file exists in current working directory");
         }else if(CurrentDir.getDirContent().get(cmd[1]).getClass() == Directory.class){
             ioService.printLine("Target file is a directory. cat command not applicable");

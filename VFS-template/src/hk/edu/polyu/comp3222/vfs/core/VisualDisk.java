@@ -65,8 +65,10 @@ public class VisualDisk {
         File file1 = new File(firstFolder.getPath(), "foo", new Date(), "This is the content of foo".getBytes());
         Directory secondFolder = new Directory(ROOT_PATH, "2nd", new Date());
         File file2 = new File(secondFolder.getPath(), "bar", new Date(), "This is the content of bar".getBytes());
+        File file3 = new File(ROOT_PATH, "file3", new Date(), "This is the content of file3".getBytes());
         currentDir.getDirContent().put(firstFolder.getPath(), firstFolder);
         currentDir.getDirContent().put(secondFolder.getPath(), secondFolder);
+        currentDir.getDirContent().put(file3.getPath(), file3);
         firstFolder.getDirContent().put(file1.getPath(),file1);
         secondFolder.getDirContent().put(file2.getPath(), file2);
     }

@@ -1,0 +1,148 @@
+mkdir_t  test1 			 	
+mkdir_t  test2  		
+ls_t           			
+cd_t    /test1  			
+mkdir_t  test3  			
+cd_t    /test1/test3 		
+external_cp /media/e.txt  /test1/test3/e.txt  
+ls_t                     
+external_cp /media/re.txt /test1/test3/re.txt  
+cat_t  /test1/test3/re.txt   
+cp_t  /test1/test3/e.txt  /test1/e.txt    
+cat_t  /test1/e.ext       
+
+mkdir_t  test1 			 	
+mkdir_t  test2  		
+ls_t           			
+cd_t    /test1  			
+mkdir_t  test3  			
+cd_t    /test1/test3 		
+external_cp /media/e.txt  /test1/test3/e.txt  
+ls_t                     
+external_cp /media/re.txt /test1/test3/re.txt  
+cat_t  /test1/test3/re.txt   
+cp_t  /test1/test3/e.txt  /test1/e.txt    
+cat_t  /test1/e.ext       
+
+mkdir_t  test1 			 	
+mkdir_t  test2  		
+ls_t           			
+cd_t    /test1  			
+mkdir_t  test3  			
+cd_t    /test1/test3 		
+external_cp /media/e.txt  /test1/test3/e.txt  
+ls_t                     
+external_cp /media/re.txt /test1/test3/re.txt  
+cat_t  /test1/test3/re.txt   
+cp_t  /test1/test3/e.txt  /test1/e.txt    
+cat_t  /test1/e.ext       
+
+mkdir_t  test1 			 	
+mkdir_t  test2  		
+ls_t           			
+cd_t    /test1  			
+mkdir_t  test3  			
+cd_t    /test1/test3 		
+external_cp /media/e.txt  /test1/test3/e.txt  
+ls_t                     
+external_cp /media/re.txt /test1/test3/re.txt  
+cat_t  /test1/test3/re.txt   
+cp_t  /test1/test3/e.txt  /test1/e.txt    
+cat_t  /test1/e.ext       
+
+mkdir_t  test1 			 	
+mkdir_t  test2  		
+ls_t           			
+cd_t    /test1  			
+mkdir_t  test3  			
+cd_t    /test1/test3 		
+external_cp /media/e.txt  /test1/test3/e.txt  
+ls_t                     
+external_cp /media/re.txt /test1/test3/re.txt  
+cat_t  /test1/test3/re.txt   
+cp_t  /test1/test3/e.txt  /test1/e.txt    
+cat_t  /test1/e.ext       
+
+mkdir_t  test1 			 	
+mkdir_t  test2  		
+ls_t           			
+cd_t    /test1  			
+mkdir_t  test3  			
+cd_t    /test1/test3 		
+external_cp /media/e.txt  /test1/test3/e.txt  
+ls_t                     
+external_cp /media/re.txt /test1/test3/re.txt  
+cat_t  /test1/test3/re.txt   
+cp_t  /test1/test3/e.txt  /test1/e.txt    
+cat_t  /test1/e.ext       
+
+mkdir_t  test1 			 	
+mkdir_t  test2  		
+ls_t           			
+cd_t    /test1  			
+mkdir_t  test3  			
+cd_t    /test1/test3 		
+external_cp /media/e.txt  /test1/test3/e.txt  
+ls_t                     
+external_cp /media/re.txt /test1/test3/re.txt  
+cat_t  /test1/test3/re.txt   
+cp_t  /test1/test3/e.txt  /test1/e.txt    
+cat_t  /test1/e.ext       
+
+mkdir_t  test1 			 	
+mkdir_t  test2  		
+ls_t           			
+cd_t    /test1  			
+mkdir_t  test3  			
+cd_t    /test1/test3 		
+external_cp /media/e.txt  /test1/test3/e.txt  
+ls_t                     
+external_cp /media/re.txt /test1/test3/re.txt  
+cat_t  /test1/test3/re.txt   
+cp_t  /test1/test3/e.txt  /test1/e.txt    
+cat_t  /test1/e.ext       
+
+ls_t                     
+external_cp /media/re.txt /test1/test3/re.txt  
+cat_t  /test1/test3/re.txt   
+cp_t  /test1/test3/e.txt  /test1/e.txt    
+cat_t  /test1/e.ext       
+
+mkdir_t  test1 			 	
+mkdir_t  test2  		
+ls_t           			
+cd_t    /test1  			
+mkdir_t  test3  			
+cd_t    /test1/test3 		
+external_cp /media/e.txt  /test1/test3/e.txt  
+ls_t                     
+external_cp /media/re.txt /test1/test3/re.txt  
+cat_t  /test1/test3/re.txt   
+cp_t  /test1/test3/e.txt  /test1/e.txt    
+cat_t  /test1/e.ext       
+
+mkdir_t  test1 			 	
+mkdir_t  test2  		
+ls_t           			
+cd_t    /test1  			
+mkdir_t  test3  			
+cd_t    /test1/test3 		
+external_cp /media/e.txt  /test1/test3/e.txt  
+ls_t                     
+external_cp /media/re.txt /test1/test3/re.txt  
+cat_t  /test1/test3/re.txt   
+cp_t  /test1/test3/e.txt  /test1/e.txt    
+cat_t  /test1/e.ext       
+
+ls_t                     
+external_cp /media/re.txt /test1/test3/re.txt  
+cat_t  /test1/test3/re.txt   
+cp_t  /test1/test3/e.txt  /test1/e.txt    
+cat_t  /test1/e.ext       
+
+ls_t                     
+external_cp /media/re.txt /test1/test3/re.txt  
+cat_t  /test1/test3/re.txt   
+cp_t  /test1/test3/e.txt  /test1/e.txt    
+cat_t  /test1/e.ext    
+should present this <direct> line!!!
