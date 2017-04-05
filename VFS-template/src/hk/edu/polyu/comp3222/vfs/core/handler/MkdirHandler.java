@@ -1,10 +1,9 @@
-package hk.edu.polyu.comp3222.vfs.handler;
+package hk.edu.polyu.comp3222.vfs.core.handler;
 
-import hk.edu.polyu.comp3222.vfs.Util.IOService;
-import hk.edu.polyu.comp3222.vfs.core.VFSDirectory;
-import hk.edu.polyu.comp3222.vfs.core.VFSunit;
+import hk.edu.polyu.comp3222.vfs.core.Util.IOService;
+import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
+import hk.edu.polyu.comp3222.vfs.core.vfs.VFSunit;
 
-import javax.xml.transform.dom.DOMResult;
 import java.util.Date;
 
 /**

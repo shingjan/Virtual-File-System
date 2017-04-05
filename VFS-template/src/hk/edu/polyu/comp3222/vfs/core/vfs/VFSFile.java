@@ -1,11 +1,11 @@
-package hk.edu.polyu.comp3222.vfs.core;
-import hk.edu.polyu.comp3222.vfs.Util.IOService;
+package hk.edu.polyu.comp3222.vfs.core.vfs;
+import hk.edu.polyu.comp3222.vfs.core.Util.IOService;
 
 import java.util.Date;
 /**
  * Created by Isaac on 1/23/17.
  */
-public class VFSFile extends VFSunit{
+public class VFSFile extends VFSunit {
     private byte[] content;
 
     public VFSFile(String path, String name, Date dateCreated, byte[] content) {

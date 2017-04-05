@@ -1,5 +1,5 @@
-package hk.edu.polyu.comp3222.vfs.core;
-import hk.edu.polyu.comp3222.vfs.Util.IOService;
+package hk.edu.polyu.comp3222.vfs.core.vfs;
+import hk.edu.polyu.comp3222.vfs.core.Util.IOService;
 
 import java.util.Date;
 import java.text.SimpleDateFormat;

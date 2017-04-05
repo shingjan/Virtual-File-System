@@ -1,5 +1,5 @@
 package hk.edu.polyu.comp3222.vfs.server;
-import hk.edu.polyu.comp3222.vfs.core.VisualDisk;
+import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
 
 import java.io.*;
 

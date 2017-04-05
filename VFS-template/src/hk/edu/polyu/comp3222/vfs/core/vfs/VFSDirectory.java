@@ -1,13 +1,13 @@
-package hk.edu.polyu.comp3222.vfs.core;
+package hk.edu.polyu.comp3222.vfs.core.vfs;
 
-import hk.edu.polyu.comp3222.vfs.Util.IOService;
+import hk.edu.polyu.comp3222.vfs.core.Util.IOService;
 
 import java.util.*;
 
 /**
  * Created by Isaac on 1/23/17.
  */
-public class VFSDirectory extends VFSunit{
+public class VFSDirectory extends VFSunit {
     private String dirName;
     private final Map<String, VFSunit> dirContent = new LinkedHashMap<>();
     private int dirCount;

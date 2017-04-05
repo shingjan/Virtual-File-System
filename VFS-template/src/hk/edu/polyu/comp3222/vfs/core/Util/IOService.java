@@ -1,4 +1,4 @@
-package hk.edu.polyu.comp3222.vfs.Util;
+package hk.edu.polyu.comp3222.vfs.core.Util;
 
 /**
  * Created by Isaac on 2/7/17.

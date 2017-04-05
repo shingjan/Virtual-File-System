@@ -1,20 +1,14 @@
-package hk.edu.polyu.comp3222.vfs.handler;
+package hk.edu.polyu.comp3222.vfs.core.handler;
 
 
-import hk.edu.polyu.comp3222.vfs.Util.IOService;
-import hk.edu.polyu.comp3222.vfs.core.VFSDirectory;
-import hk.edu.polyu.comp3222.vfs.core.VFSFile;
-import hk.edu.polyu.comp3222.vfs.core.VFSunit;
+import hk.edu.polyu.comp3222.vfs.core.Util.IOService;
+import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
+import hk.edu.polyu.comp3222.vfs.core.vfs.VFSFile;
+import hk.edu.polyu.comp3222.vfs.core.vfs.VFSunit;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Isaac on 2/17/17.

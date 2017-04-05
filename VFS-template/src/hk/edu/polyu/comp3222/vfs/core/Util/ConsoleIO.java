@@ -1,4 +1,4 @@
-package hk.edu.polyu.comp3222.vfs.Util;
+package hk.edu.polyu.comp3222.vfs.core.Util;
 import java.util.Scanner;
 import java.io.PrintStream;
 /**

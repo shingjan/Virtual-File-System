@@ -21,6 +21,9 @@
     <SUITE FILE_PATH="coverage/vfs$hk_edu_polyu_comp_comp2021_test_in_vfs.coverage" NAME="hk.edu.polyu.comp.comp2021.test in vfs Coverage Results" MODIFIED="1476112387741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hk.edu.polyu.comp.comp2021.test.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/VFS-template$Main.coverage" NAME="Main Coverage Results" MODIFIED="1491386059619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp3222.vfs.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/vfs$hk_edu_polyu_comp_comp2021_test.coverage" NAME="hk.edu.polyu.comp.comp2021.test Coverage Results" MODIFIED="1476114198846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>hk.edu.polyu.comp.comp2021.vfs.*</FILTER>
     </SUITE>
@@ -38,92 +41,83 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file leaf-file-name="VisualDisk.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/VisualDisk.java">
+        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/vfs/VisualDisk.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1455">
-              <caret line="106" column="22" selection-start-line="106" selection-start-column="22" selection-end-line="106" selection-end-column="22" />
+            <state relative-caret-position="105">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchResponseHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/SearchResponseHandler.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+            <state relative-caret-position="255">
+              <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VFSFile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/vfs/VFSFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#642#643#0" expanded="true" />
+                <element signature="e#669#670#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VFSunit.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/vfs/VFSunit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConsoleIO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/Util/ConsoleIO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImportResponseHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/ImportResponseHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VFSDirectory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/vfs/VFSDirectory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="DirectResponseHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/DirectResponseHandler.java">
+        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/DirectResponseHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExportResponseHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/ExportResponseHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoveResponseHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/MoveResponseHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QuitResponseHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/QuitResponseHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResponseHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/ResponseHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SerializationController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/server/SerializationController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-462">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="480">
+              <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -192,6 +186,11 @@
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/VisualDisk.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/SearchResponseHandler.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/ExportResponseHandler.java" />
+        <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/ImportResponseHandler.java" />
+        <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/vfs/VFSDirectory.java" />
+        <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/vfs/VFSFile.java" />
+        <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/vfs/VFSunit.java" />
+        <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/vfs/VisualDisk.java" />
       </list>
     </option>
   </component>
@@ -246,6 +245,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -292,38 +292,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="host" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VFS-template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VFS-template" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="host" />
+              <option name="myItemId" value="vfs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="root" />
+              <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="PackagesPane">
+        <subPane />
+      </pane>
       <pane id="Scope">
         <subPane subId="Problems" />
         <subPane subId="Production" />
         <subPane subId="Project Files" />
-      </pane>
-      <pane id="PackagesPane">
-        <subPane />
       </pane>
     </panes>
   </component>
@@ -866,7 +855,7 @@
     <configuration default="false" name="StatementCoverage" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="hk.edu.polyu.comp3222.vfs.handler.*" />
+          <option name="PATTERN" value="hk.edu.polyu.comp3222.vfs.core.handler.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -982,7 +971,8 @@
       <workItem from="1490665110510" duration="6590000" />
       <workItem from="1490933155197" duration="5218000" />
       <workItem from="1491199850639" duration="3248000" />
-      <workItem from="1491375556597" duration="2682000" />
+      <workItem from="1491375556597" duration="3425000" />
+      <workItem from="1491385431139" duration="2076000" />
     </task>
     <servers />
   </component>
@@ -1019,7 +1009,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41334000" />
+    <option name="totallyTimeSpent" value="44153000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1032,12 +1022,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29614875" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29614875" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.259375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.259375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1053,7 +1043,7 @@
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19689119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32984582" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.265625" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1080,16 +1070,8 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/VirtualDisk.java" />
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/File.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/VFSunit.java">
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/File.java" />
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/vfs/VFSunit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="39" column="58" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
@@ -1097,48 +1079,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/Directory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/Directory.java" />
     <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/VirtualDisk.java" />
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/File.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/Directory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/File.java" />
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/Directory.java" />
     <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/VirtualDisk.java" />
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/File.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/Directory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/File.java" />
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/Directory.java" />
     <entry file="file://$PROJECT_DIR$/test/hk/edu/polyu/comp3222/vfs/test/VirtualDiskTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -1154,7 +1101,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/hk/edu/polyu/comp3222/vfs/test/CoreTest.java" />
     <entry file="file://$PROJECT_DIR$/test/hk/edu/polyu/comp3222/vfs/test/CoreTest.java" />
     <entry file="file://$PROJECT_DIR$/test/hk/edu/polyu/comp3222/vfs/test/CoreTest.java" />
     <entry file="file://$PROJECT_DIR$/test/hk/edu/polyu/comp3222/vfs/test/VirtualDiskTest.java">
@@ -1174,18 +1120,18 @@
     <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/Util/UserIO.java" />
     <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/Util/StabIO.java" />
     <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/Util/Stub.java" />
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/Util/StubIO.java">
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/Util/StubIO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
           <folding>
-            <element signature="e#783#784#0" expanded="false" />
-            <element signature="e#837#838#0" expanded="false" />
+            <element signature="e#788#789#0" expanded="false" />
+            <element signature="e#842#843#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/Util/IOService.java">
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/Util/IOService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
@@ -1208,79 +1154,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/RenameResponseHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/Util/ConsoleIO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/VFSunit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/File.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/Directory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/VFSDirectory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="71" column="9" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/VFSFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/CatHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/File.java" />
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/Directory.java" />
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/CatHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
           <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/ImportResponseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12">
-          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1293,130 +1174,197 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/CopyResponseHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/CopyResponseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/CreateHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/CreateHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="24" column="64" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="65" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/HelpHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/HelpHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/ListResponseHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/ListResponseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/MkdirHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/MkdirHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/MoveResponseHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/MoveResponseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
+        <state relative-caret-position="195">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/QuitResponseHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/QuitResponseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
+        <state relative-caret-position="195">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/ResponseHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/ResponseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="120">
           <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/ExportResponseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/SearchResponseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/server/SerializationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-462">
+        <state relative-caret-position="90">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/ExportResponseHandler.java">
+    <entry file="file://$PROJECT_DIR$/test/hk/edu/polyu/comp3222/vfs/test/CoreTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
+        <state relative-caret-position="75">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vfs.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/DirectResponseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/SearchResponseHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/handler/DirectResponseHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/Util/ConsoleIO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
-          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/ImportResponseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/vfs/VFSDirectory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/vfs/VFSFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#642#643#0" expanded="true" />
+            <element signature="e#669#670#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/VisualDisk.java">
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/vfs/VFSunit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1455">
-          <caret line="106" column="22" selection-start-line="106" selection-start-column="22" selection-end-line="106" selection-end-column="22" />
+        <state relative-caret-position="75">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/vfs/VisualDisk.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
         </state>
       </provider>

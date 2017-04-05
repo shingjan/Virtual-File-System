@@ -1,7 +1,6 @@
 package hk.edu.polyu.comp3222.vfs;
 
-import hk.edu.polyu.comp3222.vfs.core.VisualDisk;
-import hk.edu.polyu.comp3222.vfs.client.ClientController;
+import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
 
 /**
  * Created by Isaac on 1/24/17.

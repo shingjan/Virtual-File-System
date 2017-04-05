@@ -1,9 +1,9 @@
-package hk.edu.polyu.comp3222.vfs.core;
+package hk.edu.polyu.comp3222.vfs.core.vfs;
 
-import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
-import hk.edu.polyu.comp3222.vfs.Util.IOService;
+import hk.edu.polyu.comp3222.vfs.core.Util.ConsoleIO;
+import hk.edu.polyu.comp3222.vfs.core.Util.IOService;
 import hk.edu.polyu.comp3222.vfs.server.SerializationController;
-import hk.edu.polyu.comp3222.vfs.handler.*;
+import hk.edu.polyu.comp3222.vfs.core.handler.*;
 
 import java.util.Date;
 import java.util.HashMap;
