@@ -5,10 +5,10 @@ import java.util.Date;
 /**
  * Created by Isaac on 1/23/17.
  */
-public class File extends VFSunit{
+public class VFSFile extends VFSunit{
     private byte[] content;
 
-    public File(String path, String name, Date dateCreated, byte[] content) {
+    public VFSFile(String path, String name, Date dateCreated, byte[] content) {
         super(path + name, name, dateCreated);
         this.content = content;
     }

@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * Created by Isaac on 1/23/17.
  */
-public class Directory extends VFSunit{
+public class VFSDirectory extends VFSunit{
     private String dirName;
     private final Map<String, VFSunit> dirContent = new LinkedHashMap<>();
     private int dirCount;
@@ -15,7 +15,7 @@ public class Directory extends VFSunit{
     /**
      * Default constructor.
      */
-    public Directory(String sourcePath, String name, Date dateCreated){
+    public VFSDirectory(String sourcePath, String name, Date dateCreated){
         super(sourcePath + name + "/", name, dateCreated);
     }
 
@@ -60,11 +60,11 @@ public class Directory extends VFSunit{
         if (o == null) return false;
         if (this == o) return true;
 
-        if (!(o instanceof Directory)) return false;
+        if (!(o instanceof VFSDirectory)) return false;
 
         if (!super.equals(o)) return false;
 
-        Directory that = (Directory) o;
+        VFSDirectory that = (VFSDirectory) o;
         return dirContent.equals(that.dirContent);
 
     }

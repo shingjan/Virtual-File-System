@@ -1,27 +1,28 @@
 package hk.edu.polyu.comp3222.vfs.handler;
 
 import hk.edu.polyu.comp3222.vfs.Util.IOService;
-import hk.edu.polyu.comp3222.vfs.core.Directory;
-import hk.edu.polyu.comp3222.vfs.core.File;
+import hk.edu.polyu.comp3222.vfs.core.VFSDirectory;
+import hk.edu.polyu.comp3222.vfs.core.VFSFile;
 import hk.edu.polyu.comp3222.vfs.core.VFSunit;
 
 /**
  * Created by Isaac on 1/27/17.
  */
 public class DirectResponseHandler extends ResponseHandler{
-    public VFSunit handlerResponse(String[] cmd, Directory Root, Directory CurrentDir, IOService ioService){
+    public VFSunit handlerResponse(String[] cmd, VFSDirectory Root, VFSDirectory CurrentDir, IOService ioService){
         //ioService.printLine(String.valueOf(cmd.length));
         if(cmd.length == 1){
             CurrentDir = Root;
         }else{
             String[] seachPath = cmd[1].split("/");
             //ioService.printLine(seachPath[0]);
-            VFSunit fileSystemUnit = Root.getItem(seachPath, ioService);
-            if(fileSystemUnit.getClass() == Directory.class){
+            VFSunit fileSystemUnit = CurrentDir.getItem(seachPath, ioService);
+            ioService.printLine(fileSystemUnit.getClass().toString());
+            if(fileSystemUnit.getClass() == VFSDirectory.class){
                 ioService.printLine(seachPath[0]);
-                CurrentDir = (Directory) fileSystemUnit;
+                CurrentDir = (VFSDirectory) fileSystemUnit;
                 //return CurrentDir;
-            }else if(fileSystemUnit.getClass() == File.class){
+            }else if(fileSystemUnit.getClass() == VFSFile.class){
                 ioService.printLine("The target path is not a directory");
             }else{
                 ioService.printLine("This directory is not found on this VFS");

@@ -13,16 +13,16 @@ import java.util.Map;
  * Created by Isaac on 2/15/17.
  */
 public class VisualDisk {
-    public final Directory ROOT_FS;
+    public final VFSDirectory ROOT_FS;
     public final String ROOT_PATH;
     private String username, password;
     private int diskSize;
-    private Directory currentDir;
+    private VFSDirectory currentDir;
     public IOService ioService;
     public final Map<String, ResponseHandler> themap = new HashMap<>();
 
     public VisualDisk(String username, String password, int diskSize) {
-        ROOT_FS = new Directory("", "root", new Date());
+        ROOT_FS = new VFSDirectory("", "root", new Date());
         ROOT_PATH = ROOT_FS.getPath();
         currentDir = ROOT_FS;
         themap.put("cd", new DirectResponseHandler());
@@ -33,7 +33,7 @@ public class VisualDisk {
         themap.put("touch", new CreateHandler());
         themap.put("cat", new CatHandler());
         themap.put("import", new ImportResponseHandler());
-        themap.put("import", new ExportResponseHandler());
+        themap.put("export", new ExportResponseHandler());
         themap.put("search", new SearchResponseHandler());
 
         themap.put("help", new HelpHandler());
@@ -51,7 +51,7 @@ public class VisualDisk {
             cmd_segments = ioService.readLine("-->").split(" ");
             ResponseHandler cmd = themap.get(cmd_segments[0]);
             if(cmd != null){
-                currentDir = (Directory) cmd.handlerResponse(cmd_segments, ROOT_FS, currentDir, ioService);
+                currentDir = (VFSDirectory) cmd.handlerResponse(cmd_segments, ROOT_FS, currentDir, ioService);
                 if(currentDir == null){
                     System.exit(0);
                 }
@@ -63,14 +63,14 @@ public class VisualDisk {
     }
 
     public void initializeFileSystem(){
-        Directory firstFolder = new Directory(ROOT_PATH, "1st", new Date());
-        File file1 = new File(firstFolder.getPath(), "foo", new Date(), "This is the content of foo".getBytes());
-        Directory secondFolder = new Directory(ROOT_PATH, "2nd", new Date());
-        File file2 = new File(secondFolder.getPath(), "bar", new Date(), "This is the content of bar".getBytes());
-        //File file3 = new File(ROOT_PATH, "file3", new Date(), "This is the content of file3".getBytes());
+        VFSDirectory firstFolder = new VFSDirectory(ROOT_PATH, "1st", new Date());
+        VFSFile file1 = new VFSFile(firstFolder.getPath(), "foo", new Date(), "This is the content of foo".getBytes());
+        VFSDirectory secondFolder = new VFSDirectory(ROOT_PATH, "2nd", new Date());
+        VFSFile file2 = new VFSFile(secondFolder.getPath(), "bar", new Date(), "This is the content of bar".getBytes());
+        VFSFile file3 = new VFSFile(ROOT_PATH, "file3", new Date(), "This is the content of file3".getBytes());
         currentDir.getDirContent().put(firstFolder.getPath(), firstFolder);
         currentDir.getDirContent().put(secondFolder.getPath(), secondFolder);
-        //currentDir.getDirContent().put(file3.getPath(), file3);
+        currentDir.getDirContent().put(file3.getPath(), file3);
         firstFolder.getDirContent().put(file1.getPath(),file1);
         secondFolder.getDirContent().put(file2.getPath(), file2);
     }
@@ -88,5 +88,30 @@ public class VisualDisk {
 
     public String getName(){
         return username;
+    }
+
+    public VFSunit getItemByPath(String path, VFSDirectory root) {
+        if (path.equals(root.getPath()))
+            return root;
+
+        VFSunit fileSystemUnit;
+
+        // check first whether the object with the specified path exists in source folder
+        if ((fileSystemUnit = root.getDirContent().get(path)) != null) {
+            return fileSystemUnit;
+        }
+
+        // if not, deep check every single entry in the current directory
+        for (VFSunit value : root.getDirContent().values()) {
+            if (value.getClass() == VFSDirectory.class) {
+                fileSystemUnit = getItemByPath(path, (VFSDirectory) value);
+            } else {
+                fileSystemUnit = value;
+            }
+
+            if (fileSystemUnit != null && path.equals(fileSystemUnit.getPath()))
+                return fileSystemUnit;
+        }
+        return null;
     }
 }
