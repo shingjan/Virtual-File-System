@@ -2,7 +2,7 @@ package hk.edu.polyu.comp3222.vfs.core.vfs;
 
 import hk.edu.polyu.comp3222.vfs.core.Util.ConsoleIO;
 import hk.edu.polyu.comp3222.vfs.core.Util.IOService;
-import hk.edu.polyu.comp3222.vfs.server.SerializationController;
+import hk.edu.polyu.comp3222.vfs.core.controller.SerializationController;
 import hk.edu.polyu.comp3222.vfs.core.handler.*;
 
 import java.util.Date;
@@ -17,6 +17,7 @@ public class VisualDisk {
     public final String ROOT_PATH;
     private String username, password;
     private int diskSize;
+    private ResponseHandler[] cmdArray;
     private VFSDirectory currentDir;
     public IOService ioService;
     public final Map<String, ResponseHandler> themap = new HashMap<>();
@@ -35,16 +36,15 @@ public class VisualDisk {
         themap.put("import", new ImportResponseHandler());
         themap.put("export", new ExportResponseHandler());
         themap.put("search", new SearchResponseHandler());
-
+        themap.put("save", new SaveHandler());
         themap.put("help", new HelpHandler());
         themap.put("quit", new QuitResponseHandler());
     }
 
     public void boot(){
-        //String command;
         String[] cmd_segments;
         ioService = new ConsoleIO();
-        //ioService.printInstructions();
+
         while (true){
             ioService.printLine("Current Working Directory is:");
             ioService.printLine(currentDir.getPath());
@@ -56,7 +56,7 @@ public class VisualDisk {
                     System.exit(0);
                 }
             }else{
-                ioService.printLine("wrong command, input again");
+                ioService.printLine("wrong command, try again");
             }
 
         }
@@ -113,5 +113,9 @@ public class VisualDisk {
                 return fileSystemUnit;
         }
         return null;
+    }
+
+    public ResponseHandler[] getCmdArray(){
+        return cmdArray;
     }
 }

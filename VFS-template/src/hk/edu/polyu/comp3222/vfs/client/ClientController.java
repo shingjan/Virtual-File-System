@@ -1,4 +1,8 @@
 package hk.edu.polyu.comp3222.vfs.client;
+import hk.edu.polyu.comp3222.vfs.core.Util.ConsoleIO;
+import hk.edu.polyu.comp3222.vfs.core.Util.IOService;
+import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
+
 import java.util.Scanner;
 import java.io.*;
 import java.net.*;
@@ -7,29 +11,52 @@ import java.net.*;
  */
 public class ClientController {
 
+    public IOService ioService = new ConsoleIO();
 
+    //in the constructor of ClientController
+    //we need to open the right vfs from server and
     public ClientController(){
-        Scanner scanner = new Scanner(System.in);
+
+        /*-----------------------Connect to Server-------------------------------*/
         try {
-            Socket socket = new Socket("52.14.166.120",5000);
+            Socket socket = new Socket("0.0.0.0",5000);
             PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-            //This will wait for the server to send the string to the client saying a connection
-            //has been made.
-            String inputString = input.readLine();
-            System.out.println(inputString);
-            //Again, here is the code that will run the client, this will continue looking for
-            //input from the user then it will send that info to the server.
-            while(true) {
-                //Here we look for input from the user
-                String userInput = scanner.nextLine();
-                //Now we write it to the server
-                output.println(userInput);
-            }
+
+            String inputUsername = ioService.readLine("Please input your username: ");
+            String inputPasswd = ioService.readLine("Please input your password: ");
+
+            //Now we write it to the server
+            output.println(inputUsername);
+            output.println(inputPasswd);
+
+
+            /*-----------------------Get the visual disk-----------------------------*/
+            //ObjectOutputStream outToServer = new ObjectOutputStream(socket.getOutputStream());
+            //ObjectInputStream inFromServer = new ObjectInputStream(socket.getInputStream());
+
         } catch (IOException exception) {
             System.out.println("Error: " + exception);
         }
+
+
+    }
+
+    //user need to output command to server for synchronization
+    public void outputCommand(VisualDisk currentDisk){
+            currentDisk.getCmdArray();
+    }
+
+
+    public static void main(String[] args) {
+
+        //VisualDisk testSystem = VisualDisk.loadFS("test","test",13356);
+        //testSystem.boot();
+
+        new ClientController();
+
+
     }
 
 }
