@@ -41,9 +41,9 @@ public class ServerController {
         input = new BufferedReader(new InputStreamReader(client.getInputStream()));
 
         String username = input.readLine();
-        System.out.println("SERVER SIDE" + username);
+        System.out.println("SERVER SIDE: " + username);
         String password = input.readLine();
-        System.out.println("SERVER SIDE" + password);
+        System.out.println("SERVER SIDE: " + password);
 
         //open printwriter for writing data to client
         output = new PrintWriter(new OutputStreamWriter(client.getOutputStream()));
@@ -53,7 +53,8 @@ public class ServerController {
         }else{
             output.println("Login Failed");
         }
-
+        output.flush();
+        output.close();
     }
 
     public void getInstance() throws Exception{
@@ -63,9 +64,14 @@ public class ServerController {
         //outToClient.writeObject(inMsg);
     }
 
-    
+
     public static void main(String[] args){
-        new ServerController();
+        ServerController server = new ServerController();
+        try {
+            server.start();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 }
