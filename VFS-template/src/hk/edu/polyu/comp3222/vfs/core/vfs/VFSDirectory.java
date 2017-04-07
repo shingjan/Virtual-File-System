@@ -91,4 +91,23 @@ public class VFSDirectory extends VFSunit {
         }
         return null;
     }
+
+    @Override
+    public int getSize(){
+
+        int sum = 2;
+        for (Object value : dirContent.values()) {
+            if(value.getClass() == VFSFile.class){
+                VFSFile tempFile = (VFSFile) value;
+                sum += tempFile.getSize();
+            }else if(value.getClass() == VFSDirectory.class){
+                VFSDirectory tempFile = (VFSDirectory) value;
+                sum += tempFile.getSize();
+            }
+
+        }
+
+        return sum;
+    }
+
 }

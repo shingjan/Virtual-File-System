@@ -2,7 +2,7 @@ package hk.edu.polyu.comp3222.vfs.client;
 import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
 import hk.edu.polyu.comp3222.vfs.Util.IOService;
 import hk.edu.polyu.comp3222.vfs.controller.SerializationController;
-import hk.edu.polyu.comp3222.vfs.core.handler.ResponseHandler;
+import hk.edu.polyu.comp3222.vfs.core.handler.*;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
 
@@ -10,6 +10,7 @@ import java.io.*;
 import java.net.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UnknownFormatConversionException;
 
 /**
  * Created by Isaac on 1/24/17.
@@ -22,6 +23,23 @@ public class ClientController {
     private PrintWriter output;
     private VisualDisk currentDisk;
     public final Map<String, ResponseHandler> themap = new HashMap<>();
+    {
+        //command handlers
+        themap.put("cd", new DirectResponseHandler());
+        themap.put("ls", new ListResponseHandler());
+        themap.put("mv", new MoveResponseHandler());
+        themap.put("cp", new CopyResponseHandler());
+        themap.put("mkdir", new MkdirHandler());
+        themap.put("touch", new CreateHandler());
+        themap.put("cat", new CatHandler());
+        themap.put("import", new ImportResponseHandler());
+        themap.put("export", new ExportResponseHandler());
+        themap.put("search", new SearchResponseHandler());
+        themap.put("query", new QueryHandler());
+        themap.put("save", new SaveHandler());
+        themap.put("help", new HelpHandler());
+        themap.put("quit", new QuitResponseHandler());
+    }
 
 
     //user need to output command to server for synchronization
@@ -108,10 +126,10 @@ public class ClientController {
 
         try{
             System.out.println("make sure i get in here/");
-            client.currentDisk = client.receiveInstance(client.socket);
+            client.currentDisk = new VisualDisk("test","test",13356);//client.receiveInstance(client.socket);
             System.out.println(client.currentDisk.getName());
-        }catch (IOException | ClassNotFoundException e){
-            e.printStackTrace();
+        }catch (UnknownFormatConversionException e){
+            //e.printStackTrace();
         }
 
         client.boot(client.currentDisk);

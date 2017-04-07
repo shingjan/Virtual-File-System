@@ -15,14 +15,12 @@ import java.util.Date;
 public class QueryHandler extends ResponseHandler{
     public VFSunit handlerResponse(String[] cmd, VFSDirectory root, VFSDirectory CurrentDir, IOService ioService){
         String fileName = null;
-        if (cmd.length > 1) {
-            fileName = cmd[1];
-        } else {
+        if (cmd.length != 1) {
             ioService.printLine("Query command requires no arguments since it only query the whole disk");
+            return CurrentDir;
         }
-        VFSFile tempFile = new VFSFile(CurrentDir.getPath(), fileName, new Date(), cmd[2].getBytes());
-        //VFSunit tempFileUnit = new File();
-        CurrentDir.getDirContent().put(tempFile.getPath(),tempFile);
+
+        ioService.printLine(String.valueOf(root.getSize()));
         return CurrentDir;
     }
 }

@@ -22,7 +22,6 @@ public class VisualDisk implements Serializable{
     public VFSDirectory currentDir;
     public IOService ioService;
 
-
     public VisualDisk(String username, String password, int diskSize) {
         //global variable
         this.username = username;

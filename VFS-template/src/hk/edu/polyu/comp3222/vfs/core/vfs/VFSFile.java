@@ -26,5 +26,11 @@ public class VFSFile extends VFSunit {
         return this;
     }
 
+
+    @Override
+    public int getSize(){
+        return 4;//content.length;
+    }
+
     
 }
