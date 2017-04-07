@@ -80,7 +80,5 @@ public class VisualDisk implements Serializable{
         return null;
     }
 
-    public ResponseHandler[] getCmdArray(){
-        return cmdArray;
-    }
+
 }
