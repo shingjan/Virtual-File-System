@@ -25,9 +25,6 @@ public class ClientController {
 
 
     //user need to output command to server for synchronization
-    public void outputCommand(VisualDisk currentDisk){
-            currentDisk.getCmdArray();
-    }
 
     public Socket startClient() throws IOException{
         //Create socket connection
