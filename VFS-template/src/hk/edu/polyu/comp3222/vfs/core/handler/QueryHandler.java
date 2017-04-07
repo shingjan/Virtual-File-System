@@ -12,14 +12,13 @@ import java.util.Date;
  * touch cmd need to have at least two argument
  * "touch filename filecontent"
  */
-public class CreateHandler extends ResponseHandler{
+public class QueryHandler extends ResponseHandler{
     public VFSunit handlerResponse(String[] cmd, VFSDirectory root, VFSDirectory CurrentDir, IOService ioService){
-        //ioService.printLine("This is the touch handler.");
         String fileName = null;
-        if (cmd.length > 1 && !cmd[1].equals(null)) {
+        if (cmd.length > 1) {
             fileName = cmd[1];
         } else {
-            ioService.printLine("Wrong Argument for touch command");
+            ioService.printLine("Query command requires no arguments since it only query the whole disk");
         }
         VFSFile tempFile = new VFSFile(CurrentDir.getPath(), fileName, new Date(), cmd[2].getBytes());
         //VFSunit tempFileUnit = new File();

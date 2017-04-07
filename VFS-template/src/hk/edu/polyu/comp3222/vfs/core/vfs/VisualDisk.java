@@ -1,65 +1,42 @@
 package hk.edu.polyu.comp3222.vfs.core.vfs;
 
-import hk.edu.polyu.comp3222.vfs.core.Util.ConsoleIO;
-import hk.edu.polyu.comp3222.vfs.core.Util.IOService;
-import hk.edu.polyu.comp3222.vfs.core.controller.SerializationController;
+import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
+import hk.edu.polyu.comp3222.vfs.Util.IOService;
+import hk.edu.polyu.comp3222.vfs.controller.SerializationController;
 import hk.edu.polyu.comp3222.vfs.core.handler.*;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.io.Serializable;
 
 /**
  * Created by Isaac on 2/15/17.
  */
-public class VisualDisk {
+public class VisualDisk implements Serializable{
     public final VFSDirectory ROOT_FS;
     public final String ROOT_PATH;
     private String username, password;
     private int diskSize;
     private ResponseHandler[] cmdArray;
-    private VFSDirectory currentDir;
+    public VFSDirectory currentDir;
     public IOService ioService;
-    public final Map<String, ResponseHandler> themap = new HashMap<>();
+
 
     public VisualDisk(String username, String password, int diskSize) {
+        //global variable
+        this.username = username;
+        this.password = password;
+        this.diskSize = diskSize;
+
+
+        //root directory
         ROOT_FS = new VFSDirectory("", "root", new Date());
         ROOT_PATH = ROOT_FS.getPath();
         currentDir = ROOT_FS;
-        themap.put("cd", new DirectResponseHandler());
-        themap.put("ls", new ListResponseHandler());
-        themap.put("mv", new MoveResponseHandler());
-        themap.put("cp", new CopyResponseHandler());
-        themap.put("mkdir", new MkdirHandler());
-        themap.put("touch", new CreateHandler());
-        themap.put("cat", new CatHandler());
-        themap.put("import", new ImportResponseHandler());
-        themap.put("export", new ExportResponseHandler());
-        themap.put("search", new SearchResponseHandler());
-        themap.put("save", new SaveHandler());
-        themap.put("help", new HelpHandler());
-        themap.put("quit", new QuitResponseHandler());
-    }
 
-    public void boot(){
-        String[] cmd_segments;
-        ioService = new ConsoleIO();
-
-        while (true){
-            ioService.printLine("Current Working Directory is:");
-            ioService.printLine(currentDir.getPath());
-            cmd_segments = ioService.readLine("-->").split(" ");
-            ResponseHandler cmd = themap.get(cmd_segments[0]);
-            if(cmd != null){
-                currentDir = (VFSDirectory) cmd.handlerResponse(cmd_segments, ROOT_FS, currentDir, ioService);
-                if(currentDir == null){
-                    System.exit(0);
-                }
-            }else{
-                ioService.printLine("wrong command, try again");
-            }
-
-        }
+        //initialization
+        this.initializeFileSystem();
     }
 
     public void initializeFileSystem(){
@@ -73,17 +50,6 @@ public class VisualDisk {
         currentDir.getDirContent().put(file3.getPath(), file3);
         firstFolder.getDirContent().put(file1.getPath(),file1);
         secondFolder.getDirContent().put(file2.getPath(), file2);
-    }
-
-    public static VisualDisk loadFS(String username, String password, int diskSize) {
-        VisualDisk fileSystem = SerializationController.getInstance().deserialize(username);
-        if (fileSystem != null) {
-            return fileSystem;
-        } else {
-            fileSystem = new VisualDisk(username, password, diskSize);
-            fileSystem.initializeFileSystem();
-        }
-        return fileSystem;
     }
 
     public String getName(){

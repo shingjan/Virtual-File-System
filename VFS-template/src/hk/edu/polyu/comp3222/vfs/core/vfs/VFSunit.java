@@ -1,12 +1,13 @@
 package hk.edu.polyu.comp3222.vfs.core.vfs;
-import hk.edu.polyu.comp3222.vfs.core.Util.IOService;
+import hk.edu.polyu.comp3222.vfs.Util.IOService;
 
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.io.Serializable;
 /**
  * Created by selcuk on 23.01.2017.
  */
-public abstract class VFSunit {
+public abstract class VFSunit implements Serializable{
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm");
 

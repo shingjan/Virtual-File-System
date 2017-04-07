@@ -1,6 +1,8 @@
 package hk.edu.polyu.comp3222.vfs.server;
+import hk.edu.polyu.comp3222.vfs.controller.SerializationController;
+import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
+
 import java.net.*;
-import java.util.*;
 import java.io.*;
 /**
  * Created by Isaac on 1/24/17.
@@ -20,13 +22,13 @@ public class ServerController {
 
     public void start() throws IOException{
         System.out.println("Connection Starting on port:" + "0.0.0.0:5000");
+
         //make connection to client on port specified
         serversocket = new ServerSocket(5000);
+        System.out.println("Waiting for connection from client");
 
         //accept connection from client
         client = serversocket.accept();
-
-        System.out.println("Waiting for connection from client");
 
         try {
             logInfo();
@@ -34,6 +36,8 @@ public class ServerController {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
+
     }
 
     public void logInfo() throws Exception{
@@ -45,6 +49,7 @@ public class ServerController {
         String password = input.readLine();
         System.out.println("SERVER SIDE: " + password);
 
+        //SerializationController.getInstance().deserialize(username+".vfs");
         //open printwriter for writing data to client
         output = new PrintWriter(new OutputStreamWriter(client.getOutputStream()));
 
@@ -54,14 +59,24 @@ public class ServerController {
             output.println("Login Failed");
         }
         output.flush();
+
+
+        OutputInstance(client);
+
         output.close();
+
+
     }
 
-    public void getInstance() throws Exception{
+    public void OutputInstance(Socket socket) throws Exception{
          /*-----------------------Get the visual disk-----------------------------*/
-        //ObjectOutputStream outToClient = new ObjectOutputStream(socket.getOutputStream());
-        //ObjectInputStream inFromClient = new ObjectInputStream(socket.getInputStream());
-        //outToClient.writeObject(inMsg);
+        System.out.println("Socket Extablished...");
+        ObjectOutputStream outToClient = new ObjectOutputStream(socket.getOutputStream());
+        ObjectInputStream inFromClient = new ObjectInputStream(socket.getInputStream());
+
+        VisualDisk testSystem = new VisualDisk("test","test",13356);
+        System.out.println("make sure I sent the object"+testSystem.getName());
+        outToClient.writeObject(testSystem);
     }
 
 
@@ -72,6 +87,8 @@ public class ServerController {
         }catch (IOException e){
             e.printStackTrace();
         }
+
+
     }
 
 }

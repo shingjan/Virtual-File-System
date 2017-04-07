@@ -1,4 +1,4 @@
-package hk.edu.polyu.comp3222.vfs.core.controller;
+package hk.edu.polyu.comp3222.vfs.controller;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
 
 import java.io.*;

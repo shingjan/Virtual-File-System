@@ -1,12 +1,12 @@
-package hk.edu.polyu.comp3222.vfs.core.Util;
-
-import java.io.PrintStream;
+package hk.edu.polyu.comp3222.vfs.Util;
 import java.util.Scanner;
-
+import java.io.PrintStream;
+import java.io.Serializable;
 /**
  * Created by Isaac on 1/27/17.
  */
-public class StubIO implements IOService{
+public class ConsoleIO implements IOService, Serializable{
+
     private PrintStream output = new PrintStream(System.out);
 
     public void printInstructions(){
@@ -18,6 +18,7 @@ public class StubIO implements IOService{
     }
     @Override
     public String readLine(String str){
+        System.out.print(str);
         Scanner input = new Scanner(System.in);
         String nextLine = input.nextLine();
         return nextLine;
@@ -32,4 +33,5 @@ public class StubIO implements IOService{
     public void printHelp(){
         System.out.println("This is the help");
     }
+
 }
