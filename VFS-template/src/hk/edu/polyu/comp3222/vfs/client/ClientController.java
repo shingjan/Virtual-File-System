@@ -9,6 +9,7 @@ import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
 import java.io.*;
 import java.net.*;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.UnknownFormatConversionException;
 
@@ -22,6 +23,8 @@ public class ClientController {
     private BufferedReader read;
     private PrintWriter output;
     private VisualDisk currentDisk;
+    private LinkedList commandStack = new LinkedList();
+
     public final Map<String, ResponseHandler> themap = new HashMap<>();
     {
         //command handlers
@@ -35,6 +38,8 @@ public class ClientController {
         themap.put("import", new ImportResponseHandler());
         themap.put("export", new ExportResponseHandler());
         themap.put("search", new SearchResponseHandler());
+        themap.put("remove", new RemoveHandler());
+        themap.put("rename", new RenameHandler());
         themap.put("query", new QueryHandler());
         themap.put("save", new SaveHandler());
         themap.put("help", new HelpHandler());
@@ -99,10 +104,12 @@ public class ClientController {
 
             /*-------------------command line implementation--------------------------*/
             if(cmd != null){
-                disk.currentDir = (VFSDirectory) cmd.handlerResponse(cmd_segments, disk.ROOT_FS, disk.currentDir, ioService);
+                disk.currentDir = (VFSDirectory) cmd.handlerResponse(cmd_segments, disk,disk.ROOT_FS, disk.currentDir, ioService);
+                commandStack.add(cmd);
                 if(disk.currentDir == null){
                     System.exit(0);
                 }
+                ioService.printLine(String.valueOf(commandStack.size()));
             }else{
                 ioService.printLine("wrong command, try again");
             }

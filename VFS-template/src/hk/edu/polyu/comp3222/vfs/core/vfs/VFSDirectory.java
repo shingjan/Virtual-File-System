@@ -110,4 +110,29 @@ public class VFSDirectory extends VFSunit {
         return sum;
     }
 
+    public VFSunit getItemByPath(String path, VFSDirectory root) {
+        if (path.equals(root.getPath()))
+            return root;
+
+        VFSunit fileSystemUnit;
+
+        // check first whether the object with the specified path exists in source folder
+        if ((fileSystemUnit = root.getDirContent().get(path)) != null) {
+            return fileSystemUnit;
+        }
+
+        // if not, deep check every single entry in the current directory
+        for (VFSunit value : root.getDirContent().values()) {
+            if (value.getClass() == VFSDirectory.class) {
+                fileSystemUnit = getItemByPath(path, (VFSDirectory) value);
+            } else {
+                fileSystemUnit = value;
+            }
+
+            if (fileSystemUnit != null && path.equals(fileSystemUnit.getPath()))
+                return fileSystemUnit;
+        }
+        return null;
+    }
+
 }

@@ -38,6 +38,10 @@ public abstract class VFSunit implements Serializable{
         return name;
     }
 
+    public void setName(String name){
+        this.name = name;
+    }
+
     public String getDateCreated() {
         return dateFormat.format(dateCreated);
     }

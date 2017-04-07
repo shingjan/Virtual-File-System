@@ -4,12 +4,13 @@ import hk.edu.polyu.comp3222.vfs.Util.IOService;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSFile;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSunit;
+import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
 
 /**
  * Created by Isaac on 1/27/17.
  */
 public class CatHandler extends ResponseHandler{
-    public VFSunit handlerResponse(String[] cmd, VFSDirectory root, VFSDirectory CurrentDir, IOService ioService){
+    public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory root, VFSDirectory CurrentDir, IOService ioService){
         //ioService.printLine(cmd[1]);
         VFSFile tempFile;
         if(cmd.length < 1){
@@ -26,6 +27,7 @@ public class CatHandler extends ResponseHandler{
                 ioService.printLine("No such file exists in current working directory");
             }
         }
+        this.saveState(cmd, root, CurrentDir, ioService);
         return CurrentDir;
     }
 }

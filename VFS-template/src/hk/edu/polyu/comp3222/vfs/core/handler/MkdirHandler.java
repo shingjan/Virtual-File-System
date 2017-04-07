@@ -3,6 +3,7 @@ package hk.edu.polyu.comp3222.vfs.core.handler;
 import hk.edu.polyu.comp3222.vfs.Util.IOService;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSunit;
+import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
 
 import java.util.Date;
 
@@ -10,8 +11,9 @@ import java.util.Date;
  * Created by Isaac on 1/27/17.
  */
 public class MkdirHandler extends ResponseHandler{
-    public VFSunit handlerResponse(String[] cmd, VFSDirectory root, VFSDirectory CurrentDir, IOService ioService){
+    public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory root, VFSDirectory CurrentDir, IOService ioService){
         ioService.printLine("This is the mkdir handler.");
+        this.saveState(cmd, root, CurrentDir, ioService);
         if(cmd.length != 2){
             ioService.printLine("mkdir command requires at least/most one argument");
         }

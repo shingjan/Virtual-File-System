@@ -22,7 +22,7 @@ public class VFSFile extends VFSunit {
 
     }
 
-    public VFSunit getItem(String[] cmd, IOService ioService){
+    public VFSunit getItem(String cmd[], IOService ioService){
         return this;
     }
 
@@ -31,6 +31,7 @@ public class VFSFile extends VFSunit {
     public int getSize(){
         return 4;//content.length;
     }
+
 
     
 }
