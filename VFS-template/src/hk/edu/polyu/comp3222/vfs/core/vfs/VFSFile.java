@@ -18,7 +18,7 @@ public class VFSFile extends VFSunit {
         return s;
     }
 
-    public void list(boolean detailed, boolean noTree, IOService ioservice) {
+    public void list(boolean detailed, IOService ioservice) {
 
     }
 

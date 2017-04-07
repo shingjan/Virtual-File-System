@@ -9,7 +9,7 @@ import hk.edu.polyu.comp3222.vfs.core.vfs.VFSunit;
  */
 public class ListResponseHandler extends ResponseHandler{
     public VFSunit handlerResponse(String[] cmd, VFSDirectory Root, VFSDirectory CurrentDir, IOService ioService){
-            CurrentDir.list(true, true, ioService);
+            CurrentDir.list(true,  ioService);
         return CurrentDir;
     }
 }

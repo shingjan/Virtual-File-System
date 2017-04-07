@@ -24,7 +24,7 @@ public abstract class VFSunit implements Serializable{
         this.name = name;
         this.dateCreated = dateCreated;
     }
-    protected abstract void list(boolean detailed, boolean noTree, IOService ioservice);
+    protected abstract void list(boolean detailed, IOService ioservice);
     protected abstract int getSize();
     //all the getter
     public String getPath(){
