@@ -24,9 +24,9 @@ public class VFSDirectory extends VFSunit {
     }
 
     @Override
-    public void list(boolean detailed, boolean noTree, IOService ioservice) {
+    public void list(boolean detailed,  IOService ioservice) {
         final StringBuilder sb = new StringBuilder();
-
+/*
         if (!noTree) {
             if (detailed) {
                 sb.append(toString());
@@ -35,7 +35,7 @@ public class VFSDirectory extends VFSunit {
             }
             ioservice.printLine(sb.toString());
         }
-
+*/
         dirCount++;
 
         final Iterator<Map.Entry<String, VFSunit>> iterator = dirContent.entrySet().iterator();
@@ -43,15 +43,8 @@ public class VFSDirectory extends VFSunit {
 
         while (iterator.hasNext()) {
             fileSystemUnit = iterator.next().getValue();
-            if (noTree) {
-                ioservice.printLine(fileSystemUnit.toString());
-            } else {
-                if ("./".equals(getPath())) {
-                    rootHasNext = iterator.hasNext();
-                }
-                //ioservice.printLine(iterator.hasNext()), true);
-                fileSystemUnit.list(detailed, false, ioservice);
-            }
+            ioservice.printLine(fileSystemUnit.toString());
+
         }
     }
 
