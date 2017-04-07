@@ -58,17 +58,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServerController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ServerController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/server/ServerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
+            <state relative-caret-position="118">
               <caret line="76" column="43" selection-start-line="76" selection-start-column="43" selection-end-line="76" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ResponseHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/ResponseHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="12" column="61" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClientController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/client/ClientController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="975">
@@ -147,6 +157,7 @@
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/server/ServerController.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/vfs/VisualDisk.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/client/ClientController.java" />
+        <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/ResponseHandler.java" />
       </list>
     </option>
   </component>
@@ -322,6 +333,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="handler" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1037,7 +1052,7 @@
       <workItem from="1491385431139" duration="6694000" />
       <workItem from="1491444668835" duration="7620000" />
       <workItem from="1491529947194" duration="3165000" />
-      <workItem from="1491553424234" duration="3692000" />
+      <workItem from="1491553424234" duration="4287000" />
     </task>
     <servers />
   </component>
@@ -1074,7 +1089,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63248000" />
+    <option name="totallyTimeSpent" value="63843000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1330,14 +1345,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/ResponseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/QueryHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1384,14 +1391,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/server/ServerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="76" column="43" selection-start-line="76" selection-start-column="43" selection-end-line="76" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/vfs/VFSunit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1414,10 +1413,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/ResponseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="12" column="61" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/client/ClientController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="975">
           <caret line="77" column="34" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/server/ServerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="76" column="43" selection-start-line="76" selection-start-column="43" selection-end-line="76" selection-end-column="43" />
           <folding />
         </state>
       </provider>
