@@ -17,6 +17,9 @@ public abstract class VFSunit implements Serializable{
     private Date dateCreated;
 
     /**
+     * @param path: the path of this VFSunit
+     * @param name: the name of this VFSunit
+     * @param dateCreated
      * This is something
      */
     protected VFSunit(String path, String name, Date dateCreated) {
@@ -24,13 +27,32 @@ public abstract class VFSunit implements Serializable{
         this.name = name;
         this.dateCreated = dateCreated;
     }
+
+    /**
+     * abstract list method
+     * @param detailed: if this list should be detailed
+     * @param ioservice: ioservice for this method
+     */
     protected abstract void list(boolean detailed, IOService ioservice);
+
+    /**
+     * get size method
+     * @return return the size of this VFSunit
+     */
     protected abstract int getSize();
-    //all the getter
+
+    /**
+     * get path method
+     * @return path of this VFSunit in String format
+     */
     public String getPath(){
         return path;
     }
 
+    /**
+     * getName method
+     * @return name of this VFSunit
+     */
     public String getName(){
         if(name == null){
             return ".NIL";
@@ -38,14 +60,28 @@ public abstract class VFSunit implements Serializable{
         return name;
     }
 
+    /**
+     * set name method
+     * @param name name to be set for this VFS unit
+     */
     public void setName(String name){
         this.name = name;
     }
 
+    /**
+     * get date created method
+     * @return data created in string format
+     */
     public String getDateCreated() {
         return dateFormat.format(dateCreated);
     }
 
+    /**
+     * retrive VFSunit from a path
+     * @param itemName name array of this target item
+     * @param ioservice IOservice for this method
+     * @return retrived VFS unit from the path
+     */
     public abstract VFSunit getItem(String[] itemName, IOService ioservice);
 
 
@@ -56,7 +92,7 @@ public abstract class VFSunit implements Serializable{
 
         VFSunit that = (VFSunit) o;
 
-        return dateCreated.equals(that.dateCreated) && name.equals(that.name) && path.equals(that.path);
+        return dateCreated.equals(that.getDateCreated()) && name.equals(that.getName()) && path.equals(that.getPath());
     }
     @Override
     public String toString(){

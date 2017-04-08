@@ -11,12 +11,20 @@ public class SerializationController {
 
     private static final String fsSerializedNamePrefix = "db/";
 
+    /**
+     * get SerializationController instance via Singleton Design Pattern
+     * @return return the instance
+     */
     public static SerializationController getInstance() {
         if (instance == null)
             instance = new SerializationController();
         return instance;
     }
 
+    /**
+     * serialize the java object
+     * @param fileSystem visual disk to be serialized
+     */
     public void serialize(VisualDisk fileSystem) {
         try {
             FileOutputStream fos;
@@ -34,6 +42,11 @@ public class SerializationController {
         }
     }
 
+    /**
+     * deserialize the visual disk
+     * @param name name of the to-be-deserialized visual disk
+     * @return returnt the deserialized visual disk
+     */
     public VisualDisk deserialize(String name) {
         try {
             FileInputStream fis;

@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class ConsoleIO implements IOService, Serializable{
 
     private PrintStream output = new PrintStream(System.out);
-
+    @Override
     public void printInstructions(){
         output.println("This is the instruction!");
     }
@@ -29,7 +29,7 @@ public class ConsoleIO implements IOService, Serializable{
             System.out.printf("%s", str);
         }
     }
-
+    @Override
     public void printHelp(){
         System.out.println("This is the help");
     }

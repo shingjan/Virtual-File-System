@@ -13,24 +13,34 @@ import java.io.IOException;
  * Created by Isaac on 2/17/17.
  */
 public class ExportResponseHandler extends ResponseHandler{
+    @Override
     public VFSunit handlerResponse(String [] cmd, VisualDisk disk, VFSDirectory Root, VFSDirectory CurrentDir, IOService ioService){
         ioService.printLine("This is the export handler");
         if(cmd.length != 2){
-            ioService.printLine("export command expects at least/most one argument");
+            ioService.printLine("export command expects one argument");
         }
 
         VFSunit tempFile = CurrentDir.getItem(cmd[1].split("/"), ioService);
 
         ioService.printLine(tempFile.getClass().toString());
-        if(tempFile.getClass() == VFSDirectory.class){
-            createDirectory((VFSDirectory) tempFile, ioService);
-        }else if(tempFile.getClass() == VFSFile.class){
-            createFile((VFSFile) tempFile, ioService);
+        if(tempFile == null){
+            ioService.printLine("no such file found!");
+        }else {
+            if (tempFile.getClass() == VFSDirectory.class) {
+                createDirectory((VFSDirectory) tempFile, ioService);
+            } else {
+                createFile((VFSFile) tempFile, ioService);
+            }
         }
 
         return CurrentDir;
     }
 
+    /**
+     * create file in host file system
+     * @param outFile Virtual file to be exported
+     * @param ioService IOserver for this method
+     */
     public void createFile(VFSFile outFile, IOService ioService){
         String tempPath = "host/" + outFile.getPath();
         File tempFile = new File(tempPath);
@@ -42,6 +52,11 @@ public class ExportResponseHandler extends ResponseHandler{
         }
     }
 
+    /**
+     * create directory in host file system
+     * @param outDir virtual directory to be exported
+     * @param ioService IOserver for this method
+     */
     public void createDirectory(VFSDirectory outDir, IOService ioService){
         String tempPath = "host/" + outDir.getPath();
         File tempDir = new File(tempPath);

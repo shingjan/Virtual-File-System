@@ -42,11 +42,11 @@ public class VirtualDiskTest {
         VFSFile foofile = new VFSFile("root/1st/","foo",new Date(), "1111".getBytes());
         VFSFile nullfile = null;
         path = "root/1st/";
-        assertEquals(stfile.getName(),testDisk.ROOT_FS.getItemByPath(path,testDisk.ROOT_FS).getName());
+        assertEquals(stfile.getName(),testDisk.getROOT_FS().getItemByPath(path,testDisk.getROOT_FS()).getName());
         path="root/1st/foo";
-        assertEquals(foofile.getName(),testDisk.ROOT_FS.getItemByPath(path,testDisk.ROOT_FS).getName());
+        assertEquals(foofile.getName(),testDisk.getROOT_FS().getItemByPath(path,testDisk.getROOT_FS()).getName());
         path="root/1st/foo/1st";
-        assertEquals(nullfile,testDisk.ROOT_FS.getItemByPath(path,testDisk.ROOT_FS));
+        assertEquals(nullfile,testDisk.getROOT_FS().getItemByPath(path,testDisk.getROOT_FS()));
     }
 
 

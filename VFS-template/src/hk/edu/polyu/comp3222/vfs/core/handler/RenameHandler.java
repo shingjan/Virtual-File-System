@@ -10,6 +10,7 @@ import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
  * Created by Isaac on 2/17/17.
  */
 public class RenameHandler extends ResponseHandler{
+    @Override
     public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory root, VFSDirectory CurrentDir, IOService ioService){
         ioService.printLine("This is the rename command");
 

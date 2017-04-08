@@ -1,31 +1,30 @@
 package hk.edu.polyu.comp3222.vfs.client;
 import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
 import hk.edu.polyu.comp3222.vfs.Util.IOService;
-import hk.edu.polyu.comp3222.vfs.controller.SerializationController;
 import hk.edu.polyu.comp3222.vfs.core.handler.*;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
 
 import java.io.*;
 import java.net.*;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.UnknownFormatConversionException;
+import java.util.*;
 
 /**
  * Created by Isaac on 1/24/17.
  */
 public class ClientController {
 
-    public IOService ioService = new ConsoleIO();
+    private IOService ioService = new ConsoleIO();
     private Socket socket;
     private BufferedReader read;
     private PrintWriter output;
-    private VisualDisk currentDisk;
     private LinkedList commandStack = new LinkedList();
+    private final int PORT = 5000;
 
-    public final Map<String, ResponseHandler> themap = new HashMap<>();
+    /**
+     * create the map for retriveing responsehandler while avoid multi-(if else)s
+     */
+    private final Map<String, ResponseHandler> themap = new HashMap<>();
     {
         //command handlers
         themap.put("cd", new DirectResponseHandler());
@@ -47,11 +46,14 @@ public class ClientController {
     }
 
 
-    //user need to output command to server for synchronization
-
+    /**
+     * user need to output command to server for synchronization
+     * @return the client socket
+     * @throws IOException IO exception
+     */
     public Socket startClient() throws IOException{
         //Create socket connection
-        Socket clientSocket = new Socket("0.0.0.0",5000);
+        Socket clientSocket = new Socket("0.0.0.0",PORT);
 
         //create printwriter for sending login to server
         output = new PrintWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
@@ -80,6 +82,13 @@ public class ClientController {
         return clientSocket;
     }
 
+    /**
+     * receive the instance from server
+     * @param clientSocket client socket needed for socket connection
+     * @return return received socket from server
+     * @throws IOException IO exception
+     * @throws ClassNotFoundException Class not found exception
+     */
     public VisualDisk receiveInstance(Socket clientSocket) throws IOException, ClassNotFoundException{
         ObjectOutputStream outToServer = new ObjectOutputStream(clientSocket.getOutputStream());
         ObjectInputStream inFromServer = new ObjectInputStream(clientSocket.getInputStream());
@@ -87,13 +96,17 @@ public class ClientController {
         return (VisualDisk) inFromServer.readObject();
     }
 
+    /**
+     * boot method for client visual disk
+     * @param disk the visual disk to be booted
+     */
     public void boot(VisualDisk disk){
         String[] cmd_segments;
         ioService = new ConsoleIO();
         ioService.printLine(disk.getName());
         while (true){
             ioService.printLine("Current Working Directory is:");
-            ioService.printLine(disk.currentDir.getPath());
+            ioService.printLine(disk.getCurrentDir().getPath());
             cmd_segments = ioService.readLine("-->").split(" ");
             ResponseHandler cmd = themap.get(cmd_segments[0]);
             if(cmd_segments[0].equals("save")){
@@ -104,9 +117,10 @@ public class ClientController {
 
             /*-------------------command line implementation--------------------------*/
             if(cmd != null){
-                disk.currentDir = (VFSDirectory) cmd.handlerResponse(cmd_segments, disk,disk.ROOT_FS, disk.currentDir, ioService);
+
+                disk.setCurrentDir((VFSDirectory) cmd.handlerResponse(cmd_segments, disk,disk.getROOT_FS(), disk.getCurrentDir(), ioService));
                 commandStack.add(cmd);
-                if(disk.currentDir == null){
+                if(disk.getCurrentDir() == null){
                     System.exit(0);
                 }
                 ioService.printLine(String.valueOf(commandStack.size()));
@@ -117,12 +131,33 @@ public class ClientController {
         }
     }
 
+    /**
+     * set socket method
+     * @param socket socket to be set
+     */
+    public void setSocket(Socket socket){
+        this.socket = socket;
+    }
+
+    /**
+     * get socket method
+     * @return return required socket
+     */
+    public Socket getSocket(){
+        return this.socket;
+    }
+
+    /**
+     * main method for client
+     * @param args default arguments
+     */
     public static void main(String[] args) {
 
-
+        VisualDisk currentDisk = null;
+        final int DISK_SIZE = 13356;
         ClientController client = new ClientController();
         try {
-            client.socket = client.startClient();
+            client.setSocket(client.startClient());
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -130,13 +165,13 @@ public class ClientController {
 
         try{
             System.out.println("make sure i get in here/");
-            client.currentDisk = new VisualDisk("test","test",13356);//client.receiveInstance(client.socket);
-            System.out.println(client.currentDisk.getName());
+            currentDisk = new VisualDisk("test","test",DISK_SIZE);//client.receiveInstance(client.getSocket);
+            System.out.println(currentDisk.getName());
         }catch (UnknownFormatConversionException e){
             //e.printStackTrace();
         }
 
-        client.boot(client.currentDisk);
+        client.boot(currentDisk);
     }
 
 

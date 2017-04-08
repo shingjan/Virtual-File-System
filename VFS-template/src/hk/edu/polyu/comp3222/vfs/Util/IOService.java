@@ -5,7 +5,7 @@ package hk.edu.polyu.comp3222.vfs.Util;
  */
 public interface IOService {
     /**
-     *
+     * @param str string to be displayed
      * @return This is a description;
      */
     abstract String readLine(String str);
@@ -18,12 +18,18 @@ public interface IOService {
 
     /**
      *
-     * @param player player;
-     * @param msg The state of the game to be displayed
+     * @param str string message;
+     * @param inline The state of the game to be isplayed
      */
     abstract void printConsole(String str, Boolean inline);
 
+    /**
+     * print instruction method
+     */
     abstract void printInstructions();
 
+    /**
+     * print help method
+     */
     abstract void printHelp();
 }
