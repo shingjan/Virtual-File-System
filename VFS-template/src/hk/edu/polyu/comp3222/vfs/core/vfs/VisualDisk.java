@@ -19,7 +19,6 @@ public class VisualDisk implements Serializable{
     private int diskSize;
     private ResponseHandler[] cmdArray;
     private VFSDirectory currentDir;
-    private IOService ioService;
 
     /**
      * constructor of visual disk

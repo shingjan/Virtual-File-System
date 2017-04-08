@@ -25,26 +25,24 @@ import static org.junit.Assert.*;
 public class DirectHandlerTest {
     private VisualDisk mydisk;
     private DirectResponseHandler myhandler;
-    private IOService myios;
     private String[] cmd;
     @Before
     public void setup(){
         mydisk = new VisualDisk("test","test",13224);
         mydisk.initializeFileSystem();
         myhandler = new DirectResponseHandler();
-        myios = new ConsoleIO();
     }
 
     @Test
     public void testdircet(){
       cmd = new String[]{"cd"};
-      myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+      myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
         cmd = new String[]{"cd","1st"};
-        myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+        myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
         cmd = new String[]{"cd","3rd"};
-        myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+        myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
         cmd = new String[]{"cd","file3"};
-        myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+        myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
     }
 
 }

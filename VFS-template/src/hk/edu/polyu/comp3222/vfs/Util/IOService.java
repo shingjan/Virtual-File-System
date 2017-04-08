@@ -1,9 +1,11 @@
 package hk.edu.polyu.comp3222.vfs.Util;
 
+import java.io.Serializable;
+
 /**
  * Created by Isaac on 2/7/17.
  */
-public interface IOService {
+public interface IOService extends Serializable{
     /**
      * @param str string to be displayed
      * @return This is a description;
