@@ -11,7 +11,7 @@ import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
 public class SearchResponseHandler extends ResponseHandler{
     @Override
     public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory Root, VFSDirectory CurrentDir, IOService ioService){
-        this.saveState(cmd, Root, CurrentDir, ioService);
+        this.saveState(cmd,  currentDisk,Root, CurrentDir, ioService);
         if(cmd.length == 1){
             ioService.printLine("search command needs at least one argument");
         }else{
@@ -26,6 +26,6 @@ public class SearchResponseHandler extends ResponseHandler{
             }
 
         }
-        return CurrentDir;
+        return this.saveState(cmd, currentDisk, Root, CurrentDir, ioService);
     }
 }

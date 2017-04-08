@@ -12,7 +12,7 @@ public class QuitResponseHandler extends ResponseHandler{
     @Override
     public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory Root, VFSDirectory CurrentDir, IOService ioService){
         ioService.printLine("quitting the VFS system");
-        this.saveState(cmd, Root, CurrentDir, ioService);
+        this.saveState(cmd, currentDisk, Root, CurrentDir, ioService);
         return null;
     }
 }

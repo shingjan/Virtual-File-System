@@ -27,14 +27,14 @@ public abstract class VFSunit implements Serializable{
         this.name = name;
         this.dateCreated = dateCreated;
     }
-
+/*
     /**
      * abstract list method
      * @param detailed: if this list should be detailed
      * @param ioservice: ioservice for this method
-     */
-    protected abstract void list(boolean detailed, IOService ioservice);
 
+    protected abstract void list(boolean detailed, IOService ioservice);
+*/
     /**
      * get size method
      * @return return the size of this VFSunit

@@ -26,7 +26,7 @@ public class CopyResponseHandler extends ResponseHandler{
             VFSunit tempUnit = CurrentDir.getItem(cmd[1].split("/"), ioService);
             if(tempUnit == null) {
                 ioService.printLine("No such file found.");
-                return this.saveState(cmd, root, CurrentDir, ioService);
+                return this.saveState(cmd, currentDisk, root, CurrentDir, ioService);
             }
 
             String filename;
@@ -58,6 +58,6 @@ public class CopyResponseHandler extends ResponseHandler{
             }
         }
 
-        return this.saveState(cmd, root, CurrentDir, ioService);
+        return this.saveState(cmd, currentDisk, root, CurrentDir, ioService);
     }
 }

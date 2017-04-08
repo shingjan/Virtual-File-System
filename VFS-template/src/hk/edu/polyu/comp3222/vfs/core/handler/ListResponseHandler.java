@@ -12,6 +12,6 @@ public class ListResponseHandler extends ResponseHandler{
     @Override
     public VFSunit handlerResponse(String[] cmd, VisualDisk disk, VFSDirectory Root, VFSDirectory CurrentDir, IOService ioService){
         CurrentDir.list(true,  ioService);
-        return CurrentDir;
+        return this.saveState(cmd, disk, Root, CurrentDir, ioService);
     }
 }

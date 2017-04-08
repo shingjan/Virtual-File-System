@@ -24,7 +24,7 @@ public class MoveResponseHandler extends ResponseHandler{
             VFSunit tempUnit = CurrentDir.getItem(cmd[1].split("/"), ioService);
             if(tempUnit == null) {
                 ioService.printLine("No such file found.");
-                return this.saveState(cmd, Root, CurrentDir, ioService);
+                return this.saveState(cmd, currentDisk, Root, CurrentDir, ioService);
             }
 
             String filename;
@@ -62,6 +62,6 @@ public class MoveResponseHandler extends ResponseHandler{
             //CurrentDir.getDirContent().remove(tempUnit.getPath(), tempUnit);
         }
 
-        return this.saveState(cmd, Root, CurrentDir, ioService);
+        return this.saveState(cmd, currentDisk, Root, CurrentDir, ioService);
     }
 }

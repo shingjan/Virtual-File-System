@@ -18,7 +18,7 @@ public class ClientController {
     private Socket socket;
     private BufferedReader read;
     private PrintWriter output;
-    private LinkedList commandStack = new LinkedList();
+    private LinkedList<ResponseHandler> commandStack = new LinkedList<>();
     private final int PORT = 5000;
 
     /**
@@ -40,7 +40,7 @@ public class ClientController {
         themap.put("remove", new RemoveHandler());
         themap.put("rename", new RenameHandler());
         themap.put("query", new QueryHandler());
-        themap.put("save", new SaveHandler());
+        //themap.put("save", new SaveHandler());
         themap.put("help", new HelpHandler());
         themap.put("quit", new QuitResponseHandler());
     }
@@ -93,25 +93,48 @@ public class ClientController {
         ObjectOutputStream outToServer = new ObjectOutputStream(clientSocket.getOutputStream());
         ObjectInputStream inFromServer = new ObjectInputStream(clientSocket.getInputStream());
 
-        return (VisualDisk) inFromServer.readObject();
+        VisualDisk currentDisk = (VisualDisk) inFromServer.readObject();
+        boot(currentDisk);
+
+        Serializable cmdStack = commandStack;
+        outToServer.writeObject(cmdStack);
+        ioService.printLine("File system saved!");
+
+        inFromServer.close();
+        outToServer.close();
+        return null;
     }
+/*
+    private void writeObject(ObjectOutputStream oos)
+            throws IOException {
+        // default serialization
+        oos.defaultWriteObject();
+        // write the object
+        List loc = new ArrayList();
+        loc.add(location.x);
+        loc.add(location.y);
+        loc.add(location.z);
+        loc.add(location.uid);
+        oos.writeObject(loc);
+    }
+*/
 
     /**
      * boot method for client visual disk
      * @param disk the visual disk to be booted
      */
-    public void boot(VisualDisk disk){
+    public VisualDisk boot(VisualDisk disk){
         String[] cmd_segments;
         ioService = new ConsoleIO();
         ioService.printLine(disk.getName());
         while (true){
-            ioService.printLine("Current Working Directory is:");
-            ioService.printLine(disk.getCurrentDir().getPath());
+            //ioService.printLine("Current Working Directory is:");
+            //ioService.printLine(disk.getCurrentDir().getPath());
             cmd_segments = ioService.readLine("-->").split(" ");
             ResponseHandler cmd = themap.get(cmd_segments[0]);
             if(cmd_segments[0].equals("save")){
                 //SerializationController.getInstance().serialize(this);
-                ioService.printLine("File system saved!");
+
                 break;
             }
 
@@ -129,6 +152,7 @@ public class ClientController {
             }
 
         }
+        return null;
     }
 
     /**
@@ -153,25 +177,21 @@ public class ClientController {
      */
     public static void main(String[] args) {
 
-        VisualDisk currentDisk = null;
+
         final int DISK_SIZE = 13356;
         ClientController client = new ClientController();
-        try {
+
+
+        try{
             client.setSocket(client.startClient());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
+            //System.out.println("make sure i get in here/");
+            client.receiveInstance(client.getSocket());
+
+        }catch (UnknownFormatConversionException | IOException | ClassNotFoundException e){
             e.printStackTrace();
         }
 
-        try{
-            System.out.println("make sure i get in here/");
-            currentDisk = new VisualDisk("test","test",DISK_SIZE);//client.receiveInstance(client.getSocket);
-            System.out.println(currentDisk.getName());
-        }catch (UnknownFormatConversionException e){
-            //e.printStackTrace();
-        }
 
-        client.boot(currentDisk);
     }
 
 

@@ -18,7 +18,7 @@ public class CreateHandler extends ResponseHandler{
     public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory root, VFSDirectory CurrentDir, IOService ioService){
         //ioService.printLine("This is the touch handler.");
         String fileName = null;
-        if (cmd.length > 1 && !cmd[1].equals(null)) {
+        if (cmd.length > 2 && !cmd[1].equals(null)) {
             fileName = cmd[1];
         } else {
             ioService.printLine("Wrong Argument for touch command");
@@ -28,7 +28,7 @@ public class CreateHandler extends ResponseHandler{
         CurrentDir.getDirContent().put(tempFile.getPath(),tempFile);
 
 
-        this.saveState(cmd, root, CurrentDir, ioService);
-        return CurrentDir;
+        return this.saveState(cmd,  currentDisk,root, CurrentDir, ioService);
+
     }
 }

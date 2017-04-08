@@ -30,7 +30,7 @@ public class CatHandlerTest {
     public void setup(){
         mydisk.initializeFileSystem();
         cmd = new String[]{"cd",};
-        myhandler = new CatHandler()
+        myhandler = new CatHandler();
     }
 
     @Test

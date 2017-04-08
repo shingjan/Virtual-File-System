@@ -1,15 +1,23 @@
 package hk.edu.polyu.comp3222.vfs.server;
 
+import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
+import hk.edu.polyu.comp3222.vfs.Util.IOService;
+import hk.edu.polyu.comp3222.vfs.core.handler.*;
+import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
 
 import java.net.*;
 import java.io.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+
 /**
  * Created by Isaac on 1/24/17.
  */
 public class ServerController {
 
-    private int currentTot;
+    private IOService ioService = new ConsoleIO();
     private ServerSocket serversocket;
     private Socket client;
     private int bytesRead;
@@ -20,6 +28,27 @@ public class ServerController {
     private PrintWriter output;
     private final int PORT_NO = 5000;
     private final int DISK_SIZE = 5000;
+
+    private final Map<String, ResponseHandler> themap = new HashMap<>();
+    {
+        //command handlers
+        themap.put("cd", new DirectResponseHandler());
+        themap.put("ls", new ListResponseHandler());
+        themap.put("mv", new MoveResponseHandler());
+        themap.put("cp", new CopyResponseHandler());
+        themap.put("mkdir", new MkdirHandler());
+        themap.put("touch", new CreateHandler());
+        themap.put("cat", new CatHandler());
+        themap.put("import", new ImportResponseHandler());
+        themap.put("export", new ExportResponseHandler());
+        themap.put("search", new SearchResponseHandler());
+        themap.put("remove", new RemoveHandler());
+        themap.put("rename", new RenameHandler());
+        themap.put("query", new QueryHandler());
+        themap.put("save", new SaveHandler());
+        themap.put("help", new HelpHandler());
+        themap.put("quit", new QuitResponseHandler());
+    }
 
     /**
      * start the connection from server side
@@ -41,8 +70,6 @@ public class ServerController {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
-
     }
 
     /**
@@ -69,12 +96,8 @@ public class ServerController {
         }
         output.flush();
 
-
         OutputInstance(client);
-
         output.close();
-
-
     }
 
     /**
@@ -91,6 +114,61 @@ public class ServerController {
         VisualDisk testSystem = new VisualDisk("test","test",DISK_SIZE);
         System.out.println("make sure I sent the object"+testSystem.getName());
         outToClient.writeObject(testSystem);
+
+        while(true){
+            LinkedList<ResponseHandler> cmdStack = (LinkedList<ResponseHandler>) inFromClient.readObject();
+            if(cmdStack != null){
+
+                boot(testSystem, cmdStack);
+
+                //sth
+                ioService.printLine("sync finished");
+                break;
+            }
+        }
+        inFromClient.close();
+        outToClient.close();
+    }
+
+    /**
+     * boot method for client visual disk
+     * @param disk the visual disk to be booted
+     */
+    public VisualDisk boot(VisualDisk disk, LinkedList<ResponseHandler> commandStack){
+
+
+        for(ResponseHandler e : commandStack){
+            disk.setCurrentDir((VFSDirectory) e.handlerOnServer());
+        }
+
+        /*------------------run normal CLI----------------------------*/
+        String[] cmd_segments;
+        ioService = new ConsoleIO();
+        ioService.printLine(disk.getName());
+        while (true){
+            ioService.printLine("Current Working Directory is:");
+            ioService.printLine(disk.getCurrentDir().getPath());
+            cmd_segments = ioService.readLine("-->").split(" ");
+            ResponseHandler cmd = themap.get(cmd_segments[0]);
+            if(cmd_segments[0].equals("save")){
+                ioService.printLine("File system saved!");
+                break;
+            }
+
+            /*-------------------command line implementation--------------------------*/
+            if(cmd != null){
+                disk.setCurrentDir((VFSDirectory) cmd.handlerResponse(cmd_segments, disk,disk.getROOT_FS(), disk.getCurrentDir(), ioService));
+                commandStack.add(cmd);
+                if(disk.getCurrentDir() == null){
+                    System.exit(0);
+                }
+                ioService.printLine(String.valueOf(commandStack.size()));
+            }else{
+                ioService.printLine("wrong command, try again");
+            }
+
+        }
+        return null;
     }
 
     /**

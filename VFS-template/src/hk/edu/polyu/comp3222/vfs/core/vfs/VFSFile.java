@@ -28,10 +28,7 @@ public class VFSFile extends VFSunit {
         String s = new String(content);
         return s;
     }
-    @Override
-    public void list(boolean detailed, IOService ioservice) {
 
-    }
     @Override
     public VFSunit getItem(String cmd[], IOService ioService){
         return this;

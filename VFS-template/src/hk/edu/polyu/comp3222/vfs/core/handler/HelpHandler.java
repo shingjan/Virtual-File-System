@@ -11,8 +11,8 @@ import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
 public class HelpHandler extends ResponseHandler{
     @Override
     public VFSunit handlerResponse(String [] cmd, VisualDisk currentDisk, VFSDirectory Root, VFSDirectory CurrentDir, IOService ioService){
-        this.saveState(cmd, Root, CurrentDir, ioService);
+        this.saveState(cmd, currentDisk, Root, CurrentDir, ioService);
         ioService.printHelp();
-        return CurrentDir;
+        return this.saveState(cmd, currentDisk, Root, CurrentDir, ioService);
     }
 }

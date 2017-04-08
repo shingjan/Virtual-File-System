@@ -13,7 +13,7 @@ public class DirectResponseHandler extends ResponseHandler{
     @Override
     public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory Root, VFSDirectory CurrentDir, IOService ioService){
         //ioService.printLine(String.valueOf(cmd.length));
-        this.saveState(cmd, Root, CurrentDir, ioService);
+        this.saveState(cmd, currentDisk, Root, CurrentDir, ioService);
         if(cmd.length == 1){
             CurrentDir = Root;
         }else {
@@ -32,7 +32,7 @@ public class DirectResponseHandler extends ResponseHandler{
 
             }
         }
-        return CurrentDir;
+        return this.saveState(cmd, currentDisk, Root, CurrentDir, ioService);
 
     }
 }

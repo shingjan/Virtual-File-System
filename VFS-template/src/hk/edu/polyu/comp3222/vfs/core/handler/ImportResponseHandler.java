@@ -18,12 +18,12 @@ public class ImportResponseHandler extends ResponseHandler{
     @Override
     public VFSunit handlerResponse(String [] cmd, VisualDisk currentDisk, VFSDirectory Root, VFSDirectory CurrentDir, IOService ioService){
         ioService.printLine("This is the import handler");
-        this.saveState(cmd, Root, CurrentDir, ioService);
+        this.saveState(cmd, currentDisk, Root, CurrentDir, ioService);
         byte[] content = readFile(cmd[1]);
         ioService.printLine(new String(content));
         VFSFile newFile = new VFSFile(CurrentDir.getPath(), cmd[1], new Date(),content);
         CurrentDir.getDirContent().put(newFile.getPath(), newFile);
-        return CurrentDir;
+        return this.saveState(cmd, currentDisk, Root, CurrentDir, ioService);
     }
 
     /**

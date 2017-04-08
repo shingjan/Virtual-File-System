@@ -1,5 +1,6 @@
 package hk.edu.polyu.comp3222.vfs.core.handler;
 
+import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
 import hk.edu.polyu.comp3222.vfs.Util.IOService;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSunit;
@@ -16,7 +17,8 @@ public abstract class ResponseHandler implements Serializable{
     private String[] cmd;
     private VFSDirectory root;
     private VFSDirectory CurrentDir;
-    private IOService ioService;
+    private ConsoleIO ioService;
+    private VisualDisk currentDisk;
 
     /**
      * method to handler specific command
@@ -37,14 +39,21 @@ public abstract class ResponseHandler implements Serializable{
      * @param ioService IOservice for this method
      * @return current directory after command is handled
      */
-    public VFSDirectory saveState(String[] cmd, VFSDirectory root, VFSDirectory CurrentDir, IOService ioService){
+    public VFSDirectory saveState(String[] cmd, VisualDisk currentDisk, VFSDirectory root, VFSDirectory CurrentDir, IOService ioService){
         this.cmd = cmd;
+        this.currentDisk = currentDisk;
         this.root = root;
-        this.CurrentDir = root;
-        this.ioService = ioService;
+        this.CurrentDir = CurrentDir;
+        this.ioService = (ConsoleIO) ioService;
 
         return CurrentDir;
     }
+
+
+    public VFSunit handlerOnServer(){
+        return handlerResponse(this.cmd,this.currentDisk, this.root, this.CurrentDir, this.ioService);
+    }
+
 }
 
 

@@ -33,7 +33,7 @@ public class ExportResponseHandler extends ResponseHandler{
             }
         }
 
-        return CurrentDir;
+        return this.saveState(cmd, disk, Root, CurrentDir, ioService);
     }
 
     /**

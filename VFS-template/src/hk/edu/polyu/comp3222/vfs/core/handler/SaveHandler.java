@@ -12,7 +12,7 @@ public class SaveHandler extends ResponseHandler{
     @Override
     public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory Root, VFSDirectory CurrentDir, IOService ioService){
 
-        this.saveState(cmd, Root, CurrentDir, ioService);
+        this.saveState(cmd, currentDisk,Root, CurrentDir, ioService);
 
         ioService.printLine("Current State Saved successfully!");
         return CurrentDir;

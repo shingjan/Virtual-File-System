@@ -16,7 +16,7 @@ public class RemoveHandler extends ResponseHandler{
         VFSunit tempFile = CurrentDir.getItem(cmd[1].split("/"), ioService);
         if(tempFile == null){
             ioService.printLine("No such file exists");
-            return this.saveState(cmd, root, CurrentDir, ioService);
+            return this.saveState(cmd, currentDisk, root, CurrentDir, ioService);
         }
 
         if(CurrentDir.getDirContent().containsValue(tempFile))
@@ -24,7 +24,7 @@ public class RemoveHandler extends ResponseHandler{
         else
             ioService.printLine("unknown error, remove action abort");
 
-        return this.saveState(cmd, root, CurrentDir, ioService);
+        return this.saveState(cmd, currentDisk, root, CurrentDir, ioService);
 
     }
 

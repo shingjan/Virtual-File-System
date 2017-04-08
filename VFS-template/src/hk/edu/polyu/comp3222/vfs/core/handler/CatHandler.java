@@ -32,7 +32,7 @@ public class CatHandler extends ResponseHandler{
 
             }
         }
-        return this.saveState(cmd, root, CurrentDir, ioService);
+        return this.saveState(cmd, currentDisk, root, CurrentDir, ioService);
 
     }
 }

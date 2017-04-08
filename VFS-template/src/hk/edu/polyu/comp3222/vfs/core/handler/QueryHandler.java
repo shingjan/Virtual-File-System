@@ -17,13 +17,13 @@ public class QueryHandler extends ResponseHandler{
     @Override
     public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory root, VFSDirectory CurrentDir, IOService ioService){
         String fileName = null;
-        this.saveState(cmd, root, CurrentDir, ioService);
+        this.saveState(cmd, currentDisk, root, CurrentDir, ioService);
         if (cmd.length != 1) {
             ioService.printLine("Query command requires no arguments since it only query the whole disk");
             return CurrentDir;
         }
 
         ioService.printLine(String.valueOf(root.getSize()) + "/" +String.valueOf(currentDisk.getSize()));
-        return CurrentDir;
+        return this.saveState(cmd, currentDisk, root, CurrentDir, ioService);
     }
 }
