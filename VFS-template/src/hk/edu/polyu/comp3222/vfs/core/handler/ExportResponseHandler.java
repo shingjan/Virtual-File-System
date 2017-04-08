@@ -18,6 +18,7 @@ public class ExportResponseHandler extends ResponseHandler{
         ioService.printLine("This is the export handler");
         if(cmd.length != 2){
             ioService.printLine("export command expects one argument");
+            return null;
         }
 
         VFSunit tempFile = CurrentDir.getItem(cmd[1].split("/"), ioService);

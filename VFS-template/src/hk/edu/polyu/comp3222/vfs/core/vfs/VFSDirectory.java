@@ -65,7 +65,6 @@ public class VFSDirectory extends VFSunit {
 
         VFSDirectory that = (VFSDirectory) o;
         return dirContent.equals(that.getDirContent());
-
     }
 
     @Override

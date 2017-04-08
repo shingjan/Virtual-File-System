@@ -3,10 +3,9 @@ package hk.edu.polyu.comp3222.vfs.test.HandlerTest;
 /**
  * Created by user on 2017/4/8.
  */
-
 import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
 import hk.edu.polyu.comp3222.vfs.Util.IOService;
-import hk.edu.polyu.comp3222.vfs.core.handler.CatHandler;
+import hk.edu.polyu.comp3222.vfs.core.handler.CopyResponseHandler;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSFile;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
@@ -21,38 +20,39 @@ import static org.junit.Assert.*;
 
 
 
-public class CatHandlerTest {
+
+public class CopyHandlerTest {
     private VisualDisk mydisk;
-    private CatHandler myhandler;
+    private CopyResponseHandler myhandler;
     private IOService myios;
     private String[] cmd;
-
-
     @Before
     public void setup(){
         mydisk = new VisualDisk("test","test",13224);
         mydisk.initializeFileSystem();
-
-        cmd = new String[]{"cat","file3"};
-        myhandler = new CatHandler();
+        myhandler = new CopyResponseHandler();
         myios = new ConsoleIO();
-
     }
 
 @Test
-    public void testcat(){
+    public void testcopy(){
+    cmd = new String[]{"cp"};
     myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
-    cmd = new String[]{"cat","1st"};
+    cmd = new String[]{"cp","file3","file3"};
     myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
-    cmd = new String[]{"cat","1st111"};
+    cmd = new String[]{"cp","file3","1st/file3"};
     myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
-    cmd = new String[]{"cat"};
+    cmd = new String[]{"cp","file4","root/"};
     myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
-    }
-
-@After
-    public void tardown(){
-        myhandler= null;
+    cmd = new String[]{"cp","file3","file565"};
+    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+    cmd = new String[]{"cp","1st","5th"};
+    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+    cmd = new String[]{"cp","5th","2nd/new"};
+    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
 }
+
+
+
 
 }
