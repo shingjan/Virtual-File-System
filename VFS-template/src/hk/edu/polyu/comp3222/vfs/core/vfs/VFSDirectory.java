@@ -11,14 +11,20 @@ public class VFSDirectory extends VFSunit {
     private String dirName;
     private final Map<String, VFSunit> dirContent = new LinkedHashMap<>();
     private int dirCount;
-    public static boolean rootHasNext;
     /**
      * Default constructor.
+     * @param sourcePath sourcePath from parent directory
+     * @param name name of this vfs directory
+     * @param dateCreated date created of this VFSDirectory
      */
     public VFSDirectory(String sourcePath, String name, Date dateCreated){
         super(sourcePath + name + "/", name, dateCreated);
     }
 
+    /**
+     * get directory content method
+     * @return the content of directory
+     */
     public Map<String, VFSunit> getDirContent() {
         return dirContent;
     }
@@ -58,7 +64,7 @@ public class VFSDirectory extends VFSunit {
         if (!super.equals(o)) return false;
 
         VFSDirectory that = (VFSDirectory) o;
-        return dirContent.equals(that.dirContent);
+        return dirContent.equals(that.getDirContent());
 
     }
 
@@ -89,20 +95,23 @@ public class VFSDirectory extends VFSunit {
     public int getSize(){
 
         int sum = 2;
-        for (Object value : dirContent.values()) {
-            if(value.getClass() == VFSFile.class){
-                VFSFile tempFile = (VFSFile) value;
-                sum += tempFile.getSize();
-            }else if(value.getClass() == VFSDirectory.class){
-                VFSDirectory tempFile = (VFSDirectory) value;
-                sum += tempFile.getSize();
-            }
+        for (VFSunit value : dirContent.values()) {
+
+                //VFSDirectory tempFile = (VFSDirectory) value;
+                sum += value.getSize();
+
 
         }
 
         return sum;
     }
 
+    /**
+     * retrive item from current directory by path
+     * @param path path of the target item
+     * @param root to-be-searched directory
+     * @return return the search result
+     */
     public VFSunit getItemByPath(String path, VFSDirectory root) {
         if (path.equals(root.getPath()))
             return root;

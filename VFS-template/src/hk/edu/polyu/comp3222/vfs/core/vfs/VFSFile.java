@@ -8,20 +8,31 @@ import java.util.Date;
 public class VFSFile extends VFSunit {
     private byte[] content;
 
+    /**
+     * VFS file
+     * @param path path of VFSFile's parent directory
+     * @param name name of this VFSFile
+     * @param dateCreated date created of this VFSFile
+     * @param content content of this VFSFile
+     */
     public VFSFile(String path, String name, Date dateCreated, byte[] content) {
         super(path + name, name, dateCreated);
         this.content = content;
     }
 
+    /**
+     * get content of this VFSfile
+     * @return return the content in string format
+     */
     public String getContent() {
         String s = new String(content);
         return s;
     }
-
+    @Override
     public void list(boolean detailed, IOService ioservice) {
 
     }
-
+    @Override
     public VFSunit getItem(String cmd[], IOService ioService){
         return this;
     }
@@ -29,7 +40,7 @@ public class VFSFile extends VFSunit {
 
     @Override
     public int getSize(){
-        return 4;//content.length;
+        return content.length;
     }
 
 

@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class StubIO implements IOService{
     private PrintStream output = new PrintStream(System.out);
-
+    @Override
     public void printInstructions(){
         output.println("This is the instruction!");
     }
@@ -28,7 +28,7 @@ public class StubIO implements IOService{
             System.out.printf("%s", str);
         }
     }
-
+    @Override
     public void printHelp(){
         System.out.println("This is the help");
     }

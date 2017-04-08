@@ -15,6 +15,7 @@ import java.util.Date;
  * Created by Isaac on 2/17/17.
  */
 public class ImportResponseHandler extends ResponseHandler{
+    @Override
     public VFSunit handlerResponse(String [] cmd, VisualDisk currentDisk, VFSDirectory Root, VFSDirectory CurrentDir, IOService ioService){
         ioService.printLine("This is the import handler");
         this.saveState(cmd, Root, CurrentDir, ioService);
@@ -25,7 +26,11 @@ public class ImportResponseHandler extends ResponseHandler{
         return CurrentDir;
     }
 
-
+    /**
+     * read file in host file system and output as byte array
+     * @param filePath path of the file to be read
+     * @return return the byte array of the content of the file
+     */
     public byte[] readFile(String filePath){
         //List<String> records = new ArrayList<String>();
         try
