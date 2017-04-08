@@ -1,4 +1,4 @@
-package hk.edu.polyu.comp3222.vfs.test;
+package hk.edu.polyu.comp3222.vfs.test.VFSTest;
 
 /**
  * Created by user on 2017/4/7.
@@ -20,6 +20,7 @@ public class VirualDirectoryTest {
     private VFSDirectory otherdir;
     private VFSFile myfile;
     private int size;
+    private String name;
 
     @Before
     public void Setup(){
@@ -42,9 +43,7 @@ public class VirualDirectoryTest {
     public void TestgetItem(){
         myfile = new VFSFile("root/","foo",new Date(),"foo".getBytes());
         mydir.getDirContent().put(myfile.getPath(), myfile);
-
-
-
+        assertEquals(myfile,mydir.getItem(new String[]{"foo"},myios));
 
     }
 
@@ -58,6 +57,14 @@ public class VirualDirectoryTest {
         size = 6;
       assertEquals(size,mydir.getSize());
     }
+
+    @Test
+    public void Testsetname(){
+    name = "abc";
+    mydir.setName("abc");
+    assertEquals(name,mydir.getName());
+    }
+
 
 
     @After
