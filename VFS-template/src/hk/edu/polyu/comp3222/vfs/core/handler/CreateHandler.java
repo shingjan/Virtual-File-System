@@ -18,17 +18,14 @@ public class CreateHandler extends ResponseHandler{
     public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory root, VFSDirectory CurrentDir, IOService ioService){
         //ioService.printLine("This is the touch handler.");
         String fileName = null;
-        if (cmd.length > 1 && !cmd[1].equals(null)) {
+        if (cmd.length ==3 ) {
             fileName = cmd[1];
+            VFSFile tempFile = new VFSFile(CurrentDir.getPath(), fileName, new Date(), cmd[2].getBytes());
+            //VFSunit tempFileUnit = new File();
+            CurrentDir.getDirContent().put(tempFile.getPath(),tempFile);
         } else {
             ioService.printLine("Wrong Argument for touch command");
         }
-        VFSFile tempFile = new VFSFile(CurrentDir.getPath(), fileName, new Date(), cmd[2].getBytes());
-        //VFSunit tempFileUnit = new File();
-        CurrentDir.getDirContent().put(tempFile.getPath(),tempFile);
-
-
-        this.saveState(cmd, root, CurrentDir, ioService);
-        return CurrentDir;
+        return this.saveState(cmd, root, CurrentDir, ioService);
     }
 }

@@ -4,9 +4,11 @@ package hk.edu.polyu.comp3222.vfs.test.VFSTest;
  * Created by user on 2017/4/7.
  */
 
+import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
 import hk.edu.polyu.comp3222.vfs.Util.IOService;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSFile;
+import hk.edu.polyu.comp3222.vfs.core.vfs.VFSunit;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,6 +20,7 @@ public class VirualDirectoryTest {
     private VFSDirectory mydir;
     private IOService myios;
     private VFSDirectory otherdir;
+    private VFSunit otherunit;
     private VFSFile myfile;
     private int size;
     private String name;
@@ -29,21 +32,40 @@ public class VirualDirectoryTest {
 
     @Test
     public void Testlist() throws NullPointerException{
+        myios = new ConsoleIO();
         mydir.list(true,myios);
         mydir.list(false,myios);
+        myfile = new VFSFile("root/","foo",new Date(),"foo".getBytes());
+        mydir.getDirContent().put(myfile.getPath(), myfile);
+        mydir.list(true,myios);
     }
 
     @Test
-    public void Testequal(){
-    otherdir = new VFSDirectory("root/","1st",new Date());
+    public void TestEqual(){
+        otherunit = new VFSFile("root/", "sth", new Date(), "soemthing".getBytes());
+        assertEquals(false,mydir.equals(otherunit));
+        otherunit = new VFSDirectory("root/", "sth", new Date());
+        assertEquals(false,mydir.equals(otherunit));
+        Object sth = (VFSunit) mydir;
+        assertEquals(true,mydir.equals(sth));
+    otherdir = mydir;
      assertEquals(true,mydir.equals(otherdir));
+     otherunit = mydir;
+     assertEquals(true,mydir.equals(otherdir));
+
     }
 
     @Test
     public void TestgetItem(){
         myfile = new VFSFile("root/","foo",new Date(),"foo".getBytes());
         mydir.getDirContent().put(myfile.getPath(), myfile);
+        VFSDirectory mydir2 = new VFSDirectory("root/", "1st", new Date());
+        mydir.getDirContent().put(mydir2.getPath(), mydir2);
         assertEquals(myfile,mydir.getItem(new String[]{"foo"},myios));
+        assertEquals(null,mydir.getItem(new String[]{"foo123"},myios));
+        myfile = new VFSFile(mydir2.getPath(),"foo345",new Date(),"foo".getBytes());
+        mydir2.getDirContent().put(myfile.getPath(), myfile);
+       /* assertEquals(myfile,mydir.getItem(new String[]{"root", "1st","foo345"},myios));*/
 
     }
 
@@ -54,7 +76,7 @@ public class VirualDirectoryTest {
         assertEquals(size,mydir.getSize());
         myfile = new VFSFile("root/","foo",new Date(),"foo".getBytes());
         mydir.getDirContent().put(myfile.getPath(), myfile);
-        size = 6;
+        size = 5;
       assertEquals(size,mydir.getSize());
     }
 
@@ -63,6 +85,8 @@ public class VirualDirectoryTest {
     name = "abc";
     mydir.setName("abc");
     assertEquals(name,mydir.getName());
+    mydir.setName(null);
+    assertEquals(".NIL",mydir.getName());
     }
 
 

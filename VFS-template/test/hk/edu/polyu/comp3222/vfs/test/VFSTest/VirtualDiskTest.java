@@ -22,6 +22,7 @@ public class VirtualDiskTest {
     private VFSDirectory stfile;
     private VFSFile foofile;
     private VFSFile nullfile;
+    private VFSDirectory currentdir;
     private int size;
 
 
@@ -46,7 +47,7 @@ public class VirtualDiskTest {
         assertEquals(stfile.getName(),testDisk.getROOT_FS().getItemByPath(path,testDisk.getROOT_FS()).getName());
         path="root/1st/foo";
         assertEquals(foofile.getName(),testDisk.getROOT_FS().getItemByPath(path,testDisk.getROOT_FS()).getName());
-        path="root/1st/foo/1st";
+       path="root/1st/foo/1st";
         assertEquals(nullfile,testDisk.getROOT_FS().getItemByPath(path,testDisk.getROOT_FS()));
     }
 
@@ -57,6 +58,20 @@ public class VirtualDiskTest {
         assertEquals(size,testDisk.getSize());
     }
 
+    @Test
+    public void testgetCurrentdir(){
+        currentdir = testDisk.getCurrentDir();
+     assertEquals(currentdir,testDisk.getCurrentDir());
+
+    }
+
+    @Test
+    public void testsetCurrentdir(){
+        currentdir = new VFSDirectory("root/2nd","3rd",new Date());
+        testDisk.setCurrentDir(currentdir);
+        currentdir= testDisk.getCurrentDir();
+        assertEquals(currentdir,testDisk.getCurrentDir());
+    }
     @After
     public void tarDown(){
         testDisk = null;

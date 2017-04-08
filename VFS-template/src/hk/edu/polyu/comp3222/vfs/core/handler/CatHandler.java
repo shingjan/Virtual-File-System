@@ -15,7 +15,7 @@ public class CatHandler extends ResponseHandler{
         //ioService.printLine(cmd[1]);
         VFSunit tempUnit;
         VFSFile tempFile;
-        if(cmd.length < 1){
+        if(cmd.length < 2 ){
             ioService.printLine("cat command requires at least one argument");
         }else {
             String[] searchPath = cmd[1].split("/");
