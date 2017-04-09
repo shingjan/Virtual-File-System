@@ -35,8 +35,8 @@ public class VFSFileTest {
 
 @Test
 public void testGetItem(){
-      myfile.list(true,myios);
-      assertEquals(myfile,myfile.getItem(new String[]{"ls"},myios));
+      //myfile.list(true,myios);
+      assertEquals(myfile,myfile.getItem(new String[]{"ls"}));
 }
 
 @Test

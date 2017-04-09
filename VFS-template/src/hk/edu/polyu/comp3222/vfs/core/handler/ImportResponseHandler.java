@@ -1,6 +1,7 @@
 package hk.edu.polyu.comp3222.vfs.core.handler;
 
 
+import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
 import hk.edu.polyu.comp3222.vfs.Util.IOService;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSFile;
@@ -16,14 +17,14 @@ import java.util.Date;
  */
 public class ImportResponseHandler extends ResponseHandler{
     @Override
-    public VFSunit handlerResponse(String [] cmd, VisualDisk currentDisk, VFSDirectory Root, VFSDirectory CurrentDir, IOService ioService){
-        ioService.printLine("This is the import handler");
-        this.saveState(cmd, currentDisk, Root, CurrentDir, ioService);
+    public VFSunit handlerResponse(String [] cmd, VisualDisk currentDisk, VFSDirectory Root, VFSDirectory CurrentDir){
+        ConsoleIO.printLine("This is the import handler");
+        this.saveState(cmd, currentDisk, Root, CurrentDir);
         byte[] content = readFile(cmd[1]);
-        ioService.printLine(new String(content));
+        ConsoleIO.printLine(new String(content));
         VFSFile newFile = new VFSFile(CurrentDir.getPath(), cmd[1], new Date(),content);
         CurrentDir.getDirContent().put(newFile.getPath(), newFile);
-        return this.saveState(cmd, currentDisk, Root, CurrentDir, ioService);
+        return this.saveState(cmd, currentDisk, Root, CurrentDir);
     }
 
     /**

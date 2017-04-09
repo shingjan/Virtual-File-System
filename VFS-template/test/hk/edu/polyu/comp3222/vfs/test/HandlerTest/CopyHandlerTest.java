@@ -31,25 +31,24 @@ public class CopyHandlerTest {
         mydisk = new VisualDisk("test","test",13224);
         mydisk.initializeFileSystem();
         myhandler = new CopyResponseHandler();
-        myios = new ConsoleIO();
     }
 
 @Test
     public void testcopy(){
     cmd = new String[]{"cp"};
-    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
     cmd = new String[]{"cp","file3","file3"};
-    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
     cmd = new String[]{"cp","file3","1st/file3"};
-    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
     cmd = new String[]{"cp","file4","root/"};
-    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
     cmd = new String[]{"cp","file3","file565"};
-    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
     cmd = new String[]{"cp","1st","5th"};
-    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
     cmd = new String[]{"cp","5th","2nd/new"};
-    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
 }
 
 

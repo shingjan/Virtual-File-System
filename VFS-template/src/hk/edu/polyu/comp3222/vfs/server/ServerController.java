@@ -17,7 +17,7 @@ import java.util.Map;
  */
 public class ServerController {
 
-    private IOService ioService = new ConsoleIO();
+
     private ServerSocket serversocket;
     private Socket client;
     private int bytesRead;
@@ -45,7 +45,6 @@ public class ServerController {
         themap.put("remove", new RemoveHandler());
         themap.put("rename", new RenameHandler());
         themap.put("query", new QueryHandler());
-        themap.put("save", new SaveHandler());
         themap.put("help", new HelpHandler());
         themap.put("quit", new QuitResponseHandler());
     }
@@ -122,7 +121,7 @@ public class ServerController {
                 boot(testSystem, cmdStack);
 
                 //sth
-                ioService.printLine("sync finished");
+                ConsoleIO.printLine("sync finished");
                 break;
             }
         }
@@ -143,28 +142,28 @@ public class ServerController {
 
         /*------------------run normal CLI----------------------------*/
         String[] cmd_segments;
-        ioService = new ConsoleIO();
-        ioService.printLine(disk.getName());
+
+        ConsoleIO.printLine(disk.getName());
         while (true){
-            ioService.printLine("Current Working Directory is:");
-            ioService.printLine(disk.getCurrentDir().getPath());
-            cmd_segments = ioService.readLine("-->").split(" ");
+            ConsoleIO.printLine("Current Working Directory is:");
+            ConsoleIO.printLine(disk.getCurrentDir().getPath());
+            cmd_segments = ConsoleIO.readLine("-->").split(" ");
             ResponseHandler cmd = themap.get(cmd_segments[0]);
             if(cmd_segments[0].equals("save")){
-                ioService.printLine("File system saved!");
+                ConsoleIO.printLine("File system saved!");
                 break;
             }
 
             /*-------------------command line implementation--------------------------*/
             if(cmd != null){
-                disk.setCurrentDir((VFSDirectory) cmd.handlerResponse(cmd_segments, disk,disk.getROOT_FS(), disk.getCurrentDir(), ioService));
-                commandStack.add(cmd);
+                disk.setCurrentDir((VFSDirectory) cmd.handlerResponse(cmd_segments, disk,disk.getROOT_FS(), disk.getCurrentDir()));
+                //commandStack.add(cmd);
                 if(disk.getCurrentDir() == null){
                     System.exit(0);
                 }
-                ioService.printLine(String.valueOf(commandStack.size()));
+                //ioService.printLine(String.valueOf(commandStack.size()));
             }else{
-                ioService.printLine("wrong command, try again");
+                ConsoleIO.printLine("wrong command, try again");
             }
 
         }

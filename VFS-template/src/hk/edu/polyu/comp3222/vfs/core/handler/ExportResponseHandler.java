@@ -1,6 +1,6 @@
 package hk.edu.polyu.comp3222.vfs.core.handler;
 
-import hk.edu.polyu.comp3222.vfs.Util.IOService;
+import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSFile;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSunit;
@@ -14,55 +14,53 @@ import java.io.IOException;
  */
 public class ExportResponseHandler extends ResponseHandler{
     @Override
-    public VFSunit handlerResponse(String [] cmd, VisualDisk disk, VFSDirectory Root, VFSDirectory CurrentDir, IOService ioService){
-        ioService.printLine("This is the export handler");
+    public VFSunit handlerResponse(String [] cmd, VisualDisk disk, VFSDirectory Root, VFSDirectory CurrentDir){
+        ConsoleIO.printLine("This is the export handler");
         if(cmd.length != 2){
-            ioService.printLine("export command expects one argument");
+            ConsoleIO.printLine("export command expects one argument");
             return null;
         }
 
-        VFSunit tempFile = CurrentDir.getItem(cmd[1].split("/"), ioService);
+        VFSunit tempFile = CurrentDir.getItem(cmd[1].split("/"));
 
-        ioService.printLine(tempFile.getClass().toString());
+        ConsoleIO.printLine(tempFile.getClass().toString());
         if(tempFile == null){
-            ioService.printLine("no such file found!");
+            ConsoleIO.printLine("no such file found!");
         }else {
             if (tempFile.getClass() == VFSDirectory.class) {
-                createDirectory((VFSDirectory) tempFile, ioService);
+                createDirectory((VFSDirectory) tempFile);
             } else {
-                createFile((VFSFile) tempFile, ioService);
+                createFile((VFSFile) tempFile);
             }
         }
 
-        return this.saveState(cmd, disk, Root, CurrentDir, ioService);
+        return this.saveState(cmd, disk, Root, CurrentDir);
     }
 
     /**
      * create file in host file system
      * @param outFile Virtual file to be exported
-     * @param ioService IOserver for this method
      */
-    public void createFile(VFSFile outFile, IOService ioService){
+    public void createFile(VFSFile outFile){
         String tempPath = "host/" + outFile.getPath();
         File tempFile = new File(tempPath);
         try {
             tempFile.getParentFile().mkdirs();
             tempFile.createNewFile();
         }catch (IOException e){
-            ioService.printLine("create file failed, action abort.");
+            ConsoleIO.printLine("create file failed, action abort.");
         }
     }
 
     /**
      * create directory in host file system
      * @param outDir virtual directory to be exported
-     * @param ioService IOserver for this method
      */
-    public void createDirectory(VFSDirectory outDir, IOService ioService){
+    public void createDirectory(VFSDirectory outDir){
         String tempPath = "host/" + outDir.getPath();
         File tempDir = new File(tempPath);
         if (!tempDir.exists()) {
-            ioService.printLine("creating directory in host/: " + tempDir.getName());
+            ConsoleIO.printLine("creating directory in host/: " + tempDir.getName());
             boolean result = false;
 
             try{
@@ -71,13 +69,13 @@ public class ExportResponseHandler extends ResponseHandler{
             }
             catch(SecurityException se){
                 //handle it
-                ioService.printLine("create directory failed");
+                ConsoleIO.printLine("create directory failed");
             }
             if(result) {
-                ioService.printLine("DIR created");
+                ConsoleIO.printLine("DIR created");
             }
         }else{
-            ioService.printLine("directory already exists. Operation abort");
+            ConsoleIO.printLine("directory already exists. Operation abort");
         }
     }
 }

@@ -14,7 +14,6 @@ import java.util.*;
  */
 public class ClientController {
 
-    private IOService ioService = new ConsoleIO();
     private Socket socket;
     private BufferedReader read;
     private PrintWriter output;
@@ -40,7 +39,6 @@ public class ClientController {
         themap.put("remove", new RemoveHandler());
         themap.put("rename", new RenameHandler());
         themap.put("query", new QueryHandler());
-        //themap.put("save", new SaveHandler());
         themap.put("help", new HelpHandler());
         themap.put("quit", new QuitResponseHandler());
     }
@@ -59,14 +57,14 @@ public class ClientController {
         output = new PrintWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
 
         //prompt for user name
-        String inputUsername = ioService.readLine("Please input your username: ");
+        String inputUsername = ConsoleIO.readLine("Please input your username: ");
 
 
         //send user name to server
         output.println(inputUsername);
 
         //prompt for password
-        String inputPasswd = ioService.readLine("Please input your password: ");
+        String inputPasswd = ConsoleIO.readLine("Please input your password: ");
 
         //send password to server
         output.println(inputPasswd);
@@ -97,8 +95,8 @@ public class ClientController {
         boot(currentDisk);
 
         Serializable cmdStack = commandStack;
-        outToServer.writeObject(cmdStack);
-        ioService.printLine("File system saved!");
+        outToServer.writeObject(commandStack);
+        ConsoleIO.printLine("File system saved!");
 
         inFromServer.close();
         outToServer.close();
@@ -125,12 +123,11 @@ public class ClientController {
      */
     public VisualDisk boot(VisualDisk disk){
         String[] cmd_segments;
-        ioService = new ConsoleIO();
-        ioService.printLine(disk.getName());
+        ConsoleIO.printLine(disk.getName());
         while (true){
             //ioService.printLine("Current Working Directory is:");
             //ioService.printLine(disk.getCurrentDir().getPath());
-            cmd_segments = ioService.readLine("-->").split(" ");
+            cmd_segments = ConsoleIO.readLine("-->").split(" ");
             ResponseHandler cmd = themap.get(cmd_segments[0]);
             if(cmd_segments[0].equals("save")){
                 //SerializationController.getInstance().serialize(this);
@@ -141,14 +138,14 @@ public class ClientController {
             /*-------------------command line implementation--------------------------*/
             if(cmd != null){
 
-                disk.setCurrentDir((VFSDirectory) cmd.handlerResponse(cmd_segments, disk,disk.getROOT_FS(), disk.getCurrentDir(), ioService));
+                disk.setCurrentDir((VFSDirectory) cmd.handlerResponse(cmd_segments, disk,disk.getROOT_FS(), disk.getCurrentDir()));
                 commandStack.add(cmd);
                 if(disk.getCurrentDir() == null){
                     System.exit(0);
                 }
-                ioService.printLine(String.valueOf(commandStack.size()));
+                ConsoleIO.printLine(String.valueOf(commandStack.size()));
             }else{
-                ioService.printLine("wrong command, try again");
+                ConsoleIO.printLine("wrong command, try again");
             }
 
         }

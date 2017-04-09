@@ -29,15 +29,14 @@ public class CreatHandlerTest {
         mydisk = new VisualDisk("test","test",13224);
         mydisk.initializeFileSystem();
         myhandler = new CreateHandler();
-        myios = new ConsoleIO();
     }
 
     @Test
     public void testcreate(){
         cmd = new String[]{"touch"};
-        myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+        myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
         cmd = new String[]{"touch","myfile666","hi"};
-        myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+        myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
     }
 
 }

@@ -30,7 +30,7 @@ public class VFSFile extends VFSunit {
     }
 
     @Override
-    public VFSunit getItem(String cmd[], IOService ioService){
+    public VFSunit getItem(String cmd[]){
         return this;
     }
 

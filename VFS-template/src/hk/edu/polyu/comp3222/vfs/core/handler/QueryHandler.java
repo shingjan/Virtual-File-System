@@ -1,6 +1,6 @@
 package hk.edu.polyu.comp3222.vfs.core.handler;
 
-import hk.edu.polyu.comp3222.vfs.Util.IOService;
+import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSunit;
@@ -15,15 +15,15 @@ import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
  */
 public class QueryHandler extends ResponseHandler{
     @Override
-    public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory root, VFSDirectory CurrentDir, IOService ioService){
+    public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory root, VFSDirectory CurrentDir){
         String fileName = null;
-        this.saveState(cmd, currentDisk, root, CurrentDir, ioService);
+        this.saveState(cmd, currentDisk, root, CurrentDir);
         if (cmd.length != 1) {
-            ioService.printLine("Query command requires no arguments since it only query the whole disk");
+            ConsoleIO.printLine("Query command requires no arguments since it only query the whole disk");
             return CurrentDir;
         }
 
-        ioService.printLine(String.valueOf(root.getSize()) + "/" +String.valueOf(currentDisk.getSize()));
-        return this.saveState(cmd, currentDisk, root, CurrentDir, ioService);
+        ConsoleIO.printLine(String.valueOf(root.getSize()) + "/" +String.valueOf(currentDisk.getSize()));
+        return this.saveState(cmd, currentDisk, root, CurrentDir);
     }
 }

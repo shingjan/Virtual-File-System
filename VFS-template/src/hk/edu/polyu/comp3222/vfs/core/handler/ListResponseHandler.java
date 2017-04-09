@@ -10,8 +10,8 @@ import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
  */
 public class ListResponseHandler extends ResponseHandler{
     @Override
-    public VFSunit handlerResponse(String[] cmd, VisualDisk disk, VFSDirectory Root, VFSDirectory CurrentDir, IOService ioService){
-        CurrentDir.list(true,  ioService);
-        return this.saveState(cmd, disk, Root, CurrentDir, ioService);
+    public VFSunit handlerResponse(String[] cmd, VisualDisk disk, VFSDirectory Root, VFSDirectory CurrentDir){
+        CurrentDir.list(true);
+        return this.saveState(cmd, disk, Root, CurrentDir);
     }
 }

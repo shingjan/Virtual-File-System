@@ -1,5 +1,6 @@
 package hk.edu.polyu.comp3222.vfs.core.vfs;
 
+import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
 import hk.edu.polyu.comp3222.vfs.Util.IOService;
 
 import java.util.*;
@@ -30,7 +31,7 @@ public class VFSDirectory extends VFSunit {
     }
 
     //@Override
-    public void list(boolean detailed,  IOService ioservice) {
+    public void list(boolean detailed) {
         final StringBuilder sb = new StringBuilder();
 /*
         if (!noTree) {
@@ -49,7 +50,7 @@ public class VFSDirectory extends VFSunit {
 
         while (iterator.hasNext()) {
             fileSystemUnit = iterator.next().getValue();
-            ioservice.printLine(fileSystemUnit.toString());
+            ConsoleIO.printLine(fileSystemUnit.toString());
 
         }
     }
@@ -68,21 +69,21 @@ public class VFSDirectory extends VFSunit {
     }
 
     @Override
-    public VFSunit getItem(String[] itemname, IOService ioservice){
+    public VFSunit getItem(String[] itemname){
         //final Iterator<Map.Entry<String, VFSunit>> iterator = dirContent.entrySet().iterator();
         VFSunit fileSystemUnit;
         int level = 0;
         for (String key:dirContent.keySet()) {
 
             fileSystemUnit = dirContent.get(key);
-            //ioservice.printLine(fileSystemUnit.getName());
+
             if (fileSystemUnit.getName().equals(itemname[level])) {
-                //ioservice.printLine(String.valueOf(itemname.length));
+
                 if(itemname.length == level + 1){
                     return fileSystemUnit;
                 }else{
                     String[] newItemName = Arrays.copyOfRange(itemname, level, itemname.length);
-                    return fileSystemUnit.getItem(newItemName, ioservice);
+                    return fileSystemUnit.getItem(newItemName);
                 }
             }
             //break;

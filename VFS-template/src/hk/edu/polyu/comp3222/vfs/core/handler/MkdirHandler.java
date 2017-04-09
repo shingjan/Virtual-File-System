@@ -1,6 +1,6 @@
 package hk.edu.polyu.comp3222.vfs.core.handler;
 
-import hk.edu.polyu.comp3222.vfs.Util.IOService;
+import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSunit;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
@@ -12,15 +12,15 @@ import java.util.Date;
  */
 public class MkdirHandler extends ResponseHandler{
     @Override
-    public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory root, VFSDirectory CurrentDir, IOService ioService){
-        ioService.printLine("This is the mkdir handler.");
-        this.saveState(cmd, currentDisk, root, CurrentDir, ioService);
+    public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory root, VFSDirectory CurrentDir){
+        ConsoleIO.printLine("This is the mkdir handler.");
+        //this.saveState(cmd, currentDisk, root, CurrentDir);
         if(cmd.length != 2){
-            ioService.printLine("mkdir command requires at least/most one argument");
+            ConsoleIO.printLine("mkdir command requires one argument");
+        }else {
+            VFSDirectory newDir = new VFSDirectory(CurrentDir.getPath(), cmd[1], new Date());
+            CurrentDir.getDirContent().put(newDir.getPath(), newDir);
         }
-
-        VFSDirectory newDir = new VFSDirectory(CurrentDir.getPath(), cmd[1], new Date());
-        CurrentDir.getDirContent().put(newDir.getPath(), newDir);
-        return this.saveState(cmd, currentDisk, root, CurrentDir, ioService);
+        return this.saveState(cmd, currentDisk, root, CurrentDir);
     }
 }

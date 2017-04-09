@@ -1,5 +1,6 @@
 package hk.edu.polyu.comp3222.vfs.core.handler;
 
+import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
 import hk.edu.polyu.comp3222.vfs.Util.IOService;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSFile;
@@ -11,28 +12,28 @@ import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
  */
 public class CatHandler extends ResponseHandler{
     @Override
-    public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory root, VFSDirectory CurrentDir, IOService ioService){
+    public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory root, VFSDirectory CurrentDir){
         //ioService.printLine(cmd[1]);
         VFSunit tempUnit;
         VFSFile tempFile;
         if(cmd.length < 2 ){
-            ioService.printLine("cat command requires at least one argument");
+            ConsoleIO.printLine("cat command requires at least one argument");
         }else {
             String[] searchPath = cmd[1].split("/");
-            tempUnit = CurrentDir.getItem(searchPath, ioService);
+            tempUnit = CurrentDir.getItem(searchPath);
             if (tempUnit == null) {
-                ioService.printLine("No such file exists in current working directory");
+                ConsoleIO.printLine("No such file exists in current working directory");
             } else {
                 if (tempUnit.getClass() == VFSDirectory.class) {
-                    ioService.printLine("Target file is a directory. cat command not applicable");
+                    ConsoleIO.printLine("Target file is a directory. cat command not applicable");
                 }else {
                     tempFile = (VFSFile) tempUnit;
-                    ioService.printLine(tempFile.getContent());
+                    ConsoleIO.printLine(tempFile.getContent());
                 }
 
             }
         }
-        return this.saveState(cmd, currentDisk, root, CurrentDir, ioService);
+        return this.saveState(cmd, currentDisk, root, CurrentDir);
 
     }
 }

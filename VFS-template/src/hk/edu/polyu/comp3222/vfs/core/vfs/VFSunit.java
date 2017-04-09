@@ -79,10 +79,9 @@ public abstract class VFSunit implements Serializable{
     /**
      * retrive VFSunit from a path
      * @param itemName name array of this target item
-     * @param ioservice IOservice for this method
      * @return retrived VFS unit from the path
      */
-    public abstract VFSunit getItem(String[] itemName, IOService ioservice);
+    public abstract VFSunit getItem(String[] itemName);
 
 
     @Override

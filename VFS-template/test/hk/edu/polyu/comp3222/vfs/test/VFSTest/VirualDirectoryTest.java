@@ -18,7 +18,6 @@ import static org.junit.Assert.*;
 
 public class VirualDirectoryTest {
     private VFSDirectory mydir;
-    private IOService myios;
     private VFSDirectory otherdir;
     private VFSunit otherunit;
     private VFSFile myfile;
@@ -32,12 +31,12 @@ public class VirualDirectoryTest {
 
     @Test
     public void Testlist() throws NullPointerException{
-        myios = new ConsoleIO();
-        mydir.list(true,myios);
-        mydir.list(false,myios);
+
+        mydir.list(true);
+        mydir.list(false);
         myfile = new VFSFile("root/","foo",new Date(),"foo".getBytes());
         mydir.getDirContent().put(myfile.getPath(), myfile);
-        mydir.list(true,myios);
+        mydir.list(true);
     }
 
     @Test
@@ -61,8 +60,8 @@ public class VirualDirectoryTest {
         mydir.getDirContent().put(myfile.getPath(), myfile);
         VFSDirectory mydir2 = new VFSDirectory("root/", "1st", new Date());
         mydir.getDirContent().put(mydir2.getPath(), mydir2);
-        assertEquals(myfile,mydir.getItem(new String[]{"foo"},myios));
-        assertEquals(null,mydir.getItem(new String[]{"foo123"},myios));
+        assertEquals(myfile,mydir.getItem(new String[]{"foo"}));
+        assertEquals(null,mydir.getItem(new String[]{"foo123"}));
         myfile = new VFSFile(mydir2.getPath(),"foo345",new Date(),"foo".getBytes());
         mydir2.getDirContent().put(myfile.getPath(), myfile);
        /* assertEquals(myfile,mydir.getItem(new String[]{"root", "1st","foo345"},myios));*/

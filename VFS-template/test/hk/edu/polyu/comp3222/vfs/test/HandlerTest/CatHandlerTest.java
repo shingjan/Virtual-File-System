@@ -24,7 +24,6 @@ import static org.junit.Assert.*;
 public class CatHandlerTest {
     private VisualDisk mydisk;
     private CatHandler myhandler;
-    private IOService myios;
     private String[] cmd;
 
 
@@ -35,19 +34,18 @@ public class CatHandlerTest {
 
         cmd = new String[]{"cat","file3"};
         myhandler = new CatHandler();
-        myios = new ConsoleIO();
 
     }
 
 @Test
     public void testcat(){
-    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
     cmd = new String[]{"cat","1st"};
-    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
     cmd = new String[]{"cat","1st111"};
-    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
     cmd = new String[]{"cat"};
-    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir(),myios);
+    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
     }
 
 @After
