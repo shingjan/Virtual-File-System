@@ -33,11 +33,7 @@ public class VFSFileTest {
         assertEquals(content,myfile.getContent());
 }
 
-@Test
-public void testGetItem(){
-      //myfile.list(true,myios);
-      assertEquals(myfile,myfile.getItem(new String[]{"ls"}));
-}
+
 
 @Test
 public void testtoString(){

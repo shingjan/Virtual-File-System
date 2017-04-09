@@ -60,7 +60,6 @@ public class VFSDirectory extends VFSunit {
         return dirContent.equals(that.getDirContent());
     }
 
-    @Override
     public VFSunit getItem(String[] itemname){
         //final Iterator<Map.Entry<String, VFSunit>> iterator = dirContent.entrySet().iterator();
         VFSunit fileSystemUnit;
@@ -74,8 +73,11 @@ public class VFSDirectory extends VFSunit {
                 if(itemname.length == level + 1){
                     return fileSystemUnit;
                 }else{
+                    level++;
+
                     String[] newItemName = Arrays.copyOfRange(itemname, level, itemname.length);
-                    return fileSystemUnit.getItem(newItemName);
+                    VFSDirectory tempDir = (VFSDirectory) fileSystemUnit;
+                    return tempDir.getItem(newItemName);
                 }
             }
             //break;
@@ -111,6 +113,7 @@ public class VFSDirectory extends VFSunit {
 
         // if not, deep check every single entry in the current directory
         for (VFSunit value : root.getDirContent().values()) {
+            ConsoleIO.printLine(value.getPath());
             if (value.getClass() == VFSDirectory.class) {
                 fileSystemUnit = getItemByPath(path, (VFSDirectory) value);
             } else {

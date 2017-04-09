@@ -135,10 +135,13 @@ public class ClientController {
                 return "delete";
             }else if(cmd_segments[0].equals("online")) {
                 online = true;
+                continue;
             }else if(cmd_segments[0].equals("offline")) {
                 online = false;
-            }else{
+                continue;
+            }else if((cmd_segments[0].equals("save") | cmd_segments[0].equals("delete")) && !online){
                 ConsoleIO.printLine("save & delete are not applicable in offline mode");
+                continue;
             }
 
             /*-------------------command line implementation--------------------------*/

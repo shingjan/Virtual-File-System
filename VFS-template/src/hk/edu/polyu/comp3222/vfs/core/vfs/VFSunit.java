@@ -79,13 +79,6 @@ public abstract class VFSunit implements Serializable{
         return dateFormat.format(dateCreated);
     }
 
-    /**
-     * retrive VFSunit from a path
-     * @param itemName name array of this target item
-     * @return retrived VFS unit from the path
-     */
-    public abstract VFSunit getItem(String[] itemName);
-
 
     @Override
     public boolean equals(Object o) {

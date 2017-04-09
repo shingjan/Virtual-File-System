@@ -29,11 +29,6 @@ public class VFSFile extends VFSunit {
         return s;
     }
 
-    @Override
-    public VFSunit getItem(String cmd[]){
-        return this;
-    }
-
 
     @Override
     public int getSize(){
