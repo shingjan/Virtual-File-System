@@ -27,8 +27,6 @@ public class ServerController {
     //private BufferedReader input;
     //private PrintWriter output;
     private final int PORT_NO = 5000;
-    private final int DISK_SIZE = 5000;
-
 
     /**
      * start the connection from server side
@@ -104,7 +102,7 @@ public class ServerController {
             }
         }
         output.flush();
-        //output.close();
+        output.close();
     }
 
     /**
@@ -118,20 +116,30 @@ public class ServerController {
         System.out.println("Socket Extablished...");
         ObjectOutputStream outToClient = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream inFromClient = new ObjectInputStream(socket.getInputStream());
+        //BufferedReader finalInput = new BufferedReader(new InputStreamReader(client.getInputStream()));
 
         System.out.println("make sure I sent the object"+testSystem.getName());
         outToClient.writeObject(testSystem);
 
         while(true){
-            LinkedList<ResponseHandler> cmdStack = (LinkedList<ResponseHandler>) inFromClient.readObject();
-            if(cmdStack != null){
-                for(ResponseHandler e : cmdStack){
-                    testSystem.setCurrentDir((VFSDirectory) e.handlerOnServer());
+            try {
+                LinkedList<ResponseHandler> cmdStack = (LinkedList<ResponseHandler>) inFromClient.readObject();
+                //String finalCmd = (String) finalInput.readLine();
+                if (cmdStack != null) {
+                    for (ResponseHandler e : cmdStack) {
+                        testSystem.setCurrentDir((VFSDirectory) e.handlerOnServer());
+                    }
+                    //ClientController.boot(testSystem);
+                    SerializationController.getInstance().serialize(testSystem);
+                    //sth
+                    ConsoleIO.printLine("sync finished");
+                    break;
+                } else {
+                    SerializationController.getInstance().deleteVFS(testSystem.getName());
+                    ConsoleIO.printLine("delete finished");
                 }
-                //ClientController.boot(testSystem);
-                SerializationController.getInstance().serialize(testSystem);
-                //sth
-                ConsoleIO.printLine("sync finished");
+            }catch (EOFException e){
+                ConsoleIO.printLine("EOFexception handled");
                 break;
             }
         }

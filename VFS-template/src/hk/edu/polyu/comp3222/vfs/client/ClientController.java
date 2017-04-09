@@ -19,6 +19,7 @@ public class ClientController {
     private PrintWriter output;
     private static LinkedList<ResponseHandler> commandStack = new LinkedList<>();
     private final int PORT = 5000;
+    private static boolean online = true;
 
     /**
      * create the map for retriveing responsehandler while avoid multi-(if else)s
@@ -66,7 +67,7 @@ public class ClientController {
         String authenticateResponse = read.readLine();
         ConsoleIO.printLine(authenticateResponse);
         while(true) {
-            if (authenticateResponse.equals("User not existed, you may create a new one by: ")) {
+            if (authenticateResponse.equals("User not existed, you may create a new one:")) {
                 String newpasswd = ConsoleIO.readLine("please input new password for " + inputUsername + " ");
                 output.println(newpasswd);
                 String newDiskSize = ConsoleIO.readLine("please input size for this new disk: ");
@@ -95,13 +96,18 @@ public class ClientController {
     public VisualDisk receiveInstance(Socket clientSocket) throws IOException, ClassNotFoundException{
         ObjectOutputStream outToServer = new ObjectOutputStream(clientSocket.getOutputStream());
         ObjectInputStream inFromServer = new ObjectInputStream(clientSocket.getInputStream());
+        //PrintWriter finalOutput = new PrintWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
 
         VisualDisk currentDisk = (VisualDisk) inFromServer.readObject();
-        boot(currentDisk);
-
-        Serializable cmdStack = commandStack;
-        outToServer.writeObject(commandStack);
-        ConsoleIO.printLine("File system saved!");
+        String serverCmd = boot(currentDisk);
+        if(serverCmd.equals("save")) {
+            Serializable cmdStack = commandStack;
+            outToServer.writeObject(commandStack);
+            ConsoleIO.printLine("File system saved!");
+        }else if(serverCmd.equals("delete")){
+            outToServer.writeObject(null);
+            ConsoleIO.printLine("File system deleted!");
+        }
 
         inFromServer.close();
         outToServer.close();
@@ -113,7 +119,7 @@ public class ClientController {
      * @param disk the visual disk to be booted
      * @return modified visual disk or null
      */
-    public static VisualDisk boot(VisualDisk disk){
+    public static String boot(VisualDisk disk){
         String[] cmd_segments;
         ConsoleIO.printLine(disk.getName());
         while (true){
@@ -121,8 +127,18 @@ public class ClientController {
             ConsoleIO.printLine(disk.getCurrentDir().getPath());
             cmd_segments = ConsoleIO.readLine("-->").split(" ");
             ResponseHandler cmd = themap.get(cmd_segments[0]);
-            if(cmd_segments[0].equals("save")){
-                break;
+
+            //save command for server
+            if(cmd_segments[0].equals("save") && online){
+                return "save";
+            }else if(cmd_segments[0].equals("delete") && online){
+                return "delete";
+            }else if(cmd_segments[0].equals("online")) {
+                online = true;
+            }else if(cmd_segments[0].equals("offline")) {
+                online = false;
+            }else{
+                ConsoleIO.printLine("save & delete are not applicable in offline mode");
             }
 
             /*-------------------command line implementation--------------------------*/
@@ -131,7 +147,7 @@ public class ClientController {
                 disk.setCurrentDir((VFSDirectory) cmd.handlerResponse(cmd_segments, disk,disk.getROOT_FS(), disk.getCurrentDir()));
                 commandStack.add(cmd);
                 if(disk.getCurrentDir() == null){
-                    System.exit(0);
+                    return "save";
                 }
                 //ConsoleIO.printLine(String.valueOf(commandStack.size()));
             }else{
@@ -139,7 +155,7 @@ public class ClientController {
             }
 
         }
-        return null;
+        //return null;
     }
 
     /**

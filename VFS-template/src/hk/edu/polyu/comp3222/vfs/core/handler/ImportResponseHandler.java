@@ -24,7 +24,7 @@ public class ImportResponseHandler extends ResponseHandler{
         this.saveState(cmd, currentDisk, Root, CurrentDir);
         if(cmd.length == 2) {
             byte[] content = readFile(cmd[1]);
-            ConsoleIO.printLine(new String(content));
+            //ConsoleIO.printLine(new String(content));
             VFSFile newFile = new VFSFile(CurrentDir.getPath(), cmd[1], new Date(), content);
             CurrentDir.getDirContent().put(newFile.getPath(), newFile);
             return this.saveState(cmd, currentDisk, Root, CurrentDir);

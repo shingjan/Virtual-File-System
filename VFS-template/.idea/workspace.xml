@@ -47,8 +47,8 @@
       <file leaf-file-name="ServerController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/server/ServerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1950">
-              <caret line="130" column="18" selection-start-line="130" selection-start-column="18" selection-end-line="130" selection-end-column="18" />
+            <state relative-caret-position="345">
+              <caret line="142" column="21" selection-start-line="142" selection-start-column="21" selection-end-line="142" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,8 +59,20 @@
       <file leaf-file-name="ClientController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/client/ClientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="132" column="49" selection-start-line="132" selection-start-column="49" selection-end-line="132" selection-end-column="49" />
+            <state relative-caret-position="150">
+              <caret line="140" column="16" selection-start-line="140" selection-start-column="16" selection-end-line="140" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImportResponseHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/ImportResponseHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,8 +93,8 @@
       <file leaf-file-name="SerializationController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/controller/SerializationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="47" column="51" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
+            <state relative-caret-position="1275">
+              <caret line="87" column="21" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -138,7 +150,6 @@
         <option value="$PROJECT_DIR$/test/hk/edu/polyu/comp3222/vfs/test/CoreTest.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/Util/StubIO.java" />
         <option value="$PROJECT_DIR$/test/hk/edu/polyu/comp3222/vfs/test/VirtualDiskTest.java" />
-        <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/controller/SerializationController.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/SaveHandler.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/Util/IOService.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/CopyResponseHandler.java" />
@@ -164,12 +175,13 @@
         <option value="$PROJECT_DIR$/test/hk/edu/polyu/comp3222/vfs/test/HandlerTest/ImportHandlerTest.java" />
         <option value="$PROJECT_DIR$/test/hk/edu/polyu/comp3222/vfs/test/HandlerTest/ExportHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/ExportResponseHandler.java" />
-        <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/ImportResponseHandler.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/ResponseHandler.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/vfs/VFSDirectory.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/Util/ConsoleIO.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/vfs/VisualDisk.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/vfs/VFSunit.java" />
+        <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/ImportResponseHandler.java" />
+        <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/controller/SerializationController.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/server/ServerController.java" />
         <option value="$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/client/ClientController.java" />
       </list>
@@ -245,68 +257,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="VFS-template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VFS-template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VFS-template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VFS-template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VFS-template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VFSTest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VFS-template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VFS-template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HandlerTest" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -401,6 +351,10 @@
               <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="handler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -453,6 +407,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="host" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VFS-template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VFS-template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1131,7 +1099,7 @@
       <workItem from="1491553424234" duration="25678000" />
       <workItem from="1491657262803" duration="9113000" />
       <workItem from="1491722141615" duration="3759000" />
-      <workItem from="1491726157742" duration="2541000" />
+      <workItem from="1491726157742" duration="5266000" />
     </task>
     <servers />
   </component>
@@ -1168,7 +1136,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100647000" />
+    <option name="totallyTimeSpent" value="103372000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1181,7 +1149,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29614875" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29216468" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1261,13 +1229,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/hk/edu/polyu/comp3222/vfs/test/VirtualDiskTest.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/src.zip!/java/io/ObjectInputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-568">
-          <caret line="1378" column="0" selection-start-line="1378" selection-start-column="0" selection-end-line="1378" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/Util/StubIO.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/src.zip!/java/io/ObjectOutputStream.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1296,6 +1257,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="48" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1303,6 +1265,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1310,6 +1275,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1392,13 +1360,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/MoveResponseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1415,6 +1376,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1430,6 +1394,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
           <caret line="20" column="59" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1455,6 +1422,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-437">
           <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1492,25 +1460,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/ImportResponseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/hk/edu/polyu/comp3222/vfs/test/HandlerTest/ExportHandlerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="46" column="38" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/controller/SerializationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="47" column="51" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
           <folding />
         </state>
       </provider>
@@ -1545,10 +1498,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/MoveResponseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-285">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/core/handler/ImportResponseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/controller/SerializationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="87" column="21" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/src.zip!/java/io/ObjectInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="370" column="0" selection-start-line="370" selection-start-column="0" selection-end-line="370" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/server/ServerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1950">
-          <caret line="130" column="18" selection-start-line="130" selection-start-column="18" selection-end-line="130" selection-end-column="18" />
+        <state relative-caret-position="345">
+          <caret line="142" column="21" selection-start-line="142" selection-start-column="21" selection-end-line="142" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1557,8 +1546,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hk/edu/polyu/comp3222/vfs/client/ClientController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="132" column="49" selection-start-line="132" selection-start-column="49" selection-end-line="132" selection-end-column="49" />
+        <state relative-caret-position="150">
+          <caret line="140" column="16" selection-start-line="140" selection-start-column="16" selection-end-line="140" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
