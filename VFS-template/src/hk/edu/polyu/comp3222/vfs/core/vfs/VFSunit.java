@@ -68,7 +68,7 @@ public abstract class VFSunit implements Serializable{
         int nameLength = this.name.length();
         String tempPath = this.path.substring(0, this.getPath().length() - 1 - nameLength);
         this.name = name;
-        this.path = tempPath + name + "/";
+        this.path = tempPath + "/" + name + "/";
     }
 
     /**

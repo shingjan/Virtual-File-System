@@ -128,7 +128,7 @@ public class ClientController {
                 if(disk.getCurrentDir() == null){
                     System.exit(0);
                 }
-                ConsoleIO.printLine(String.valueOf(commandStack.size()));
+               // ConsoleIO.printLine(String.valueOf(commandStack.size()));
             }else{
                 ConsoleIO.printLine("wrong command, try again");
             }
