@@ -9,14 +9,26 @@ public class ConsoleIO {
 
     private static PrintStream output = new PrintStream(System.out);
 
+    /**
+     * print instruction method
+     */
     public static void printInstructions(){
         output.println("This is the instruction!");
     }
 
+    /**
+     * print line method
+     * @param str string to be printed
+     */
     public static void printLine(String str) {
         output.println(str);
     }
 
+    /**
+     * read line method
+     * @param str str to be displayed before read
+     * @return line input from user
+     */
     public static String readLine(String str){
         System.out.print(str);
         Scanner input = new Scanner(System.in);
@@ -24,12 +36,9 @@ public class ConsoleIO {
         return nextLine;
     }
 
-    public static void printConsole(String str, Boolean inline) {
-        if (inline) {
-            System.out.printf("%s", str);
-        }
-    }
-
+    /**
+     * print help method
+     */
     public static void printHelp(){
         System.out.println("This is the help");
     }

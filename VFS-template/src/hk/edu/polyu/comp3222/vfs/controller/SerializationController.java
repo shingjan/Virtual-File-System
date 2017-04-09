@@ -73,4 +73,18 @@ public class SerializationController {
         }
         return null;
     }
+
+    public boolean deleteVFS(String name){
+        try{
+            boolean ifDelete;
+            File file = new File(fsSerializedNamePrefix + name + ".vfs");
+            if (!file.exists() || !file.isFile())
+                return false;
+            ifDelete = file.delete();
+            return ifDelete;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

@@ -33,6 +33,7 @@ public abstract class ResponseHandler implements Serializable{
      * @param cmd cmd array from user input
      * @param root root directory in current visual disk
      * @param CurrentDir current working directory
+     * @param currentDisk current working disk
      * @return current directory after command is handled
      */
     public VFSDirectory saveState(String[] cmd, VisualDisk currentDisk, VFSDirectory root, VFSDirectory CurrentDir){
@@ -44,7 +45,10 @@ public abstract class ResponseHandler implements Serializable{
         return CurrentDir;
     }
 
-
+    /**
+     * handler response on server with pre-saved params
+     * @return modified vfs directory
+     */
     public VFSunit handlerOnServer(){
         return handlerResponse(this.cmd,this.currentDisk, this.root, this.CurrentDir);
     }

@@ -98,4 +98,12 @@ public class VisualDisk implements Serializable{
         this.currentDir = currentDir;
     }
 
+    /**
+     * returnt the password of this visual disk
+     * @return password of this visual disk
+     */
+    public String getPassword(){
+        return this.password;
+    }
+
 }

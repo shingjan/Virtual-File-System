@@ -19,15 +19,12 @@ public class RenameHandler extends ResponseHandler{
             if (tempFile == null) {
                 ConsoleIO.printLine("No such file exists");
                 return this.saveState(cmd, currentDisk, root, CurrentDir);
-            }
-
-            if (CurrentDir.getDirContent().containsValue(tempFile))
+            }else if(CurrentDir.getDirContent().containsValue(tempFile)) {
                 tempFile.setName(cmd[2]);
-            else
-                ConsoleIO.printLine("unknown error, remove action abort");
-        }
-        else
+            }
+        } else {
             ConsoleIO.printLine("You need to input an argument");
+        }
 
         return this.saveState(cmd, currentDisk, root, CurrentDir);
 

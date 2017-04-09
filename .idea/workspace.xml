@@ -22,12 +22,15 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ClientController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ClientController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/VFS-template/src/hk/edu/polyu/comp3222/vfs/client/ClientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-114">
-              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="-235">
+              <caret line="150" column="17" lean-forward="false" selection-start-line="150" selection-start-column="17" selection-end-line="150" selection-end-column="17" />
+              <folding>
+                <marker date="1491732347443" expanded="false" signature="6375:6385" ph=" { " />
+                <marker date="1491732347443" expanded="false" signature="6406:6412" ph=" }" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -44,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServerController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ServerController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VFS-template/src/hk/edu/polyu/comp3222/vfs/server/ServerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="94" column="72" lean-forward="true" selection-start-line="94" selection-start-column="72" selection-end-line="94" selection-end-column="72" />
+            <state relative-caret-position="874">
+              <caret line="120" column="72" lean-forward="true" selection-start-line="120" selection-start-column="72" selection-end-line="120" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -129,8 +132,9 @@
         <option value="$PROJECT_DIR$/VFS-template/src/hk/edu/polyu/comp3222/vfs/core/handler/SearchResponseHandler.java" />
         <option value="$PROJECT_DIR$/VFS-template/test/hk/edu/polyu/comp3222/vfs/test/HandlerTest/SearchHandlerTest.java" />
         <option value="$PROJECT_DIR$/VFS-template/src/hk/edu/polyu/comp3222/vfs/core/vfs/VFSDirectory.java" />
-        <option value="$PROJECT_DIR$/VFS-template/src/hk/edu/polyu/comp3222/vfs/client/ClientController.java" />
         <option value="$PROJECT_DIR$/VFS-template/src/hk/edu/polyu/comp3222/vfs/core/vfs/VFSunit.java" />
+        <option value="$PROJECT_DIR$/VFS-template/src/hk/edu/polyu/comp3222/vfs/server/ServerController.java" />
+        <option value="$PROJECT_DIR$/VFS-template/src/hk/edu/polyu/comp3222/vfs/client/ClientController.java" />
       </list>
     </option>
   </component>
@@ -1314,14 +1318,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VFS-template/src/hk/edu/polyu/comp3222/vfs/client/ClientController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-114">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/VFS-template/src/hk/edu/polyu/comp3222/vfs/core/vfs/VisualDisk.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1334,9 +1330,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/VFS-template/src/hk/edu/polyu/comp3222/vfs/server/ServerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="94" column="72" lean-forward="true" selection-start-line="94" selection-start-column="72" selection-end-line="94" selection-end-column="72" />
+        <state relative-caret-position="874">
+          <caret line="120" column="72" lean-forward="true" selection-start-line="120" selection-start-column="72" selection-end-line="120" selection-end-column="72" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VFS-template/src/hk/edu/polyu/comp3222/vfs/client/ClientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-235">
+          <caret line="150" column="17" lean-forward="false" selection-start-line="150" selection-start-column="17" selection-end-line="150" selection-end-column="17" />
+          <folding>
+            <marker date="1491732347443" expanded="false" signature="6375:6385" ph=" { " />
+            <marker date="1491732347443" expanded="false" signature="6406:6412" ph=" }" />
+          </folding>
         </state>
       </provider>
     </entry>

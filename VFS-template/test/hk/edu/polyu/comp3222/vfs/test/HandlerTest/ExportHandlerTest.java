@@ -44,6 +44,8 @@ public class ExportHandlerTest {
     public void testExport(){
     cmd = new String[]{"export"};
     myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
+    cmd = new String[]{"export","file4"};
+    myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
     cmd = new String[]{"export","file3"};
     myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
     cmd = new String[]{"export","1st"};
