@@ -20,11 +20,16 @@ public class ImportResponseHandler extends ResponseHandler{
     public VFSunit handlerResponse(String [] cmd, VisualDisk currentDisk, VFSDirectory Root, VFSDirectory CurrentDir){
         ConsoleIO.printLine("This is the import handler");
         this.saveState(cmd, currentDisk, Root, CurrentDir);
-        byte[] content = readFile(cmd[1]);
-        ConsoleIO.printLine(new String(content));
-        VFSFile newFile = new VFSFile(CurrentDir.getPath(), cmd[1], new Date(),content);
-        CurrentDir.getDirContent().put(newFile.getPath(), newFile);
-        return this.saveState(cmd, currentDisk, Root, CurrentDir);
+        if(cmd.length == 2) {
+            byte[] content = readFile(cmd[1]);
+            ConsoleIO.printLine(new String(content));
+            VFSFile newFile = new VFSFile(CurrentDir.getPath(), cmd[1], new Date(), content);
+            CurrentDir.getDirContent().put(newFile.getPath(), newFile);
+            return this.saveState(cmd, currentDisk, Root, CurrentDir);
+        }
+        else
+            ConsoleIO.printLine("Please input an argument");
+        return null;
     }
 
     /**

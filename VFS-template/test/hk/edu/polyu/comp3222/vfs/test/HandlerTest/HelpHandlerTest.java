@@ -1,11 +1,13 @@
 package hk.edu.polyu.comp3222.vfs.test.HandlerTest;
 
 /**
- * Created by user on 2017/4/8.
+ * Created by user on 2017/4/9.
  */
+
 import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
 import hk.edu.polyu.comp3222.vfs.Util.IOService;
-import hk.edu.polyu.comp3222.vfs.core.handler.CreateHandler;
+import hk.edu.polyu.comp3222.vfs.core.handler.DirectResponseHandler;
+import hk.edu.polyu.comp3222.vfs.core.handler.HelpHandler;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSFile;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
@@ -18,25 +20,24 @@ import java.util.Date;
 import static org.junit.Assert.*;
 
 
-
-public class CreatHandlerTest {
+public class HelpHandlerTest {
     private VisualDisk mydisk;
-    private CreateHandler myhandler;
-    private IOService myios;
+    private HelpHandler myhandler;
     private String[] cmd;
+
     @Before
-    public void setup(){
-        mydisk = new VisualDisk("test","test",13224);
+    public void setup() {
+        mydisk = new VisualDisk("test", "test", 13224);
         mydisk.initializeFileSystem();
-        myhandler = new CreateHandler();
+        myhandler = new HelpHandler();
     }
 
     @Test
-    public void testcreate(){
-        cmd = new String[]{"touch"};
+    public void testhelp(){
+        cmd = new String[]{"help"};
         myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
-        cmd = new String[]{"touch","testfile","mycontent"};
-        myhandler.handlerResponse(cmd,mydisk,mydisk.getROOT_FS(),mydisk.getCurrentDir());
+
+
     }
 
 }

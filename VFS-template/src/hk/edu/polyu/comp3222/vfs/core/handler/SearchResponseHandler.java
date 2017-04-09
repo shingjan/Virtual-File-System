@@ -13,7 +13,7 @@ public class SearchResponseHandler extends ResponseHandler{
     @Override
     public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory Root, VFSDirectory CurrentDir){
 
-        if(cmd.length == 1){
+        if(cmd.length != 2){
             ConsoleIO.printLine("search command needs at least one argument");
         }else{
             String[] seachPath = cmd[1].split("/");

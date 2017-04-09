@@ -65,7 +65,10 @@ public abstract class VFSunit implements Serializable{
      * @param name name to be set for this VFS unit
      */
     public void setName(String name){
+        int nameLength = this.name.length();
+        String tempPath = this.path.substring(0, this.getPath().length() - 1 - nameLength);
         this.name = name;
+        this.path = tempPath + name + "/";
     }
 
     /**
@@ -98,3 +101,4 @@ public abstract class VFSunit implements Serializable{
         return name + " - " + path + " - " + getDateCreated();
     }
 }
+

@@ -37,12 +37,13 @@ public class MoveResponseHandler extends ResponseHandler{
                     CurrentDir.getDirContent().put(targetFile.getPath(),targetFile);
                 }else{
                     VFSDirectory tempDir = (VFSDirectory) tempUnit;
+                    ConsoleIO.printLine(tempDir.getPath());
                     tempDir.setName(filename);
+                    ConsoleIO.printLine(tempDir.getPath());
                     CurrentDir.getDirContent().put(tempDir.getPath(),tempDir);
                     //CurrentDir.getDirContent().remove(tempUnit.getPath());
                 }
-
-                //CurrentDir.getDirContent().remove(tempUnit.getPath());
+                CurrentDir.getDirContent().remove(tempUnit.getPath());
             }else {
                 String[] subPath = Arrays.copyOfRange(cmd[2].split("/"), 0, cmd[2].split("/").length - 1);
                 filename = cmd[2].split("/")[cmd[2].split("/").length - 1];

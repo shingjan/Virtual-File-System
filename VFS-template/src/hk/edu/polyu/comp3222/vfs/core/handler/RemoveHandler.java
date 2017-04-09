@@ -14,6 +14,8 @@ public class RemoveHandler extends ResponseHandler{
     public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory root, VFSDirectory CurrentDir){
         ConsoleIO.printLine("This is the remove command");
 
+        if (cmd.length == 2){
+
         VFSunit tempFile = CurrentDir.getItem(cmd[1].split("/"));
         if(tempFile == null){
             ConsoleIO.printLine("No such file exists");
@@ -24,7 +26,8 @@ public class RemoveHandler extends ResponseHandler{
             CurrentDir.getDirContent().remove(tempFile.getPath(), tempFile);
         else
             ConsoleIO.printLine("unknown error, remove action abort");
-
+        }
+        else ConsoleIO.printLine("You nned to input an argument");
         return this.saveState(cmd, currentDisk, root, CurrentDir);
 
     }

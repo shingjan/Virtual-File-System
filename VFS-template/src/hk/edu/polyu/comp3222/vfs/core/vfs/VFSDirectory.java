@@ -32,17 +32,6 @@ public class VFSDirectory extends VFSunit {
 
     //@Override
     public void list(boolean detailed) {
-        final StringBuilder sb = new StringBuilder();
-/*
-        if (!noTree) {
-            if (detailed) {
-                sb.append(toString());
-            } else {
-                sb.append(getName());
-            }
-            ioservice.printLine(sb.toString());
-        }
-*/
         dirCount++;
 
         final Iterator<Map.Entry<String, VFSunit>> iterator = dirContent.entrySet().iterator();
@@ -93,16 +82,10 @@ public class VFSDirectory extends VFSunit {
 
     @Override
     public int getSize(){
-
         int sum = 2;
         for (VFSunit value : dirContent.values()) {
-
-                //VFSDirectory tempFile = (VFSDirectory) value;
                 sum += value.getSize();
-
-
         }
-
         return sum;
     }
 
