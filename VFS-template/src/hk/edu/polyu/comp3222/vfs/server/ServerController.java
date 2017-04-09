@@ -1,7 +1,8 @@
 package hk.edu.polyu.comp3222.vfs.server;
 
 import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
-import hk.edu.polyu.comp3222.vfs.Util.IOService;
+
+import hk.edu.polyu.comp3222.vfs.client.ClientController;
 import hk.edu.polyu.comp3222.vfs.core.handler.*;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
@@ -29,25 +30,6 @@ public class ServerController {
     private final int PORT_NO = 5000;
     private final int DISK_SIZE = 5000;
 
-    private final Map<String, ResponseHandler> themap = new HashMap<>();
-    {
-        //command handlers
-        themap.put("cd", new DirectResponseHandler());
-        themap.put("ls", new ListResponseHandler());
-        themap.put("mv", new MoveResponseHandler());
-        themap.put("cp", new CopyResponseHandler());
-        themap.put("mkdir", new MkdirHandler());
-        themap.put("touch", new CreateHandler());
-        themap.put("cat", new CatHandler());
-        themap.put("import", new ImportResponseHandler());
-        themap.put("export", new ExportResponseHandler());
-        themap.put("search", new SearchResponseHandler());
-        themap.put("remove", new RemoveHandler());
-        themap.put("rename", new RenameHandler());
-        themap.put("query", new QueryHandler());
-        themap.put("help", new HelpHandler());
-        themap.put("quit", new QuitResponseHandler());
-    }
 
     /**
      * start the connection from server side
@@ -117,8 +99,10 @@ public class ServerController {
         while(true){
             LinkedList<ResponseHandler> cmdStack = (LinkedList<ResponseHandler>) inFromClient.readObject();
             if(cmdStack != null){
-
-                boot(testSystem, cmdStack);
+                for(ResponseHandler e : cmdStack){
+                    testSystem.setCurrentDir((VFSDirectory) e.handlerOnServer());
+                }
+                ClientController.boot(testSystem);
 
                 //sth
                 ConsoleIO.printLine("sync finished");
@@ -127,47 +111,6 @@ public class ServerController {
         }
         inFromClient.close();
         outToClient.close();
-    }
-
-    /**
-     * boot method for client visual disk
-     * @param disk the visual disk to be booted
-     */
-    public VisualDisk boot(VisualDisk disk, LinkedList<ResponseHandler> commandStack){
-
-
-        for(ResponseHandler e : commandStack){
-            disk.setCurrentDir((VFSDirectory) e.handlerOnServer());
-        }
-
-        /*------------------run normal CLI----------------------------*/
-        String[] cmd_segments;
-
-        ConsoleIO.printLine(disk.getName());
-        while (true){
-            ConsoleIO.printLine("Current Working Directory is:");
-            ConsoleIO.printLine(disk.getCurrentDir().getPath());
-            cmd_segments = ConsoleIO.readLine("-->").split(" ");
-            ResponseHandler cmd = themap.get(cmd_segments[0]);
-            if(cmd_segments[0].equals("save")){
-                ConsoleIO.printLine("File system saved!");
-                break;
-            }
-
-            /*-------------------command line implementation--------------------------*/
-            if(cmd != null){
-                disk.setCurrentDir((VFSDirectory) cmd.handlerResponse(cmd_segments, disk,disk.getROOT_FS(), disk.getCurrentDir()));
-                //commandStack.add(cmd);
-                if(disk.getCurrentDir() == null){
-                    System.exit(0);
-                }
-                //ioService.printLine(String.valueOf(commandStack.size()));
-            }else{
-                ConsoleIO.printLine("wrong command, try again");
-            }
-
-        }
-        return null;
     }
 
     /**

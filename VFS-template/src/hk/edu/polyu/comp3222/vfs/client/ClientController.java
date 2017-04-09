@@ -1,6 +1,6 @@
 package hk.edu.polyu.comp3222.vfs.client;
 import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
-import hk.edu.polyu.comp3222.vfs.Util.IOService;
+
 import hk.edu.polyu.comp3222.vfs.core.handler.*;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
@@ -17,14 +17,14 @@ public class ClientController {
     private Socket socket;
     private BufferedReader read;
     private PrintWriter output;
-    private LinkedList<ResponseHandler> commandStack = new LinkedList<>();
+    private static LinkedList<ResponseHandler> commandStack = new LinkedList<>();
     private final int PORT = 5000;
 
     /**
      * create the map for retriveing responsehandler while avoid multi-(if else)s
      */
-    private final Map<String, ResponseHandler> themap = new HashMap<>();
-    {
+    private static final Map<String, ResponseHandler> themap = new HashMap<>();
+    static{
         //command handlers
         themap.put("cd", new DirectResponseHandler());
         themap.put("ls", new ListResponseHandler());
@@ -102,26 +102,12 @@ public class ClientController {
         outToServer.close();
         return null;
     }
-/*
-    private void writeObject(ObjectOutputStream oos)
-            throws IOException {
-        // default serialization
-        oos.defaultWriteObject();
-        // write the object
-        List loc = new ArrayList();
-        loc.add(location.x);
-        loc.add(location.y);
-        loc.add(location.z);
-        loc.add(location.uid);
-        oos.writeObject(loc);
-    }
-*/
 
     /**
      * boot method for client visual disk
      * @param disk the visual disk to be booted
      */
-    public VisualDisk boot(VisualDisk disk){
+    public static VisualDisk boot(VisualDisk disk){
         String[] cmd_segments;
         ConsoleIO.printLine(disk.getName());
         while (true){
@@ -131,7 +117,6 @@ public class ClientController {
             ResponseHandler cmd = themap.get(cmd_segments[0]);
             if(cmd_segments[0].equals("save")){
                 //SerializationController.getInstance().serialize(this);
-
                 break;
             }
 

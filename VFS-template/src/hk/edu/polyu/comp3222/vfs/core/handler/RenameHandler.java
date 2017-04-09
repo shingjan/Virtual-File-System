@@ -2,7 +2,7 @@ package hk.edu.polyu.comp3222.vfs.core.handler;
 
 
 import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
-import hk.edu.polyu.comp3222.vfs.Util.IOService;
+
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSunit;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
