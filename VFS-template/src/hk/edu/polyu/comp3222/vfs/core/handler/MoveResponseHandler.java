@@ -6,7 +6,7 @@ import hk.edu.polyu.comp3222.vfs.core.vfs.VFSFile;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSunit;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
 
-import java.io.Console;
+
 import java.util.Arrays;
 import java.util.Date;
 
