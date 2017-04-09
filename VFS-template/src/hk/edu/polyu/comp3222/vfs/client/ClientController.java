@@ -55,28 +55,33 @@ public class ClientController {
 
         //create printwriter for sending login to server
         output = new PrintWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
-
-        //prompt for user name
-        String inputUsername = ConsoleIO.readLine("Please input your username: ");
-
-
-        //send user name to server
-        output.println(inputUsername);
-
-        //prompt for password
-        String inputPasswd = ConsoleIO.readLine("Please input your password: ");
-
-        //send password to server
-        output.println(inputPasswd);
-        output.flush();
-
-        //create Buffered reader for reading response from server
         read = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
-        //read response from server
-        String response = read.readLine();
-        System.out.println("This is the response: " + response);
+        //prompt for user name and send to server
+        String inputUsername = ConsoleIO.readLine("Please input your username: ");
+        output.println(inputUsername);
+        output.flush();
 
+        //read response from server
+        String authenticateResponse = read.readLine();
+        ConsoleIO.printLine(authenticateResponse);
+        while(true) {
+            if (authenticateResponse.equals("User not existed, you may create a new one by: ")) {
+                String newpasswd = ConsoleIO.readLine("please input new password for " + inputUsername + " ");
+                output.println(newpasswd);
+                String newDiskSize = ConsoleIO.readLine("please input size for this new disk: ");
+                output.println(newDiskSize);
+                output.flush();
+                break;
+            } else if (authenticateResponse.equals("User exists, please input password:")) {
+                //prompt for password
+                String inputPasswd = ConsoleIO.readLine("Please input your password: ");
+                output.println(inputPasswd);
+                output.flush();
+                break;
+            }
+        }
+        //output.close();
         return clientSocket;
     }
 
@@ -112,12 +117,11 @@ public class ClientController {
         String[] cmd_segments;
         ConsoleIO.printLine(disk.getName());
         while (true){
-            //ioService.printLine("Current Working Directory is:");
-            //ioService.printLine(disk.getCurrentDir().getPath());
+            ConsoleIO.printLine("Current Working Directory is:");
+            ConsoleIO.printLine(disk.getCurrentDir().getPath());
             cmd_segments = ConsoleIO.readLine("-->").split(" ");
             ResponseHandler cmd = themap.get(cmd_segments[0]);
             if(cmd_segments[0].equals("save")){
-                //SerializationController.getInstance().serialize(this);
                 break;
             }
 
@@ -129,7 +133,7 @@ public class ClientController {
                 if(disk.getCurrentDir() == null){
                     System.exit(0);
                 }
-                ConsoleIO.printLine(String.valueOf(commandStack.size()));
+                //ConsoleIO.printLine(String.valueOf(commandStack.size()));
             }else{
                 ConsoleIO.printLine("wrong command, try again");
             }
