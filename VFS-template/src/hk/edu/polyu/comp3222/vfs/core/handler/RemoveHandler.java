@@ -16,18 +16,16 @@ public class RemoveHandler extends ResponseHandler{
 
         if (cmd.length == 2){
 
-        VFSunit tempFile = CurrentDir.getItem(cmd[1].split("/"));
-        if(tempFile == null){
-            ConsoleIO.printLine("No such file exists");
-            return this.saveState(cmd, currentDisk, root, CurrentDir);
-        }
+            VFSunit tempFile = CurrentDir.getItem(cmd[1].split("/"));
+            if(tempFile == null){
+                ConsoleIO.printLine("No such file exists");
+            }else if(CurrentDir.getDirContent().containsValue(tempFile)) {
+                CurrentDir.getDirContent().remove(tempFile.getPath(), tempFile);
+            }
 
-        if(CurrentDir.getDirContent().containsValue(tempFile))
-            CurrentDir.getDirContent().remove(tempFile.getPath(), tempFile);
-        else
-            ConsoleIO.printLine("unknown error, remove action abort");
+        } else {
+            ConsoleIO.printLine("You nned to input an argument");
         }
-        else ConsoleIO.printLine("You nned to input an argument");
         return this.saveState(cmd, currentDisk, root, CurrentDir);
 
     }

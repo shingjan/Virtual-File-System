@@ -9,9 +9,7 @@ import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
 
 import java.net.*;
 import java.io.*;
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
 
 /**
  * Created by Isaac on 1/24/17.

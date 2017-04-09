@@ -40,5 +40,7 @@ public class ImportHandlerTest {
         myhandler.handlerResponse(cmd, mydisk, mydisk.getROOT_FS(), mydisk.getCurrentDir());
         cmd = new String[]{"import","direct"};
         myhandler.handlerResponse(cmd, mydisk, mydisk.getROOT_FS(), mydisk.getCurrentDir());
+        //cmd = new String[]{"import","sthsp"};
+        //myhandler.handlerResponse(cmd, mydisk, mydisk.getROOT_FS(), mydisk.getCurrentDir());
     }
 }

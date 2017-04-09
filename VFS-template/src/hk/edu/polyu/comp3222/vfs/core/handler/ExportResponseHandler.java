@@ -23,7 +23,7 @@ public class ExportResponseHandler extends ResponseHandler{
 
         VFSunit tempFile = CurrentDir.getItem(cmd[1].split("/"));
 
-        ConsoleIO.printLine(tempFile.getClass().toString());
+ //       ConsoleIO.printLine(tempFile.getClass().toString());
         if(tempFile == null){
             ConsoleIO.printLine("no such file found!");
         }else {

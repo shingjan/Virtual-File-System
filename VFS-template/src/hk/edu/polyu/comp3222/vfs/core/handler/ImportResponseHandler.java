@@ -8,7 +8,9 @@ import hk.edu.polyu.comp3222.vfs.core.vfs.VFSFile;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSunit;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
 
+import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
 
@@ -41,11 +43,10 @@ public class ImportResponseHandler extends ResponseHandler{
         //List<String> records = new ArrayList<String>();
         try
         {
-            byte[] encoded = Files.readAllBytes(Paths.get("host/"+filePath));
-
-            return encoded;
+            Path tempPath = Paths.get("host/"+filePath);
+            return Files.readAllBytes(tempPath);
         }
-        catch (Exception e)
+        catch (IOException e)
         {
             System.err.format("Exception occurred trying to read '%s'.", filePath);
             e.printStackTrace();

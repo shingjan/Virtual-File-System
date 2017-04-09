@@ -30,7 +30,10 @@ public class VFSDirectory extends VFSunit {
         return dirContent;
     }
 
-    //@Override
+    /**
+     * list all content inside this directory
+     * @param detailed if detailed content is shown
+     */
     public void list(boolean detailed) {
         dirCount++;
 

@@ -106,6 +106,7 @@ public class ClientController {
     /**
      * boot method for client visual disk
      * @param disk the visual disk to be booted
+     * @return modified visual disk or null
      */
     public static VisualDisk boot(VisualDisk disk){
         String[] cmd_segments;
