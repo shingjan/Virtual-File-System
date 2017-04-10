@@ -4,8 +4,7 @@ package hk.edu.polyu.comp3222.vfs.test.VFSTest;
  * Created by user on 2017/4/7.
  */
 
-import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
-import hk.edu.polyu.comp3222.vfs.Util.IOService;
+
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSFile;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSunit;

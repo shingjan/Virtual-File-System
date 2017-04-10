@@ -26,6 +26,10 @@ public class MKdirHandlerTest {
         myhandler.handlerResponse(cmd, mydisk, mydisk.getROOT_FS(), mydisk.getCurrentDir());
         cmd = new String[]{"MKdir","1st"};
         myhandler.handlerResponse(cmd, mydisk, mydisk.getROOT_FS(), mydisk.getCurrentDir());
+        cmd = new String[]{"MKdir","3rd"};
+        myhandler.handlerResponse(cmd, mydisk, mydisk.getROOT_FS(), mydisk.getCurrentDir());
+        cmd = new String[]{"MKdir","1st/4th"};
+        myhandler.handlerResponse(cmd, mydisk, mydisk.getROOT_FS(), mydisk.getCurrentDir());
 
     }
 }

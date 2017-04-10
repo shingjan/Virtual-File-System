@@ -74,6 +74,11 @@ public class SerializationController {
         return null;
     }
 
+    /**
+     * delete Visual File Disk Method
+     * @param name name of the virtual file user want to delete
+     * @return return a boolean value to see if this VFS is deleted
+     */
     public boolean deleteVFS(String name){
         try{
             boolean ifDelete;

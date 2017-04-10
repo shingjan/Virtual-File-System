@@ -12,21 +12,59 @@ import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
 public class SearchResponseHandler extends ResponseHandler{
     @Override
     public VFSunit handlerResponse(String[] cmd, VisualDisk currentDisk, VFSDirectory Root, VFSDirectory CurrentDir){
-
-        if(cmd.length < 2){
-            ConsoleIO.printLine("search command needs at least one argument");
+        if(cmd.length < 6){
+            ConsoleIO.printLine("search command needs at least 5 argument\n" +
+                    "Case sensitive or not? (Y/N):\n" +
+                    "include any keyword or all? (Y/N):\n" +
+                    "search in current directory or root? (Y/N):\n" +
+                    "only file or file & subdirectory? (Y/N):\n" +
+                    "keyword(s)");
         }else{
-            String[] seachPath = cmd[1].split("/");
-            //ioService.printLine(seachPath[0]);
-            //ioService.printLine(seachPath[1]);
-            VFSunit fileSystemUnit = Root.getItem(cmd[1].split("/"));
-            if(fileSystemUnit != null){
-                ConsoleIO.printLine(fileSystemUnit.getPath());
-            }else{
-                ConsoleIO.printLine("no such file found in this VFS");
+            /*------case sensitive or not-----*/
+            //String caseArg = ConsoleIO.readLine("Case sensitive or not? (Y/N): ");
+            if(cmd[1].equals("N") || cmd[1].equals("n")){
+                for (int k = 5; k < cmd.length; k++){
+                    cmd[k] = cmd[k].toLowerCase();
+                }
             }
+            /*-------all include or not-------*/
+            //String keywordArg = ConsoleIO.readLine("include any keyword or all? (Y/N): ");
+            if(cmd[2].equals("N") || cmd[2].equals("n")){
+                String tempPath = "root/";
+                for (int i = 5; i < cmd.length; i++){
+                    tempPath += cmd[i];
+                }
+                cmd = new String[]{"search", tempPath};
+            }
+
+            /*-------search in currentDir or root------------*/
+            //String dirArg = ConsoleIO.readLine("search in current directory or root? (Y/N): ");
+            if(cmd[3].equals("N") || cmd[3].equals("n")){
+                CurrentDir = Root;
+            }
+
+            /*--------only file or both directory-------------*/
+            //String subArg = ConsoleIO.readLine("only file or file & subdirectory? (Y/N): ");
+
+            for (int j = 5; j < cmd.length; j++){
+                searchResult(cmd[j], CurrentDir);
+            }
+
 
         }
         return this.saveState(cmd, currentDisk, Root, CurrentDir);
+    }
+
+
+    public void searchResult(String itemName, VFSDirectory dir){
+        VFSunit fileSystemUnit = dir.getItem(itemName.split("/"));
+        if (fileSystemUnit != null) {
+            ConsoleIO.printLine(fileSystemUnit.getPath());
+        }
+        for(VFSunit s: dir.getDirContent().values()) {
+            if(s.getClass() == VFSDirectory.class){
+                searchResult(itemName, (VFSDirectory) s);
+            }
+        }
     }
 }

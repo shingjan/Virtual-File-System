@@ -19,19 +19,26 @@ import java.util.Date;
  */
 public class ImportResponseHandler extends ResponseHandler{
     @Override
-    public VFSunit handlerResponse(String [] cmd, VisualDisk currentDisk, VFSDirectory Root, VFSDirectory CurrentDir){
-        ConsoleIO.printLine("This is the import handler");
+    public VFSunit handlerResponse(String [] cmd, VisualDisk currentDisk, VFSDirectory Root, VFSDirectory CurrentDir) {
+        ConsoleIO.printLine("import command requires two argument:");
+        ConsoleIO.printLine("import <-f filename> or <-r directoryname>");
         this.saveState(cmd, currentDisk, Root, CurrentDir);
-        if(cmd.length == 2) {
+        if (cmd.length == 3 && cmd[1].equals("-f")) {
             byte[] content = readFile(cmd[1]);
             //ConsoleIO.printLine(new String(content));
             VFSFile newFile = new VFSFile(CurrentDir.getPath(), cmd[1], new Date(), content);
             CurrentDir.getDirContent().put(newFile.getPath(), newFile);
             return this.saveState(cmd, currentDisk, Root, CurrentDir);
+        }else if(cmd.length == 3 && cmd[1].equals("-r")){
+            String dirName = readDirectory(cmd[2]);
+            VFSDirectory tempDirectory = new VFSDirectory(CurrentDir.getPath(), dirName, new Date());
+            CurrentDir.getDirContent().put(tempDirectory.getPath(), tempDirectory);
+            return this.saveState(cmd, currentDisk, Root, CurrentDir);
+        }else {
+            ConsoleIO.printLine("import file will require one argument, import directory with one more argument 'r'");
+            return null;
         }
-        else
-            ConsoleIO.printLine("Please input an argument");
-        return null;
+
     }
 
     /**
@@ -43,7 +50,7 @@ public class ImportResponseHandler extends ResponseHandler{
         //List<String> records = new ArrayList<String>();
         try
         {
-            Path tempPath = Paths.get("host/"+filePath);
+            Path tempPath = Paths.get("host/" + filePath);
             return Files.readAllBytes(tempPath);
         }
         catch (IOException e)
@@ -52,6 +59,16 @@ public class ImportResponseHandler extends ResponseHandler{
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * read directory from host file system
+     * @param dirPath path of directory on host file system
+     * @return return the name of the directory
+     */
+    public String readDirectory(String dirPath){
+            Path dir = Paths.get("host/" + dirPath);
+            return dirPath;
     }
 
 }

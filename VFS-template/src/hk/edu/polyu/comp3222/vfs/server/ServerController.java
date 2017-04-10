@@ -2,7 +2,7 @@ package hk.edu.polyu.comp3222.vfs.server;
 
 import hk.edu.polyu.comp3222.vfs.Util.ConsoleIO;
 
-import hk.edu.polyu.comp3222.vfs.client.ClientController;
+
 import hk.edu.polyu.comp3222.vfs.controller.SerializationController;
 import hk.edu.polyu.comp3222.vfs.core.handler.*;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
@@ -24,8 +24,8 @@ public class ServerController {
     //Connect c = new Connect();
     private String userName;
     private String passwd;
-    //private BufferedReader input;
-    //private PrintWriter output;
+    private BufferedReader input;
+    private PrintWriter output;
     private final int PORT_NO = 5000;
 
     /**
@@ -43,13 +43,12 @@ public class ServerController {
         client = serversocket.accept();
         ConsoleIO.printLine("connection established.");
 
-        try (
-                BufferedReader input = new BufferedReader(new InputStreamReader(client.getInputStream()));
-                PrintWriter output = new PrintWriter(new OutputStreamWriter(client.getOutputStream()));
-        )
+        try
         {
+            input = new BufferedReader(new InputStreamReader(client.getInputStream()));
+            output = new PrintWriter(new OutputStreamWriter(client.getOutputStream()));
             //ConsoleIO.printLine("make sure I am here");
-            logInfo(input, output);
+            logInfo();
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -60,7 +59,7 @@ public class ServerController {
      * authenticate the username and password
      * @throws Exception exception
      */
-    public void logInfo(BufferedReader input, PrintWriter output) throws Exception {
+    public void logInfo() throws Exception {
 
         //retrive the vfs file from username first
         String username = input.readLine();

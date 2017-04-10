@@ -9,9 +9,7 @@ import java.util.*;
  * Created by Isaac on 1/23/17.
  */
 public class VFSDirectory extends VFSunit {
-    private String dirName;
     private final Map<String, VFSunit> dirContent = new LinkedHashMap<>();
-    private int dirCount;
     /**
      * Default constructor.
      * @param sourcePath sourcePath from parent directory
@@ -35,7 +33,6 @@ public class VFSDirectory extends VFSunit {
      * @param detailed if detailed content is shown
      */
     public void list(boolean detailed) {
-        dirCount++;
 
         final Iterator<Map.Entry<String, VFSunit>> iterator = dirContent.entrySet().iterator();
         VFSunit fileSystemUnit;
@@ -60,6 +57,11 @@ public class VFSDirectory extends VFSunit {
         return dirContent.equals(that.getDirContent());
     }
 
+    /**
+     * get item from current directory method
+     * @param itemname string array of the path & name of target item
+     * @return return the target item or null if not found
+     */
     public VFSunit getItem(String[] itemname){
         //final Iterator<Map.Entry<String, VFSunit>> iterator = dirContent.entrySet().iterator();
         VFSunit fileSystemUnit;
