@@ -6,6 +6,8 @@ import hk.edu.polyu.comp3222.vfs.core.vfs.VFSDirectory;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VFSunit;
 import hk.edu.polyu.comp3222.vfs.core.vfs.VisualDisk;
 
+import java.util.Arrays;
+
 /**
  * Created by Isaac on 1/27/17.
  */
@@ -34,7 +36,8 @@ public class SearchResponseHandler extends ResponseHandler{
                 for (int i = 5; i < cmd.length; i++){
                     tempPath += cmd[i];
                 }
-                cmd = new String[]{"search", tempPath};
+                cmd[5] = tempPath;
+                cmd = Arrays.copyOfRange(cmd, 0, 5);
             }
 
             /*-------search in currentDir or root------------*/
@@ -55,7 +58,11 @@ public class SearchResponseHandler extends ResponseHandler{
         return this.saveState(cmd, currentDisk, Root, CurrentDir);
     }
 
-
+    /**
+     * search a single file inside VFSdirectory
+     * @param itemName name of target file
+     * @param dir VFSdirectory to be searched
+     */
     public void searchResult(String itemName, VFSDirectory dir){
         VFSunit fileSystemUnit = dir.getItem(itemName.split("/"));
         if (fileSystemUnit != null) {

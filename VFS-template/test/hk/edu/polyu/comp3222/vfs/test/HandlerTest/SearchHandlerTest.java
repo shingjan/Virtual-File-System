@@ -24,11 +24,13 @@ public class SearchHandlerTest {
 
     @Test
     public void testSearch(){
-        cmd = new String[]{"Search"};
+        cmd = new String[]{"search"};
         myhandler.handlerResponse(cmd, mydisk, mydisk.getROOT_FS(), mydisk.getCurrentDir());
-        cmd = new String[]{"Search","file5"};
+        cmd = new String[]{"search","y","y","y","y","file5"};
         myhandler.handlerResponse(cmd, mydisk, mydisk.getROOT_FS(), mydisk.getCurrentDir());
-        cmd = new String[]{"Search","file3"};
+        cmd = new String[]{"search","y","y","y","y","file3"};
+        myhandler.handlerResponse(cmd, mydisk, mydisk.getROOT_FS(), mydisk.getCurrentDir());
+        cmd = new String[]{"search","n","n","n","n","file3"};
         myhandler.handlerResponse(cmd, mydisk, mydisk.getROOT_FS(), mydisk.getCurrentDir());
     }
 }

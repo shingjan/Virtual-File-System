@@ -20,11 +20,10 @@ import java.util.Date;
 public class ImportResponseHandler extends ResponseHandler{
     @Override
     public VFSunit handlerResponse(String [] cmd, VisualDisk currentDisk, VFSDirectory Root, VFSDirectory CurrentDir) {
-        ConsoleIO.printLine("import command requires two argument:");
-        ConsoleIO.printLine("import <-f filename> or <-r directoryname>");
+
         this.saveState(cmd, currentDisk, Root, CurrentDir);
         if (cmd.length == 3 && cmd[1].equals("-f")) {
-            byte[] content = readFile(cmd[1]);
+            byte[] content = readFile(cmd[2]);
             //ConsoleIO.printLine(new String(content));
             VFSFile newFile = new VFSFile(CurrentDir.getPath(), cmd[1], new Date(), content);
             CurrentDir.getDirContent().put(newFile.getPath(), newFile);
@@ -35,8 +34,9 @@ public class ImportResponseHandler extends ResponseHandler{
             CurrentDir.getDirContent().put(tempDirectory.getPath(), tempDirectory);
             return this.saveState(cmd, currentDisk, Root, CurrentDir);
         }else {
-            ConsoleIO.printLine("import file will require one argument, import directory with one more argument 'r'");
-            return null;
+            ConsoleIO.printLine("import command requires two argument:");
+            ConsoleIO.printLine("import <-f filename> or <-r directoryname>");
+            return this.saveState(cmd, currentDisk, Root, CurrentDir);
         }
 
     }
